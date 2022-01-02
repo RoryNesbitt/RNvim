@@ -56,7 +56,8 @@ vim.api.nvim_set_keymap('v', 'p', '"_dP', silentOpts)
 --vim.api.nvim_set_keymap('n', '<leader>l', ':setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
 
 --LSP
-vim.api.nvim_set_keymap('n', '<leader>li', ':LspInfo<cr>', silentOpts)
+vim.api.nvim_set_keymap('n', '<leader>lI', ':LspInfo<cr>', silentOpts)
+vim.api.nvim_set_keymap('n', '<leader>li', ':LspInstallInfo<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lk', '<cmd>lua vim.lsp.buf.signature_help()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lK', '<cmd>lua vim.lsp.buf.hover()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lw', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', silentOpts)
