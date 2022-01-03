@@ -1,7 +1,7 @@
 local opts = {noremap = true}
 local silentOpts = {noremap = true, silent = true}
 
--- LET HARDMODE=0
+local HARDMODE=false
 if HARDMODE then
     -- Disable Arrow keys in Normal mode
     vim.api.nvim_set_keymap('n', '<up>', '<nop>', silentOpts)
@@ -57,7 +57,6 @@ vim.api.nvim_set_keymap('v', 'p', '"_dP', silentOpts)
 
 --LSP
 vim.api.nvim_set_keymap('n', '<leader>lI', ':LspInfo<cr>', silentOpts)
-vim.api.nvim_set_keymap('n', '<leader>li', ':LspInstallInfo<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lk', '<cmd>lua vim.lsp.buf.signature_help()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lK', '<cmd>lua vim.lsp.buf.hover()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lw', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', silentOpts)
@@ -72,6 +71,11 @@ vim.api.nvim_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<c
 vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', silentOpts)
 vim.api.nvim_set_keymap('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', silentOpts)
+--LSP-install
+vim.api.nvim_set_keymap('n', '<leader>li', ':LspInstallInfo<cr>', silentOpts)
+--null-ls
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting_sync()<cr>', silentOpts)
+vim.api.nvim_set_keymap('v', '<leader>f', '<cmd>lua vim.lsp.buf.range_formatting()<cr>', silentOpts)
 
 -- Open windows
 vim.api.nvim_set_keymap('n', '<leader>v', ':vsp .<cr>', silentOpts)

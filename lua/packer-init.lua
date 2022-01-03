@@ -81,6 +81,7 @@ return packer.startup(function(use)
   use 'scrooloose/nerdcommenter'
   use 'tpope/vim-repeat'
   use { 'lukas-reineke/indent-blankline.nvim', config="require'plugins.indent-blankline'" }
+  use { 'jose-elias-alvarez/null-ls.nvim', config = "require'plugins.null-ls'"}
   --program integration
   use { 'beeender/Comrade', opt = true }
   use {
