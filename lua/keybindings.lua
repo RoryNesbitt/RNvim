@@ -1,5 +1,6 @@
 local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
+
 local map = vim.api.nvim_set_keymap
 
 local HARDMODE = false
@@ -96,6 +97,7 @@ map("n", "<leader>gs", ":G<cr>", silentOpts)
 map("n", "<leader>gc", ":Git commit<cr>", silentOpts)
 map("n", "<leader>gps", ":Git push<cr>", silentOpts)
 map("n", "<leader>gpl", ":Git pull<cr>", silentOpts)
+map("n", "<leader>gd", ":Git diff<cr>", silentOpts)
 
 -- misc
 map("n", "<leader>e", ":Lex 30<cr>", opts)
