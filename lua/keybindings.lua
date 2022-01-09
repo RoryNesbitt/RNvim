@@ -62,12 +62,7 @@ map("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
 map("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
 map("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", silentOpts)
 map("n", "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", silentOpts)
-map(
-	"n",
-	"<leader>ll",
-	"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
-	silentOpts
-)
+map("n", "<leader>ll", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", silentOpts)
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", silentOpts)
 map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", silentOpts)
 map("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
@@ -95,6 +90,12 @@ map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
 -- replace in file
 map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+
+--Git
+map("n", "<leader>gs", ":G<cr>", silentOpts)
+map("n", "<leader>gc", ":Git commit<cr>", silentOpts)
+map("n", "<leader>gps", ":Git push<cr>", silentOpts)
+map("n", "<leader>gpl", ":Git pull<cr>", silentOpts)
 
 -- misc
 map("n", "<leader>e", ":Lex 30<cr>", opts)
