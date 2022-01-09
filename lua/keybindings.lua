@@ -1,7 +1,7 @@
 local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
-
 local map = vim.api.nvim_set_keymap
+
 local HARDMODE = false
 if HARDMODE then
 	-- Disable Arrow keys in Normal mode
