@@ -93,6 +93,8 @@ map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --Git
 map("n", "<leader>gs", ":G<cr>", silentOpts)
+map("n", "<leader>gac", ":Git add %<cr>", silentOpts)
+map("n", "<leader>gaa", ":Git add --all<cr>", silentOpts)
 map("n", "<leader>gc", ":Git commit<cr>", silentOpts)
 map("n", "<leader>gps", ":Git push<cr>", silentOpts)
 map("n", "<leader>gpl", ":Git pull<cr>", silentOpts)
