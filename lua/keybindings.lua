@@ -79,8 +79,9 @@ vim.api.nvim_set_keymap("n", "<leader>lN", "<cmd>lua vim.lsp.diagnostic.goto_pre
 --LSP-install
 vim.api.nvim_set_keymap("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
 --null-ls
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", silentOpts)
-vim.api.nvim_set_keymap("v", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", silentOpts)
+vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", silentOpts)
+vim.api.nvim_set_keymap("v", "<leader>ff", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", silentOpts)
+vim.api.nvim_set_keymap("n", "<leader>fi", ":NullLsInfo<cr>", silentOpts)
 
 -- Open windows
 vim.api.nvim_set_keymap("n", "<leader>v", ":vsp .<cr>", silentOpts)
