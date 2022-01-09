@@ -1,101 +1,102 @@
 local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
 
+local map = vim.api.nvim_set_keymap
 local HARDMODE = false
 if HARDMODE then
 	-- Disable Arrow keys in Normal mode
-	vim.api.nvim_set_keymap("n", "<up>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "<down>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "<left>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "<right>", "<nop>", silentOpts)
+	map("n", "<up>", "<nop>", silentOpts)
+	map("n", "<down>", "<nop>", silentOpts)
+	map("n", "<left>", "<nop>", silentOpts)
+	map("n", "<right>", "<nop>", silentOpts)
 	-- Disable hjkl in Normal mode
-	vim.api.nvim_set_keymap("n", "h", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "j", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "k", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("n", "l", "<nop>", silentOpts)
+	map("n", "h", "<nop>", silentOpts)
+	map("n", "j", "<nop>", silentOpts)
+	map("n", "k", "<nop>", silentOpts)
+	map("n", "l", "<nop>", silentOpts)
 	-- Disable Arrow keys in Insert mode
-	vim.api.nvim_set_keymap("i", "<up>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("i", "<down>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("i", "<left>", "<nop>", silentOpts)
-	vim.api.nvim_set_keymap("i", "<right>", "<nop>", silentOpts)
+	map("i", "<up>", "<nop>", silentOpts)
+	map("i", "<down>", "<nop>", silentOpts)
+	map("i", "<left>", "<nop>", silentOpts)
+	map("i", "<right>", "<nop>", silentOpts)
 end
 
 -- Center to focus
-vim.api.nvim_set_keymap("n", "{", "{zz", silentOpts)
-vim.api.nvim_set_keymap("n", "}", "}zz", silentOpts)
-vim.api.nvim_set_keymap("n", "i", "zzi", silentOpts)
-vim.api.nvim_set_keymap("n", "I", "zzI", silentOpts)
-vim.api.nvim_set_keymap("n", "o", "zzo", silentOpts)
-vim.api.nvim_set_keymap("n", "O", "zzO", silentOpts)
-vim.api.nvim_set_keymap("n", "a", "zza", silentOpts)
-vim.api.nvim_set_keymap("n", "A", "zzA", silentOpts)
-vim.api.nvim_set_keymap("n", "s", "zzs", silentOpts)
-vim.api.nvim_set_keymap("n", "S", "zzS", silentOpts)
-vim.api.nvim_set_keymap("n", "c", "zzc", silentOpts)
-vim.api.nvim_set_keymap("n", "C", "zzC", silentOpts)
+map("n", "{", "{zz", silentOpts)
+map("n", "}", "}zz", silentOpts)
+map("n", "i", "zzi", silentOpts)
+map("n", "I", "zzI", silentOpts)
+map("n", "o", "zzo", silentOpts)
+map("n", "O", "zzO", silentOpts)
+map("n", "a", "zza", silentOpts)
+map("n", "A", "zzA", silentOpts)
+map("n", "s", "zzs", silentOpts)
+map("n", "S", "zzS", silentOpts)
+map("n", "c", "zzc", silentOpts)
+map("n", "C", "zzC", silentOpts)
 
 -- Move line
-vim.api.nvim_set_keymap("v", "H", "<gv", silentOpts)
-vim.api.nvim_set_keymap("v", "J", ":m '>+1<cr>gv=gv", silentOpts)
-vim.api.nvim_set_keymap("v", "K", ":m '<-2<cr>gv=gv", silentOpts)
-vim.api.nvim_set_keymap("v", "L", ">gv", silentOpts)
+map("v", "H", "<gv", silentOpts)
+map("v", "J", ":m '>+1<cr>gv=gv", silentOpts)
+map("v", "K", ":m '<-2<cr>gv=gv", silentOpts)
+map("v", "L", ">gv", silentOpts)
 
 -- Clipboard
-vim.api.nvim_set_keymap("n", "<leader>y", '"+y', silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>Y", '"+Y', silentOpts)
-vim.api.nvim_set_keymap("v", "<leader>y", '"+y', silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>d", '"+d', silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>D", '"+D', silentOpts)
-vim.api.nvim_set_keymap("v", "<leader>d", '"+d', silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>p", '"+p', silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>P", '"+P', silentOpts)
-vim.api.nvim_set_keymap("v", "<leader>p", '"+p', silentOpts)
-vim.api.nvim_set_keymap("v", "p", '"_dP', silentOpts)
+map("n", "<leader>y", '"+y', silentOpts)
+map("n", "<leader>Y", '"+Y', silentOpts)
+map("v", "<leader>y", '"+y', silentOpts)
+map("n", "<leader>d", '"+d', silentOpts)
+map("n", "<leader>D", '"+D', silentOpts)
+map("v", "<leader>d", '"+d', silentOpts)
+map("n", "<leader>p", '"+p', silentOpts)
+map("n", "<leader>P", '"+P', silentOpts)
+map("v", "<leader>p", '"+p', silentOpts)
+map("v", "p", '"_dP', silentOpts)
 
 -- set spellcheck
---vim.api.nvim_set_keymap('n', '<leader>l', ':setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
+--map('n', '<leader>l', ':setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
 
 --LSP
-vim.api.nvim_set_keymap("n", "<leader>lI", ":LspInfo<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", silentOpts)
-vim.api.nvim_set_keymap(
+map("n", "<leader>lI", ":LspInfo<cr>", silentOpts)
+map("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
+map("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
+map("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", silentOpts)
+map("n", "<leader>lW", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", silentOpts)
+map(
 	"n",
 	"<leader>ll",
 	"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
 	silentOpts
 )
-vim.api.nvim_set_keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>lN", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silentOpts)
+map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", silentOpts)
+map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", silentOpts)
+map("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
+map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", silentOpts)
+map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
+map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
+map("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", silentOpts)
+map("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silentOpts)
+map("n", "<leader>lN", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silentOpts)
 --LSP-install
-vim.api.nvim_set_keymap("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
+map("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
 --null-ls
-vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", silentOpts)
-vim.api.nvim_set_keymap("v", "<leader>ff", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>fi", ":NullLsInfo<cr>", silentOpts)
+map("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", silentOpts)
+map("v", "<leader>ff", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", silentOpts)
+map("n", "<leader>fi", ":NullLsInfo<cr>", silentOpts)
 
 -- Open windows
-vim.api.nvim_set_keymap("n", "<leader>v", ":vsp .<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader>h", ":sp .<cr>", silentOpts)
-vim.api.nvim_set_keymap("n", "<leader><cr>", ":vsp <bar> terminal<cr>", silentOpts)
+map("n", "<leader>v", ":vsp .<cr>", silentOpts)
+map("n", "<leader>h", ":sp .<cr>", silentOpts)
+map("n", "<leader><cr>", ":vsp <bar> terminal<cr>", silentOpts)
 
 -- replace in line
-vim.api.nvim_set_keymap("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
-vim.api.nvim_set_keymap("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
 -- replace in file
-vim.api.nvim_set_keymap("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
-vim.api.nvim_set_keymap("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 -- misc
-vim.api.nvim_set_keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-vim.api.nvim_set_keymap("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
-vim.api.nvim_set_keymap("n", "U", "<C-R>", silentOpts)
+map("n", "<leader>e", ":Lex 30<cr>", opts)
+map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
+map("n", "U", "<C-R>", silentOpts)
