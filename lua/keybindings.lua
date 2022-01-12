@@ -94,9 +94,9 @@ map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --telescope
-map("n", "<leader>tt", ":Telescope find_files<cr>", silentOpts)
+map("n", "<leader>j", ":Telescope find_files<cr>", silentOpts)
 map("n", "<leader>tg", ":Telescope grep_string<cr>", silentOpts)
-map("n", "<leader>tb", ":Telescope file_browser<cr>", silentOpts)
+map("n", "<leader>e", ":Telescope file_browser<cr>", silentOpts)
 map("n", "<leader>tf", ":Telescope filetypes<cr>", silentOpts)
 map("n", "<leader>te", ":Telescope builtin<cr>", silentOpts)
 map("n", "<leader>tc", ":Telescope commands<cr>", silentOpts)
@@ -118,6 +118,6 @@ map("n", "<leader>gb", ":Telescope git_branches<cr>", silentOpts)
 map("n", "<leader>gch", ":Git checkout ", opts)
 
 -- misc
-map("n", "<leader>e", ":Lex 30<cr>", opts)
+--map("n", "<leader>e", ":Lex 30<cr>", opts)
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
