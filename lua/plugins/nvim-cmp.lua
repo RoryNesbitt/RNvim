@@ -1,4 +1,5 @@
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+vim.opt.completeopt = {"menu", "menuone", "noselect", "noinsert"}
+
 -- Setup nvim-cmp.
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
