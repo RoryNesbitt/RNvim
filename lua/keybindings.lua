@@ -69,9 +69,9 @@ map("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
 map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", silentOpts)
 map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
 map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
-map("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", silentOpts)
-map("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silentOpts)
-map("n", "<leader>lN", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silentOpts)
+map("n", "<leader>le", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", silentOpts)
+map("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", silentOpts)
+map("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev()<cr>", silentOpts)
 --LSP-install
 map("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
 --null-ls
