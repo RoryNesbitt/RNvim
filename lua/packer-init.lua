@@ -47,7 +47,6 @@ return packer.startup(function(use)
 	use("onsails/lspkind-nvim")
 	--snippets
 	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
 	use("rafamadriz/friendly-snippets")
 	--Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = "require'plugins.treesitter'" })
