@@ -102,7 +102,7 @@ map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)
 map("v", "<leader>", ':WhichKeyVisual "<leader>"<cr>', silentOpts)
 
 --Git
-map("n", "<leader>gs", ":G<cr>", silentOpts)
+map("n", "<leader>gs", ":Telescope git_status<cr>", silentOpts)
 map("n", "<leader>gac", ":Git add %<cr>", silentOpts)
 map("n", "<leader>gaa", ":Git add --all<cr>", silentOpts)
 map("n", "<leader>gc", ":Git commit -m \"\"<Left>", opts)
@@ -110,7 +110,7 @@ map("n", "<leader>gg", ":Git add % <bar> Git commit -m \"\"<Left>", opts)
 map("n", "<leader>gps", ":Git push<cr>", silentOpts)
 map("n", "<leader>gpl", ":Git pull<cr>", silentOpts)
 map("n", "<leader>gd", ":Git diff<cr>", silentOpts)
-map("n", "<leader>gb", ":Git branch<cr>", silentOpts)
+map("n", "<leader>gb", ":Telescope git_branch<cr>", silentOpts)
 map("n", "<leader>gch", ":Git checkout ", opts)
 
 -- misc
