@@ -71,7 +71,7 @@ map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
 map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
 map("n", "<leader>le", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", silentOpts)
 map("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", silentOpts)
-map("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev()<cr>", silentOpts)
+map("n", "<leader>lp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", silentOpts)
 --LSP-install
 map("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
 --null-ls
@@ -92,7 +92,10 @@ map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --telescope
-map("n", "<leader>t", ":Telescope find_files<cr>", silentOpts)
+map("n", "<leader>tt", ":Telescope find_files<cr>", silentOpts)
+map("n", "<leader>tg", ":Telescope grep_string<cr>", silentOpts)
+map("n", "<leader>tb", ":Telescope file_browser<cr>", silentOpts)
+map("n", "<leader>tf", ":Telescope filetypes<cr>", silentOpts)
 
 --Which key
 map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)

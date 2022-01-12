@@ -1,7 +1,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
+	Packer_bootstrap = fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -37,6 +37,7 @@ return packer.startup(function(use)
 	use({ "williamboman/nvim-lsp-installer", config = "require'plugins.lsp-installer'" })
 	use("glepnir/lspsaga.nvim")
 	use("simrat39/symbols-outline.nvim")
+	use({ "nvim-telescope/telescope-file-browser.nvim", config = "require('telescope').load_extension 'file_browser'" })
 	--nvim-cmp
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
@@ -111,7 +112,7 @@ return packer.startup(function(use)
 	use("iamcco/markdown-preview.nvim")
 
 	--Autoinstall packer if not yet setup
-	if packer_bootstrap then
+	if Packer_bootstrap then
 		require("packer").sync()
 	end
 end)
