@@ -58,8 +58,8 @@ map("v", "p", '"_dP', silentOpts)
 
 --LSP
 map("n", "<leader>lI", ":LspInfo<cr>", silentOpts)
-map("n", "<leader>lK", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
-map("n", "<leader>lk", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
+map("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
+map("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
 map("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", silentOpts)
 map("n", "<leader>lwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", silentOpts)
 map("n", "<leader>lwi", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", silentOpts)
