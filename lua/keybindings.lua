@@ -91,6 +91,13 @@ map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
 map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
+--telescope
+map("n", "<leader>t", ":Telescope find_files<cr>", silentOpts)
+
+--Which key
+map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)
+map("v", "<leader>", ':WhichKeyVisual "<leader>"<cr>', silentOpts)
+
 --Git
 map("n", "<leader>gs", ":G<cr>", silentOpts)
 map("n", "<leader>gac", ":Git add %<cr>", silentOpts)
