@@ -19,6 +19,7 @@ telescope.setup({
 			i = {
 				["<C-x>"] = false,
 				["<C-q>"] = actions.send_to_qflist,
+				["<C-h>"] = "which_key",
 			},
 		},
 	},
