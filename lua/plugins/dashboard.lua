@@ -10,12 +10,12 @@ vim.g.dashboard_custom_header = {
 
 vim.g.dashboard_custom_center = { "lol test" }
 vim.g.dashboard_custom_section = {
-	a = { description = { "  Jump to File" }, command = "DashboardFindFile" },
-	b = { description = { "  Recent Files" }, command = "DashboardFindHistory" },
-	c = { description = { "  Change colorscheme" }, command = "DashboardChangeColorscheme" },
-	d = { description = { "  Search Text" }, command = "DashboardFindWord" },
-	e = { description = { "  New file" }, command = "DashboardNewFile" },
-	f = { description = { "  Config" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
+	a = { description = { "  Jump to File               -" }, command = "DashboardFindFile" },
+	b = { description = { "  Recent Files               -" }, command = "DashboardFindHistory" },
+	c = { description = { "  Change colorscheme         -" }, command = "DashboardChangeColorscheme" },
+	d = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
+	e = { description = { "  New file                   -" }, command = "DashboardNewFile" },
+	f = { description = { "  Config                     -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
 }
 
 function pluginCount()
