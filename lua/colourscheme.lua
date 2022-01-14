@@ -12,3 +12,8 @@ vim.cmd("colorscheme gruvbox")
 vim.cmd([[au VimEnter * highlight ColorColumn ctermbg=8]])
 vim.cmd([[au VimEnter * highlight Normal guibg=none]])
 vim.cmd([[au VimEnter * highlight NonText guibg=none]])
+
+--Marks trailing whitespace as an warning
+vim.cmd([[
+match errorMsg /\s\+$/
+]])
