@@ -31,7 +31,7 @@ return packer.startup(function(use)
 	--Colours
 	use({ "morhetz/gruvbox", config = "require'colourscheme'" })
 	use("tomasiser/vim-code-dark")
-	use("norcalli/nvim-colorizer.lua")
+	use({ "norcalli/nvim-colorizer.lua", config = "require('colorizer').setup()" })
 	--Lsp
 	use({ "neovim/nvim-lspconfig", config = "require'plugins.lsp'" })
 	use({ "williamboman/nvim-lsp-installer", config = "require'plugins.lsp-installer'" })
@@ -59,7 +59,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", config = "require'plugins.telescope'" })
 	use("nvim-telescope/telescope-fzy-native.nvim")
 	--Extra info
-  use({ "glepnir/dashboard-nvim", config = "require'plugins.dashboard'" })
+	use({ "glepnir/dashboard-nvim", config = "require'plugins.dashboard'" })
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -75,6 +75,7 @@ return packer.startup(function(use)
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
+		config = "require('gitsigns').setup()",
 		-- tag = 'release' -- To use the latest release
 	})
 	--Functionality
@@ -83,7 +84,13 @@ return packer.startup(function(use)
 	use({ "vim-syntastic/syntastic", config = "require'plugins.syntastic'" })
 	use({ "windwp/nvim-autopairs", config = "require'plugins.autopairs'" })
 	use("scrooloose/nerdcommenter")
-	use("tpope/vim-repeat")
+	use({ "tpope/vim-repeat",
+    config = function()
+      vim.cmd([[
+      silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+      ]])
+    end
+  })
 	use({ "lukas-reineke/indent-blankline.nvim", config = "require'plugins.indent-blankline'" })
 	use({ "jose-elias-alvarez/null-ls.nvim", config = "require'plugins.null-ls'" })
 	--program integration
@@ -99,17 +106,19 @@ return packer.startup(function(use)
 		config = function()
 			require("tmux").setup({
 				navigation = {
-					-- enables default keybindings (C-hjkl) for normal mode
 					enable_default_keybindings = true,
 				},
 				resize = {
-					-- enables default keybindings (A-hjkl) for normal mode
 					enable_default_keybindings = true,
 				},
 			})
 		end,
 	})
-	use("iamcco/markdown-preview.nvim")
+	use({ "iamcco/markdown-preview.nvim",
+		config = function()
+      vim.g.mkdp_auto_start = 1
+		end,
+	})
 
 	--Autoinstall packer if not yet setup
 	if Packer_bootstrap then

@@ -4,7 +4,6 @@ vim.o.termguicolors = true
 --vim.bo.t_Co = '256'
 
 require("packer-init")
-require("plugins.shortConfs")
 require("options")
 require("keybindings")
 require("autocmds")
