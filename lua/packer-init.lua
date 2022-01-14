@@ -59,6 +59,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", config = "require'plugins.telescope'" })
 	use("nvim-telescope/telescope-fzy-native.nvim")
 	--Extra info
+  use({ "glepnir/dashboard-nvim", config = "require'plugins.dashboard'" })
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
