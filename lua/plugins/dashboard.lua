@@ -16,7 +16,8 @@ vim.g.dashboard_custom_section = {
 	d = { description = { "  Change colorscheme         -" }, command = "DashboardChangeColorscheme" },
 	e = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
 	f = { description = { "  New file                   -" }, command = "DashboardNewFile" },
-	g = { description = { "  Config                     -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
+	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
+	h = { description = { "  Update Config              -" }, command = ":!git --git-dir=$HOME/.config/nvim/.git pull" },
 }
 
 function pluginCount()
