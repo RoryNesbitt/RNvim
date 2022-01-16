@@ -27,7 +27,7 @@ function pluginCount()
 end
 
 --local pluginCount = "!ls ~/.local/share/nvim/site/pack/packer/start/ | wc -l"
-vim.g.dashboard_custom_footer = { "NeoVim loaded with " .. pluginCount() .. " plugins" }
+vim.g.dashboard_custom_footer = { "Neovim loaded with " .. pluginCount() .. " plugins" }
 
 -- Jump to bookmarks                     SPC f b
 -- Change colorscheme                    SPC t c
