@@ -11,7 +11,7 @@ vim.g.dashboard_custom_header = {
 vim.g.dashboard_custom_center = { "lol test" }
 vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "DashboardFindFile" },
-	b = { description = { " Jump to bookmarks           -" }, command = "DashboardJumpMarks" },
+	b = { description = { "  Jump to bookmarks          -" }, command = "DashboardJumpMarks" },
 	c = { description = { "  Recent Files               -" }, command = "DashboardFindHistory" },
 	d = { description = { "  Change colorscheme         -" }, command = "DashboardChangeColorscheme" },
 	e = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
