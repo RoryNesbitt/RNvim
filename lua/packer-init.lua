@@ -47,7 +47,7 @@ return packer.startup(function(use)
 	use("onsails/lspkind-nvim")
 	--snippets
 	use({
-    "hrsh7th/cmp-vsnip",
+		"hrsh7th/cmp-vsnip",
 		requires = { "hrsh7th/vim-vsnip", opt = true },
 	})
 	use("rafamadriz/friendly-snippets")
@@ -70,6 +70,7 @@ return packer.startup(function(use)
 	})
 	use("liuchengxu/vim-which-key")
 	use("ryanoasis/vim-devicons")
+  use("nikvdp/ejs-syntax")
 	--git
 	use("tpope/vim-fugitive")
 	--use 'airblade/vim-gitgutter'
@@ -87,13 +88,14 @@ return packer.startup(function(use)
 	use({ "vim-syntastic/syntastic", config = "require'plugins.syntastic'" })
 	use({ "windwp/nvim-autopairs", config = "require'plugins.autopairs'" })
 	use("scrooloose/nerdcommenter")
-	use({ "tpope/vim-repeat",
-    config = function()
-      vim.cmd([[
+	use({
+		"tpope/vim-repeat",
+		config = function()
+			vim.cmd([[
       silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
       ]])
-    end
-  })
+		end,
+	})
 	use({ "lukas-reineke/indent-blankline.nvim", config = "require'plugins.indent-blankline'" })
 	use({ "jose-elias-alvarez/null-ls.nvim", config = "require'plugins.null-ls'" })
 	--program integration
@@ -117,9 +119,10 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	use({ "iamcco/markdown-preview.nvim",
+	use({
+		"iamcco/markdown-preview.nvim",
 		config = function()
-      vim.g.mkdp_auto_start = 1
+			vim.g.mkdp_auto_start = 1
 		end,
 	})
 
