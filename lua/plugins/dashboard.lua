@@ -17,7 +17,7 @@ vim.g.dashboard_custom_section = {
 	e = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
 	f = { description = { "  New file                   -" }, command = "DashboardNewFile" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
-	h = { description = { "  Update Config              -" }, command = ":echo system('git --git-dir=$HOME/.config/nvim/.git pull') | PackerSync" },
+	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git pull') | PackerSync" },
 }
 
 function pluginCount()
