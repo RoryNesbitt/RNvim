@@ -25,6 +25,9 @@ function pluginCount()
 	for filename in popen("ls ~/.local/share/nvim/site/pack/packer/start/"):lines() do
 		i = i + 1
 	end
+	for filename in popen("ls ~/.local/share/nvim/site/pack/packer/opt/"):lines() do
+		i = i + 1
+	end
 	return i
 end
 
