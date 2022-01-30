@@ -87,7 +87,11 @@ return packer.startup(function(use)
 	use("tpope/vim-surround")
 	use({ "vim-syntastic/syntastic", config = "require'plugins.syntastic'" })
 	use({ "windwp/nvim-autopairs", config = "require'plugins.autopairs'" })
-	use("scrooloose/nerdcommenter")
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require("Comment").setup()
+    end}
 	use({
 		"tpope/vim-repeat",
 		config = function()
