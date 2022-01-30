@@ -148,7 +148,10 @@ return packer.startup(function(use)
     config = "require'plugins.lualine'",
   }
 	use {
-    "liuchengxu/vim-which-key",
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup{}
+    end,
     event = 'BufWinEnter'
   }
 	use {

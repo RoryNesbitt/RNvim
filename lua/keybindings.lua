@@ -105,8 +105,8 @@ map("n", "<leader>tc", ":Telescope commands<cr>", silentOpts)
 map("n", "<leader>ts", ":Telescope current_buffer_fuzzy_find<cr>", silentOpts)
 
 --Which key
-map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)
-map("v", "<leader>", ':WhichKeyVisual "<leader>"<cr>', silentOpts)
+-- map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)
+-- map("v", "<leader>", ':WhichKeyVisual "<leader>"<cr>', silentOpts)
 
 --Git
 map("n", "<leader>gs", ":Telescope git_status<cr>", silentOpts)
