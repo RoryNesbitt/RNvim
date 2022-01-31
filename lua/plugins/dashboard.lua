@@ -9,7 +9,8 @@ vim.g.dashboard_custom_section = {
 	e = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
 	f = { description = { "  New file                   -" }, command = "DashboardNewFile" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
-	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull') | so $HOME/.config/nvim/lua/packer-init.lua | PackerSync | echo 'Restart Neovim to see any changes'" },
+	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull') | so $HOME/.config/nvim/lua/packer-init.lua | echo 'Restart Neovim to see any changes' | PackerSync" },
+  --  
 }
 
 function pluginCount()
@@ -23,16 +24,8 @@ function pluginCount()
 	return i
 end
 
---local pluginCount = "!ls ~/.local/share/nvim/site/pack/packer/start/ | wc -l"
 vim.g.dashboard_custom_footer = { "Neovim loaded with " .. pluginCount() .. " plugins" }
-
--- Jump to bookmarks                     SPC f b
--- Change colorscheme                    SPC t c
--- Find file                             SPC f f
--- Recently opened files                 SPC f h
--- Find word                             SPC f a
--- New file                              SPC c n
-
+--
 local logos = {
   {
     [[██████╗ ███╗   ██╗██╗   ██╗██╗███╗   ███╗]],
