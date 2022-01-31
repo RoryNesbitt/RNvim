@@ -198,6 +198,18 @@ return packer.startup(function(use)
     "jose-elias-alvarez/null-ls.nvim",
     config = "require'plugins.null-ls'",
   }
+  use {
+    'sunjon/stylish.nvim',
+    config = function ()
+      -- vim.ui.notify = require('stylish').ui_notification()
+      vim.api.nvim_set_keymap(
+        'n',
+        '<F12>',
+        '<Cmd>lua require"stylish".ui_clock()<CR>',
+        { noremap = true, silent = true }
+      )
+    end
+  }
 	--program integration
 	use {
     "beeender/Comrade",
