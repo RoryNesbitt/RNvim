@@ -52,25 +52,20 @@ return packer.startup(function(use)
 	use {
     "williamboman/nvim-lsp-installer",
     config = "require'plugins.lsp-installer'",
-    --event = 'BufRead'
   }
 	use {
     "glepnir/lspsaga.nvim",
-    --event = 'BufWinEnter'
   }
 	use {
     "simrat39/symbols-outline.nvim",
-    --event = 'BufWinEnter'
   }
 	--nvim-cmp
   use {
     "hrsh7th/nvim-cmp",
     config = "require'plugins.nvim-cmp'",
-    --event = 'BufRead'
   }
 	use {
     "hrsh7th/cmp-nvim-lsp",
-    --event = 'BufWinEnter'
   }
 	use {
     "hrsh7th/cmp-buffer",
@@ -78,15 +73,12 @@ return packer.startup(function(use)
   }
 	use {
     "hrsh7th/cmp-path",
-    --event = 'BufWinEnter'
   }
 	use {
     "hrsh7th/cmp-cmdline",
-    --event = 'BufWinEnter'
   }
 	use {
     "onsails/lspkind-nvim",
-    --event = 'BufWinEnter'
   }
 	--snippets
   use {
@@ -96,7 +88,6 @@ return packer.startup(function(use)
   }
 	use {
     "rafamadriz/friendly-snippets",
-    --event = 'BufWinEnter'
   }
 	--Treesitter
 	use {
@@ -130,13 +121,11 @@ return packer.startup(function(use)
     "nvim-telescope/telescope-file-browser.nvim",
     config = "require('telescope').load_extension 'file_browser'",
     after = "telescope.nvim",
-    --event = 'BufRead'
   }
 	--Extra info
 	use {
     "glepnir/dashboard-nvim",
     config = "require'plugins.dashboard'",
-    -- event = 'BufWinEnter'
   }
   use {
     "hoob3rt/lualine.nvim",
@@ -156,16 +145,13 @@ return packer.startup(function(use)
   }
 	use {
     "ryanoasis/vim-devicons",
-    --event = 'BufWinEnter'
   }
   use {
     "nikvdp/ejs-syntax",
-    --event = 'BufWinEnter'
   }
 	--git
 	use {
     "tpope/vim-fugitive",
-    --event = 'BufWinEnter'
   }
 	--use 'airblade/vim-gitgutter'
   use {
@@ -177,28 +163,23 @@ return packer.startup(function(use)
 	--Functionality
 	use {
     "terryma/vim-multiple-cursors",
-    --event = 'BufWinEnter'
   }
 	use {
     "tpope/vim-surround",
-    --event = 'BufWinEnter'
   }
 	use {
     "vim-syntastic/syntastic",
     config = "require'plugins.syntastic'",
-    --event = 'BufRead'
   }
 	use {
     "windwp/nvim-autopairs",
     config = "require'plugins.autopairs'",
-    --event = 'BufRead'
   }
   use {
     'numToStr/Comment.nvim',
     config = function()
       require("Comment").setup()
     end,
-    ----event = 'BufRead'
   }
   use {
     "tpope/vim-repeat",
@@ -207,7 +188,6 @@ return packer.startup(function(use)
       silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
       ]])
     end,
-    --event = 'BufWinEnter'
   }
 	use {
     "lukas-reineke/indent-blankline.nvim",
@@ -217,20 +197,17 @@ return packer.startup(function(use)
 	use {
     "jose-elias-alvarez/null-ls.nvim",
     config = "require'plugins.null-ls'",
-    --event = 'BufRead'
   }
 	--program integration
 	use {
     "beeender/Comrade",
     opt = true,
-    --event = 'BufRead'
   }
   use {
     "glacambre/firenvim",
     run = function()
       vim.fn["firenvim#install"](0)
     end,
-    --event = 'BufWinEnter'
   }
   use {
     "aserowy/tmux.nvim",
@@ -244,14 +221,12 @@ return packer.startup(function(use)
         },
       })
     end,
-    --event = 'BufWinEnter'
   }
   use {
     "iamcco/markdown-preview.nvim",
     config = function()
       vim.g.mkdp_auto_start = 1
     end,
-    --event = 'BufWinEnter'
   }
 
 	--Autoinstall packer if not yet setup
