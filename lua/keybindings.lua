@@ -121,7 +121,10 @@ map("n", "<leader>gd", ":Git diff<cr>", silentOpts)
 map("n", "<leader>gb", ":Telescope git_branches<cr>", silentOpts)
 map("n", "<leader>gch", ":Git checkout ", opts)
 
+--whitespace
+map("n", "<leader>w", ":%s/\\s\\+$//<cr>", silentOpts)
+map("v", "<leader>w", ":s/\\s\\+$//<cr>", silentOpts)
+
 -- misc
---map("n", "<leader>e", ":Lex 30<cr>", opts)
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
