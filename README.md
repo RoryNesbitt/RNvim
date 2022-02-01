@@ -1,4 +1,4 @@
-# Neovim
+# RNvim
 
 ## Installation
 
