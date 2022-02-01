@@ -1,6 +1,5 @@
 vim.g.dashboard_default_executive = "telescope"
 
-vim.g.dashboard_custom_center = { "lol test" }
 vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "DashboardFindFile" },
 	b = { description = { "  Jump to bookmarks          -" }, command = "DashboardJumpMarks" },
