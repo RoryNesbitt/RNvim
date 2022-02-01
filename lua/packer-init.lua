@@ -25,6 +25,8 @@ packer.init({
 		end,
 	},
 })
+
+local pluginConf = vim.fn.stdpath('config').."/lua/plugins/"
 return packer.startup(function(use)
 	--Self manage packer
 	use "wbthomason/packer.nvim"
@@ -46,12 +48,12 @@ return packer.startup(function(use)
 	--Lsp
 	use {
     "neovim/nvim-lspconfig",
-    config = "require'plugins.lsp'",
+    config = "dofile('"..pluginConf.."lsp.lua')",
     event = 'BufRead'
   }
 	use {
     "williamboman/nvim-lsp-installer",
-    config = "require'plugins.lsp-installer'",
+    config = "dofile('"..pluginConf.."lsp-installer.lua')",
   }
 	use {
     "glepnir/lspsaga.nvim",
@@ -62,7 +64,7 @@ return packer.startup(function(use)
 	--nvim-cmp
   use {
     "hrsh7th/nvim-cmp",
-    config = "require'plugins.nvim-cmp'",
+    config = "dofile('"..pluginConf.."nvim-cmp.lua')",
   }
 	use {
     "hrsh7th/cmp-nvim-lsp",
@@ -92,7 +94,7 @@ return packer.startup(function(use)
 	--Treesitter
 	use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate", config = "require'plugins.treesitter'",
+    run = ":TSUpdate", config = "dofile('"..pluginConf.."treesitter.lua')",
     event = 'BufWinEnter'
   }
 	use {
@@ -115,7 +117,7 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
-    config = "require'plugins.telescope'",
+    config = "dofile('"..pluginConf.."telescope.lua')",
   }
 	use {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -125,7 +127,7 @@ return packer.startup(function(use)
 	--Extra info
 	use {
     "glepnir/dashboard-nvim",
-    config = "require'plugins.dashboard'",
+    config = "dofile('"..pluginConf.."dashboard.lua')",
   }
   use {
     "hoob3rt/lualine.nvim",
@@ -134,7 +136,7 @@ return packer.startup(function(use)
       opt = true,
       event = 'BufRead'
     },
-    config = "require'plugins.lualine'",
+    config = "dofile('"..pluginConf.."lualine.lua')",
   }
 	use {
     "folke/which-key.nvim",
@@ -169,11 +171,11 @@ return packer.startup(function(use)
   }
 	use {
     "vim-syntastic/syntastic",
-    config = "require'plugins.syntastic'",
+    config = "dofile('"..pluginConf.."syntastic.lua')",
   }
 	use {
     "windwp/nvim-autopairs",
-    config = "require'plugins.autopairs'",
+    config = "dofile('"..pluginConf.."autopairs.lua')",
   }
   use {
     'numToStr/Comment.nvim',
@@ -191,12 +193,12 @@ return packer.startup(function(use)
   }
 	use {
     "lukas-reineke/indent-blankline.nvim",
-    config = "require'plugins.indent-blankline'",
+    config = "dofile('"..pluginConf.."indent-blankline.lua')",
     event = 'BufRead'
   }
 	use {
     "jose-elias-alvarez/null-ls.nvim",
-    config = "require'plugins.null-ls'",
+    config = "dofile('"..pluginConf.."null-ls.lua')",
   }
   use {
     'sunjon/stylish.nvim',
