@@ -163,6 +163,10 @@ return packer.startup(function(use)
     event = 'BufRead'
   }
 	--Functionality
+  use {
+    'lewis6991/impatient.nvim',
+    config = "require'impatient'.enable_profile()"
+  }
 	use {
     "terryma/vim-multiple-cursors",
   }
