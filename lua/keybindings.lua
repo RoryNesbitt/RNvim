@@ -102,11 +102,7 @@ map("n", "<leader>te", ":Telescope builtin<cr>", silentOpts)
 map("n", "<leader>tb", ":Telescope buffers<cr>", silentOpts)
 map("n", "<leader>th", ":Telescope help_tags<cr>", silentOpts)
 map("n", "<leader>tc", ":Telescope commands<cr>", silentOpts)
-map("n", "<leader>ts", ":Telescope current_buffer_fuzzy_find<cr>", silentOpts)
-
---Which key
--- map("n", "<leader>", ':WhichKey "<leader>"<cr>', silentOpts)
--- map("v", "<leader>", ':WhichKeyVisual "<leader>"<cr>', silentOpts)
+map("n", "<leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy_find({sorting_strategy='ascending', prompt_position='top'})<cr>", silentOpts)
 
 --Git
 map("n", "<leader>gs", ":Telescope git_status<cr>", silentOpts)
