@@ -37,8 +37,8 @@ map("n", "C", "zzC", silentOpts)
 
 -- Move line
 map("v", "H", "<gv", silentOpts)
-map("v", "J", ":m '>+1<cr>gv=gv", silentOpts)
-map("v", "K", ":m '<-2<cr>gv=gv", silentOpts)
+map("v", "J", "<cmd>m '>+1<cr>gv=gv", silentOpts)
+map("v", "K", "<cmd>m '<-2<cr>gv=gv", silentOpts)
 map("v", "L", ">gv", silentOpts)
 
 -- Clipboard
@@ -54,10 +54,10 @@ map("v", "<leader>p", '"+p', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
 -- set spellcheck
---map('n', '<leader>l', ':setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
+--map('n', '<leader>l', '<cmd>setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
 
 --LSP
-map("n", "<leader>lI", ":LspInfo<cr>", silentOpts)
+map("n", "<leader>lI", "<cmd>LspInfo<cr>", silentOpts)
 map("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<cr>", silentOpts)
 map("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<cr>", silentOpts)
 map("n", "<leader>lwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", silentOpts)
@@ -66,60 +66,60 @@ map("n", "<leader>lwi", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_f
 map("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", silentOpts)
 map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", silentOpts)
 map("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
-map("n", "<leader>lr", ":Telescope lsp_references<cr>", silentOpts)
+map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", silentOpts)
 map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
 --map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
-map("n", "<leader>la", ":Telescope lsp_code_actions<cr>", silentOpts)
+map("n", "<leader>la", "<cmd>Telescope lsp_code_actions<cr>", silentOpts)
 --map("n", "<leader>ll", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", silentOpts)
-map("n", "<leader>ll", ":Telescope diagnostics<cr>", silentOpts)
+map("n", "<leader>ll", "<cmd>Telescope diagnostics<cr>", silentOpts)
 map("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", silentOpts)
 map("n", "<leader>lp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", silentOpts)
 --LSP-install
-map("n", "<leader>li", ":LspInstallInfo<cr>", silentOpts)
+map("n", "<leader>li", "<cmd>LspInstallInfo<cr>", silentOpts)
 --null-ls
 map("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", silentOpts)
 map("v", "<leader>ff", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", silentOpts)
-map("n", "<leader>fi", ":NullLsInfo<cr>", silentOpts)
+map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
 
 -- Open windows
-map("n", "<leader>v", ":vsp .<cr>", silentOpts)
-map("n", "<leader>h", ":sp .<cr>", silentOpts)
-map("n", "<leader><cr>", ":vsp <bar> terminal<cr>", silentOpts)
+map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)
+map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
+map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
 
 -- replace in line
-map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
-map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map("n", "<leader>s", "<cmd>s//gI<Left><Left><Left>", opts)
+map("v", "<leader>s", "<cmd>s//gI<Left><Left><Left>", opts)
 -- replace in file
-map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
-map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map("n", "<leader>S", "<cmd>%s//gI<Left><Left><Left>", opts)
+map("v", "<leader>S", "<cmd>%s//gI<Left><Left><Left>", opts)
 
 --telescope
-map("n", "<leader>j", ":Telescope find_files<cr>", silentOpts)
-map("n", "<leader>tg", ":Telescope grep_string<cr>", silentOpts)
-map("n", "<leader>e", ":Telescope file_browser<cr>", silentOpts)
-map("n", "<leader>tf", ":Telescope filetypes<cr>", silentOpts)
-map("n", "<leader>te", ":Telescope builtin<cr>", silentOpts)
-map("n", "<leader>tb", ":Telescope buffers<cr>", silentOpts)
-map("n", "<leader>th", ":Telescope help_tags<cr>", silentOpts)
-map("n", "<leader>tc", ":Telescope commands<cr>", silentOpts)
-map("n", "<leader>/", ":lua require'telescope.builtin'.current_buffer_fuzzy_find({sorting_strategy='ascending', prompt_position='top'})<cr>", silentOpts)
+map("n", "<leader>j", "<cmd>Telescope find_files<cr>", silentOpts)
+map("n", "<leader>tg", "<cmd>Telescope grep_string<cr>", silentOpts)
+map("n", "<leader>e", "<cmd>Telescope file_browser<cr>", silentOpts)
+map("n", "<leader>tf", "<cmd>Telescope filetypes<cr>", silentOpts)
+map("n", "<leader>te", "<cmd>Telescope builtin<cr>", silentOpts)
+map("n", "<leader>tb", "<cmd>Telescope buffers<cr>", silentOpts)
+map("n", "<leader>th", "<cmd>Telescope help_tags<cr>", silentOpts)
+map("n", "<leader>tc", "<cmd>Telescope commands<cr>", silentOpts)
+map("n", "<leader>/", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({sorting_strategy='ascending', prompt_position='top'})<cr>", silentOpts)
 
 --Git
-map("n", "<leader>gs", ":Telescope git_status<cr>", silentOpts)
-map("n", "<leader>gac", ":Git add %<cr>", silentOpts)
-map("n", "<leader>gaa", ":Git add --all<cr>", silentOpts)
-map("n", "<leader>gau", ":Git add --update<cr>", silentOpts)
-map("n", "<leader>gc", ":Git commit -m \"\"<Left>", opts)
-map("n", "<leader>gg", ":Git add --update <bar> Git commit -m \"\"<Left>", opts)
-map("n", "<leader>gps", ":Git push<cr>", silentOpts)
-map("n", "<leader>gpl", ":Git pull<cr>", silentOpts)
-map("n", "<leader>gd", ":Git diff<cr>", silentOpts)
-map("n", "<leader>gb", ":Telescope git_branches<cr>", silentOpts)
-map("n", "<leader>gch", ":Git checkout ", opts)
+map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", silentOpts)
+map("n", "<leader>gac", "<cmd>Git add %<cr>", silentOpts)
+map("n", "<leader>gaa", "<cmd>Git add --all<cr>", silentOpts)
+map("n", "<leader>gau", "<cmd>Git add --update<cr>", silentOpts)
+map("n", "<leader>gc", "<cmd>Git commit -m \"\"<Left>", opts)
+map("n", "<leader>gg", "<cmd>Git add --update <bar> Git commit -m \"\"<Left>", opts)
+map("n", "<leader>gps", "<cmd>Git push<cr>", silentOpts)
+map("n", "<leader>gpl", "<cmd>Git pull<cr>", silentOpts)
+map("n", "<leader>gd", "<cmd>Git diff<cr>", silentOpts)
+map("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", silentOpts)
+map("n", "<leader>gch", "<cmd>Git checkout ", opts)
 
 --whitespace
-map("n", "<leader>w", ":%s/\\s\\+$//<cr>", silentOpts)
-map("v", "<leader>w", ":s/\\s\\+$//<cr>", silentOpts)
+map("n", "<leader>w", "<cmd>%s/\\s\\+$//<cr>", silentOpts)
+map("v", "<leader>w", "<cmd>s/\\s\\+$//<cr>", silentOpts)
 
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
