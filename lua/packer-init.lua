@@ -31,15 +31,7 @@ return packer.startup(function(use)
 	--Self manage packer
 	use "wbthomason/packer.nvim"
 	--Colours
-	use {'rose-pine/neovim', as = 'rose-pine', opt = true}
-  use {'joshdick/onedark.vim', opt = true}
-  use {'gruvbox-community/gruvbox', opt = true}
-  use {'shaunsingh/nord.nvim', opt = true}
-  use {'folke/tokyonight.nvim', opt = true}
-  use {'dracula/vim', as = 'dracula', opt = true}
-  use {'tiagovla/tokyodark.nvim', opt = true}
-  use {'catppuccin/nvim', as = 'catppuccin', opt = true}
-	use { "tomasiser/vim-code-dark", opt = true }
+	use { "chriskempson/base16-vim", opt = true }
 	use {
     "norcalli/nvim-colorizer.lua",
     config = "require('colorizer').setup()",

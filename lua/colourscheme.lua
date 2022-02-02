@@ -1,13 +1,10 @@
-local colorscheme = "gruvbox"
+local colorscheme = "base16-gruvbox-dark-hard"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. "not found.")
+	vim.notify("Colorscheme: " .. colorscheme .. " not found.")
 	return
 end
-
-vim.cmd("colorscheme gruvbox")
---vim.g.airline_theme = 'gruvbox'
 
 vim.cmd([[au VimEnter * highlight ColorColumn ctermbg=8]])
 vim.cmd([[au VimEnter * highlight Normal guibg=none]])
