@@ -87,11 +87,11 @@ map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
 map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
 
 -- replace in line
-map("n", "<leader>s", "<cmd>s//gI<Left><Left><Left>", opts)
-map("v", "<leader>s", "<cmd>s//gI<Left><Left><Left>", opts)
+map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
 -- replace in file
-map("n", "<leader>S", "<cmd>%s//gI<Left><Left><Left>", opts)
-map("v", "<leader>S", "<cmd>%s//gI<Left><Left><Left>", opts)
+map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --telescope
 map("n", "<leader>j", "<cmd>Telescope find_files<cr>", silentOpts)
@@ -111,13 +111,13 @@ map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", silentOpts)
 map("n", "<leader>gac", "<cmd>Git add %<cr>", silentOpts)
 map("n", "<leader>gaa", "<cmd>Git add --all<cr>", silentOpts)
 map("n", "<leader>gau", "<cmd>Git add --update<cr>", silentOpts)
-map("n", "<leader>gc", "<cmd>Git commit -m \"\"<Left>", opts)
-map("n", "<leader>gg", "<cmd>Git add --update <bar> Git commit -m \"\"<Left>", opts)
+map("n", "<leader>gc", ":Git commit -m \"\"<Left>", opts)
+map("n", "<leader>gg", ":Git add --update <bar> Git commit -m \"\"<Left>", opts)
 map("n", "<leader>gps", "<cmd>Git push<cr>", silentOpts)
 map("n", "<leader>gpl", "<cmd>Git pull<cr>", silentOpts)
 map("n", "<leader>gd", "<cmd>Git diff<cr>", silentOpts)
 map("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", silentOpts)
-map("n", "<leader>gch", "<cmd>Git checkout ", opts)
+map("n", "<leader>gch", ":Git checkout ", opts)
 
 --whitespace
 map("n", "<leader>w", "<cmd>%s/\\s\\+$//<cr>", silentOpts)
