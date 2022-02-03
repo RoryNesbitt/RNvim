@@ -2,23 +2,27 @@ local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
-local HARDMODE = false
-if HARDMODE then
+local HARDMODE = 2
+if HARDMODE>0 then
 	-- Disable Arrow keys in Normal mode
 	map("n", "<up>", "<nop>", silentOpts)
 	map("n", "<down>", "<nop>", silentOpts)
 	map("n", "<left>", "<nop>", silentOpts)
 	map("n", "<right>", "<nop>", silentOpts)
-	-- Disable hjkl in Normal mode
-	map("n", "h", "<nop>", silentOpts)
-	map("n", "j", "<nop>", silentOpts)
-	map("n", "k", "<nop>", silentOpts)
-	map("n", "l", "<nop>", silentOpts)
-	-- Disable Arrow keys in Insert mode
-	map("i", "<up>", "<nop>", silentOpts)
-	map("i", "<down>", "<nop>", silentOpts)
-	map("i", "<left>", "<nop>", silentOpts)
-	map("i", "<right>", "<nop>", silentOpts)
+end
+if HARDMODE>1 then
+  -- Disable Arrow keys in Insert mode
+  map("i", "<up>", "<nop>", silentOpts)
+  map("i", "<down>", "<nop>", silentOpts)
+  map("i", "<left>", "<nop>", silentOpts)
+  map("i", "<right>", "<nop>", silentOpts)
+end
+if HARDMODE>2 then
+  -- Disable hjkl in Normal mode
+  map("n", "h", "<nop>", silentOpts)
+  map("n", "j", "<nop>", silentOpts)
+  map("n", "k", "<nop>", silentOpts)
+  map("n", "l", "<nop>", silentOpts)
 end
 
 -- Center to focus
