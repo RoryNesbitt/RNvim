@@ -44,6 +44,15 @@ map("v", "<S-h>", "<gv", silentOpts)
 map("v", "<S-j>", ":m '>+1<cr>gv=gv", silentOpts)
 map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
 map("v", "<S-l>", ">gv", silentOpts)
+-- Move Windows
+map("n", "<S-h>", "<C-W>H", silentOpts)
+map("i", "<S-h>", "<C-W>H", silentOpts)
+map("n", "<S-j>", "<C-w>J", silentOpts)
+map("i", "<S-j>", "<C-w>J", silentOpts)
+map("n", "<S-k>", "<C-w>K", silentOpts)
+map("i", "<S-k>", "<C-w>K", silentOpts)
+map("n", "<S-l>", "<C-w>L", silentOpts)
+map("i", "<S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
 map("n", "<leader>y", '"+y', silentOpts)
@@ -89,11 +98,6 @@ map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
 map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)
 map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
 map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
--- Move Windows
-map("n", "<S-h>", "<C-W>H", silentOpts)
-map("n", "<S-j>", "<C-w>J", silentOpts)
-map("n", "<S-k>", "<C-w>K", silentOpts)
-map("n", "<S-l>", "<C-w>L", silentOpts)
 
 -- replace in line
 map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
