@@ -6,7 +6,7 @@ RNvim is the awesome, semi-optimised, easy to use, Neovim config brought to you
 ## Installation
 
 ```sh
-git clone https://github.com/rorynesbitt/neovim ~/.config/nvim
+git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
