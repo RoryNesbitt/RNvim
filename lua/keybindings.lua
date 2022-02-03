@@ -36,10 +36,10 @@ map("n", "c", "zzc", silentOpts)
 map("n", "C", "zzC", silentOpts)
 
 -- Move line
-map("v", "H", "<gv", silentOpts)
-map("v", "J", "<cmd>m '>+1<cr>gv=gv", silentOpts)
-map("v", "K", "<cmd>m '<-2<cr>gv=gv", silentOpts)
-map("v", "L", ">gv", silentOpts)
+map("v", "<S-h>", "<gv", silentOpts)
+map("v", "<S-j>", "<cmd>m '>+1<cr>gv=gv", silentOpts)
+map("v", "<S-k>", "<cmd>m '<-2<cr>gv=gv", silentOpts)
+map("v", "<S-l>", ">gv", silentOpts)
 
 -- Clipboard
 map("n", "<leader>y", '"+y', silentOpts)
@@ -85,6 +85,11 @@ map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
 map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)
 map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
 map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
+-- Move Windows
+map("n", "<S-h>", "<C-W>H", silentOpts)
+map("n", "<S-j>", "<C-w>J", silentOpts)
+map("n", "<S-k>", "<C-w>K", silentOpts)
+map("n", "<S-l>", "<C-w>L", silentOpts)
 
 -- replace in line
 map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
