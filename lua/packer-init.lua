@@ -31,6 +31,11 @@ return packer.startup(function(use)
 	--Self manage packer
 	use "wbthomason/packer.nvim"
 	--Colours
+  use {'joshdick/onedark.vim', opt = true}
+  use {'gruvbox-community/gruvbox', opt = true}
+  use {'shaunsingh/nord.nvim', opt = true}
+  use {'dracula/vim', as = 'dracula', opt = true}
+	use { "tomasiser/vim-code-dark", opt = true }
 	use { "chriskempson/base16-vim", opt = true }
 	use {
     "norcalli/nvim-colorizer.lua",
