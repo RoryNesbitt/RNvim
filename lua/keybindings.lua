@@ -37,8 +37,8 @@ map("n", "C", "zzC", silentOpts)
 
 -- Move line
 map("v", "<S-h>", "<gv", silentOpts)
-map("v", "<S-j>", "<cmd>m '>+1<cr>gv=gv", silentOpts)
-map("v", "<S-k>", "<cmd>m '<-2<cr>gv=gv", silentOpts)
+map("v", "<S-j>", ":m '>+1<cr>gv=gv", silentOpts)
+map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
 map("v", "<S-l>", ">gv", silentOpts)
 
 -- Clipboard
