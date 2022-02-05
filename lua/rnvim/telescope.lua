@@ -56,11 +56,17 @@ M.change_wallpaper = function()
         end
       end
 
-      map('i', '<C-p>', function(bufnr)
+      map('i', '<C-s>', function(bufnr)
+        set_the_background()
+      end)
+      map('n', 's', function(bufnr)
         set_the_background()
       end)
 
       map('i', '<CR>', function(bufnr)
+        set_the_background(true)
+      end)
+      map('n', '<CR>', function(bufnr)
         set_the_background(true)
       end)
 
