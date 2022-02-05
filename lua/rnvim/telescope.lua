@@ -55,9 +55,20 @@ M.change_colourscheme = function ()
           require('telescope.actions').close(prompt_bufnr)
         end
       end
-      map('i', '<CR>', function (bufnr)
+      map('i', '<C-s>', function(bufnr)
+        set_colour()
+      end)
+      map('n', 's', function(bufnr)
+        set_colour()
+      end)
+
+      map('i', '<CR>', function(bufnr)
         set_colour(true)
       end)
+      map('n', '<CR>', function(bufnr)
+        set_colour(true)
+      end)
+
       return true
     end
   })
