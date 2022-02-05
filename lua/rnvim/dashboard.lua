@@ -4,7 +4,7 @@ vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "DashboardFindFile" },
 	b = { description = { "  Jump to bookmarks          -" }, command = "DashboardJumpMarks" },
 	c = { description = { "  Recent Files               -" }, command = "DashboardFindHistory" },
-	d = { description = { "  Change colorscheme         -" }, command = "DashboardChangeColorscheme" },
+	d = { description = { "  Change colourscheme        -" }, command = "lua require('rnvim.telescope').change_colourscheme()" },
 	e = { description = { "  Search Text                -" }, command = "DashboardFindWord" },
 	f = { description = { "  New file                   -" }, command = "DashboardNewFile" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },

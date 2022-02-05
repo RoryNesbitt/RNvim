@@ -41,15 +41,38 @@ function set_background(content)
   )
 end
 local M = {}
+M.change_colourscheme = function ()
+  require("telescope.builtin").colorscheme({
+    attach_mappings = function (prompt_bufnr, map)
+      function set_colour(close)
+        local content =
+          require('telescope.actions.state').get_selected_entry()
+        pcall(vim.cmd, "colorscheme "..content.value)
+        -- pcall(vim.cmd, "highlight Normal guibg=none")
+        -- pcall(vim.cmd, "highlight NonText guibg=none")
+        pcall(vim.cmd, "highlight LineNr guibg=none")
+        if close then
+          require('telescope.actions').close(prompt_bufnr)
+        end
+      end
+      map('i', '<CR>', function (bufnr)
+        set_colour(true)
+      end)
+      return true
+    end
+  })
+end
+
 M.change_wallpaper = function()
 	require("telescope.builtin").find_files({
 		prompt_title = "Wallpaper",
 		cwd = "~/Pictures/Wallpapers",
+    previewer=false,
 
     attach_mappings = function(prompt_bufnr, map)
       function set_the_background(close)
         local content =
-          require('telescope.actions.state').get_selected_entry(bufnr)
+          require('telescope.actions.state').get_selected_entry()
         set_background(content.cwd.."/"..content.value)
         if close then
           require('telescope.actions').close(prompt_bufnr)
