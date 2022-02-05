@@ -7,7 +7,7 @@ vim.g.dashboard_custom_section = {
 	d = { description = { "  Change Colourscheme        -" }, command = "lua require('rnvim.telescope').change_colourscheme()" },
 	e = { description = { "  Search Text                -" }, command = "Telescope grep_string" },
 	f = { description = { "  New File                   -" }, command = "enew" },
-	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
+	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | Telescope find_files" },
 	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull') | so $HOME/.config/nvim/lua/packer-init.lua | echo 'Restart Neovim to see any changes' | PackerSync" },
   --  
 }
