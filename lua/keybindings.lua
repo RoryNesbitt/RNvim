@@ -46,13 +46,9 @@ map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
 map("v", "<S-l>", ">gv", silentOpts)
 -- Move Windows
 map("n", "<S-h>", "<C-W>H", silentOpts)
-map("i", "<S-h>", "<C-W>H", silentOpts)
 map("n", "<S-j>", "<C-w>J", silentOpts)
-map("i", "<S-j>", "<C-w>J", silentOpts)
 map("n", "<S-k>", "<C-w>K", silentOpts)
-map("i", "<S-k>", "<C-w>K", silentOpts)
 map("n", "<S-l>", "<C-w>L", silentOpts)
-map("i", "<S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
 map("n", "<leader>y", '"+y', silentOpts)

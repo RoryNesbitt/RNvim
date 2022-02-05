@@ -32,7 +32,7 @@ insert mode is mapped to center the line the cursor is on.
 - <kbd>hjkl</kbd> is used for all motions:
   - <kbd>Ctrl-hjkl</kbd> will jump between splits
   - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
-  - `Normal`/`Insert` <kbd>Shift-hjkl</kbd> will move the split window that direction
+  - `Normal` <kbd>Shift-hjkl</kbd> will move the split window that direction
   - <kbd>Alt-hjkl</kbd> will resize the split window
 - <kbd>U</kbd> (uppercase) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
