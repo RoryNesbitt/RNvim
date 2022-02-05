@@ -26,7 +26,7 @@ packer.init({
 	},
 })
 
-local pluginConf = vim.fn.stdpath('config').."/lua/plugins/"
+local pluginConf = vim.fn.stdpath('config').."/lua/rnvim/"
 return packer.startup(function(use)
 	--Self manage packer
 	use "wbthomason/packer.nvim"
