@@ -4,9 +4,9 @@ vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "Telescope find_files" },
 	b = { description = { "  Jump to bookmarks          -" }, command = "Telescope jumplist" },
 	c = { description = { "  Recent Files               -" }, command = "Telescope oldfiles" },
-	d = { description = { "  Change colourscheme        -" }, command = "lua require('rnvim.telescope').change_colourscheme()" },
+	d = { description = { "  Change Colourscheme        -" }, command = "lua require('rnvim.telescope').change_colourscheme()" },
 	e = { description = { "  Search Text                -" }, command = "Telescope grep_string" },
-	f = { description = { "  New file                   -" }, command = "enew" },
+	f = { description = { "  New File                   -" }, command = "enew" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | DashboardFindFile" },
 	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull') | so $HOME/.config/nvim/lua/packer-init.lua | echo 'Restart Neovim to see any changes' | PackerSync" },
   --  
