@@ -111,10 +111,12 @@ map("n", "<leader>te", "<cmd>Telescope builtin<cr>", silentOpts)
 map("n", "<leader>tb", "<cmd>Telescope buffers<cr>", silentOpts)
 map("n", "<leader>th", "<cmd>Telescope help_tags<cr>", silentOpts)
 map("n", "<leader>tc", "<cmd>Telescope commands<cr>", silentOpts)
-map("n", "<leader>cw", "<cmd>lua require('rnvim.telescope').change_wallpaper()<cr>", silentOpts)
 map("n", "<leader>/",
   "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({sorting_strategy='ascending', layout_config={prompt_position='top'}, previewer=false})<cr>",
   silentOpts)
+--Telescope-change-x
+map("n", "<leader>cw", "<cmd>lua require('rnvim.telescope').change_wallpaper()<cr>", silentOpts)
+map("n", "<leader>cc", "<cmd>lua require('rnvim.telescope').change_colourscheme()<cr>", silentOpts)
 
 --Git
 map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", silentOpts)
