@@ -125,6 +125,7 @@ return packer.startup(function(use)
 	use {
     "glepnir/dashboard-nvim",
     config = "dofile('"..pluginConf.."dashboard.lua')",
+    event = 'BufWinEnter'
   }
   use {
     "hoob3rt/lualine.nvim",
