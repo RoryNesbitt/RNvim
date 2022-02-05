@@ -37,7 +37,7 @@ end
 
 function set_background(content)
   vim.fn.system(
-    "nitrogen --set-auto "..content
+    "nitrogen --set-scaled "..content
   )
 end
 local M = {}
