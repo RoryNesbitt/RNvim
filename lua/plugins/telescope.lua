@@ -11,7 +11,7 @@ telescope.setup({
 		selection_caret = " ",
 		color_devicons = true,
 
-		--file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
@@ -35,11 +35,37 @@ if os.getenv("USER") ~= "pi" then
 	require("telescope").load_extension("fzy_native")
 end
 
+function set_background(content)
+  vim.fn.system(
+    "nitrogen --set-auto "..content
+  )
+end
 local M = {}
-M.search_dotfiles = function()
+M.change_wallpaper = function()
 	require("telescope.builtin").find_files({
-		prompt_title = "< init.vim >",
-		cwd = "~/.config/nvim/",
+		prompt_title = "Wallpaper",
+		cwd = "~/Pictures/Wallpapers",
+
+    attach_mappings = function(prompt_bufnr, map)
+      function set_the_background(close)
+        local content =
+          require('telescope.actions.state').get_selected_entry(bufnr)
+        set_background(content.cwd.."/"..content.value)
+        if close then
+          require('telescope.actions').close(prompt_bufnr)
+        end
+      end
+
+      map('i', '<C-p>', function(bufnr)
+        set_the_background()
+      end)
+
+      map('i', '<CR>', function(bufnr)
+        set_the_background(true)
+      end)
+
+      return true
+    end
 	})
 end
 
