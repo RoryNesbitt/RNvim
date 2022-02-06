@@ -13,5 +13,6 @@ vim.cmd([[au VimEnter * highlight LineNr guibg=none]])
 
 --Marks trailing whitespace as an warning
 vim.cmd([[
-match errorMsg /\s\+$/
+highlight TrailingSpace gui=undercurl
+match TrailingSpace /\s\+$/
 ]])
