@@ -127,14 +127,18 @@ return packer.startup(function(use)
     config = "dofile('"..pluginConf.."dashboard.lua')",
     event = 'BufWinEnter'
   }
+  -- use {
+  --   "hoob3rt/lualine.nvim",
+  --   requires = {
+  --     "kyazdani42/nvim-web-devicons",
+  --     opt = true,
+  --     event = 'BufRead'
+  --   },
+  --   config = "dofile('"..pluginConf.."lualine.lua')",
+  -- }
   use {
-    "hoob3rt/lualine.nvim",
-    requires = {
-      "kyazdani42/nvim-web-devicons",
-      opt = true,
-      event = 'BufRead'
-    },
-    config = "dofile('"..pluginConf.."lualine.lua')",
+    "rebelot/heirline.nvim",
+    config = "dofile('"..pluginConf.."statusline.lua')"
   }
 	use {
     "folke/which-key.nvim",
