@@ -319,8 +319,8 @@ local Align = { provider = "%=" }
 local Space = { provider = " " }
 
 local DefaultStatusline = {
-    ViMode, Space, FileName, Space, Git, Space, Diagnostics, Align,
-    Space, Space, Space, Space, Ruler, Space,
+    ViMode, Space, FileName, Space, Space, Diagnostics, Align,
+    Space, Space, Space, Space, Git, Ruler, Space,
 }
 
 local InactiveStatusline = {

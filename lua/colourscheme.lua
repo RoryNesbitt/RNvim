@@ -6,13 +6,11 @@ if not status_ok then
 	return
 end
 
-vim.cmd([[au VimEnter * highlight ColorColumn ctermbg=8]])
-vim.cmd([[au VimEnter * highlight Normal guibg=none]])
-vim.cmd([[au VimEnter * highlight NonText guibg=none]])
-vim.cmd([[au VimEnter * highlight LineNr guibg=none]])
-
---Marks trailing whitespace as an warning
 vim.cmd([[
-highlight TrailingSpace gui=undercurl
-match TrailingSpace /\s\+$/
+  au VimEnter * highlight ColorColumn ctermbg=8
+  au VimEnter * highlight Normal guibg=none
+  au VimEnter * highlight NonText guibg=none
+  au VimEnter * highlight LineNr guibg=none
+  highlight TrailingSpace gui=undercurl
+  match TrailingSpace /\s\+$/
 ]])
