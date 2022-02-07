@@ -138,7 +138,12 @@ return packer.startup(function(use)
   -- }
   use {
     "rebelot/heirline.nvim",
-    config = "dofile('"..pluginConf.."statusline.lua')"
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+      opt = true,
+      event = "BufRead",
+    },
+    config = "dofile('"..pluginConf.."statusline/init.lua')"
   }
 	use {
     "folke/which-key.nvim",
