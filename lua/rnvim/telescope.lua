@@ -55,6 +55,12 @@ M.change_colourscheme = function ()
           require('telescope.actions').close(prompt_bufnr)
         end
       end
+      function clear_background()
+        pcall (vim.cmd, "highlight Normal guibg=none")
+        pcall (vim.cmd, "highlight NonText guibg=none")
+        pcall (vim.cmd, "highlight LineNr guibg=none")
+      end
+
       map('i', '<C-s>', function(bufnr)
         set_colour()
       end)
@@ -69,6 +75,12 @@ M.change_colourscheme = function ()
         set_colour(true)
       end)
 
+      map('i', '<C-t>', function(bufnr)
+        clear_background()
+      end)
+      map('n', 't', function(bufnr)
+        clear_background()
+      end)
       return true
     end
   })
