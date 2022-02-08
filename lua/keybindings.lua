@@ -138,3 +138,4 @@ map("v", "<leader>w", "<cmd>s/\\s\\+$//<cr>", silentOpts)
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
+map("i", "<C-j>", "<Esc>Ji", silentOpts)
