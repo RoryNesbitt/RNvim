@@ -8,7 +8,15 @@ vim.g.dashboard_custom_section = {
 	e = { description = { "  Search Text                -" }, command = "Telescope grep_string" },
 	f = { description = { "  New File                   -" }, command = "enew" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | Telescope find_files" },
-	h = { description = { "  Update Config              -" }, command = ":echo 'Pulling config' | echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull') | so $HOME/.config/nvim/lua/packer-init.lua | echo 'Restart Neovim to see any changes' | PackerSync" },
+	h = { description = { "  Update Config              -" }, command = function ()
+    vim.cmd([[
+    echo 'Pulling config'
+    echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull')
+    so $HOME/.config/nvim/lua/packer-init.lua
+    echo 'Restart Neovim to see any changes'
+    PackerSync
+    ]])
+  end},
   --  
 }
 
