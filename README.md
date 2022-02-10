@@ -36,3 +36,5 @@ insert mode is mapped to center the line the cursor is on.
   - <kbd>Alt-hjkl</kbd> will resize the split window
 - <kbd>U</kbd> (uppercase) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
+- <kbd>gh</kbd>, for 'GAHH', will release a little frustration from your code by
+  changing to a random colourscheme
