@@ -1,3 +1,4 @@
+local confDir = vim.fn.stdpath('config')..'/lua/'
 vim.cmd([[
   augroup packer-updater
     autocmd!
@@ -12,5 +13,10 @@ vim.cmd([[
   augroup my_textwidth
     au!
     autocmd FileType text,markdown,tex setlocal textwidth=80
+  augroup END
+
+  augroup lualineColors
+    autocmd!
+    autocmd ColorScheme * luafile /home/rory/.config/nvim/lua/rnvim/lualine.lua
   augroup END
 ]])

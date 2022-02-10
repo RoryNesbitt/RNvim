@@ -2,34 +2,36 @@
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.
 
--- stylua: ignore
+local getHl = vim.api.nvim_get_hl_by_name
 local colors = {
-  blue   = '#80a0ff',
-  -- blue = utils.get_highlight("Function").fg,
-  cyan   = '#79dac8',
-  -- cyan = utils.get_highlight("Special").fg,
+  blue = getHl("Function", true).foreground,
+  cyan = getHl("Special", true).foreground,
   black  = '#080808',
   white  = '#c6c6c6',
-  red    = '#ff5189',
-  -- red = utils.get_highlight("DiagnosticError").fg,
-  violet = '#d183e8',
-  -- purple = utils.get_highlight("Statement").fg,
-  grey   = '#303030',
-  -- gray = utils.get_highlight("NonText").fg,
-  yel = '#ffff00',
+  red = getHl("DiagnosticError", true).foreground,
+  violet = getHl("Statement", true).foreground,
+  gray = getHl("NonText", true).foreground,
+  green = getHl("String", true).foreground,
+  orange = getHl("DiagnosticWarn", true).foreground,
+  diag = {
+    warn = getHl("DiagnosticWarn", true).foreground,
+    error = getHl("DiagnosticError", true).foreground,
+    hint = getHl("DiagnosticHint", true).foreground,
+    info = getHl("DiagnosticInfo", true).foreground,
+  },
 }
 
 local bubbles_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey   },
+    a = { fg = colors.black, bg = string.format("#%06x", colors.violet) },
+    b = { fg = colors.white, bg = string.format("#%06x", colors.gray)   },
     c = { fg = colors.white, bg = 'none'  },
   },
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
-  command = { a = { fg = colors.black, bg = colors.yel } },
+  insert = { a = { fg = colors.black, bg = string.format("#%06x", colors.blue) } },
+  visual = { a = { fg = colors.black, bg = string.format("#%06x", colors.cyan) } },
+  replace = { a = { fg = colors.black, bg = string.format("#%06x", colors.red) } },
+  command = { a = { fg = colors.black, bg = string.format("#%06x", colors.green) } },
 
   inactive = {
     a = { fg = colors.white, bg = 'none' },
