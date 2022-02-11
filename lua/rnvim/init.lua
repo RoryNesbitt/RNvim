@@ -4,10 +4,12 @@ local function randomNum(i)
   math.randomseed(os.clock()*100000000000)
   return math.random(i)
 end
-M.randomColours = function ()
+M.randomColours = function(show)
   local schemes = vim.fn.getcompletion('', 'color')
   local colourScheme = schemes[randomNum(#schemes)]
-  print(colourScheme)
+  if show then
+    print(colourScheme)
+  end
   pcall(vim.cmd, "colorscheme "..colourScheme)
   pcall(vim.cmd, "highlight LineNr guibg=none")
   pcall(vim.cmd, "highlight NonText guibg=none")
