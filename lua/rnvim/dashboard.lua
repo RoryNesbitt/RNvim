@@ -20,7 +20,7 @@ vim.g.dashboard_custom_section = {
   --  
 }
 
-function pluginCount()
+local function pluginCount()
 	local i, t, popen = 0, {}, io.popen
 	for filename in popen("ls "..dataDir.."/site/pack/packer/start/"):lines() do
 		i = i + 1
@@ -213,6 +213,6 @@ local logos = {
   },
 }
 
-math.randomseed(os.time())
-s = math.random(1,#logos)
+math.randomseed(os.clock()*100000000000)
+local s = math.random(1,#logos)
 vim.g.dashboard_custom_header = logos[s]
