@@ -1,4 +1,6 @@
 vim.g.dashboard_default_executive = "telescope"
+local confDir = vim.fn.stdpath('config')
+local dataDir = vim.fn.stdpath('data')
 
 vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "Telescope find_files" },
@@ -9,23 +11,21 @@ vim.g.dashboard_custom_section = {
 	f = { description = { "  New File                   -" }, command = "enew" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | Telescope find_files" },
 	h = { description = { "  Update Config              -" }, command = function ()
-    vim.cmd([[
-    echo 'Pulling config'
-    echo system('git --git-dir=$HOME/.config/nvim/.git --work-tree=$HOME/.config/nvim/ pull')
-    so $HOME/.config/nvim/lua/packer-init.lua
-    echo 'Restart Neovim to see any changes'
-    PackerSync
-    ]])
+    print('Pulling config')
+    print(vim.fn.system('git --git-dir='..confDir..'/.git --work-tree='..confDir..' pull'))
+    dofile(confDir..'/lua/packer-init.lua')
+    vim.cmd('PackerSync')
+    print('Restart Neovim to see any changes')
   end},
   --  
 }
 
 function pluginCount()
 	local i, t, popen = 0, {}, io.popen
-	for filename in popen("ls ~/.local/share/nvim/site/pack/packer/start/"):lines() do
+	for filename in popen("ls "..dataDir.."/site/pack/packer/start/"):lines() do
 		i = i + 1
 	end
-	for filename in popen("ls ~/.local/share/nvim/site/pack/packer/opt/"):lines() do
+	for filename in popen("ls "..dataDir.."/site/pack/packer/opt/"):lines() do
 		i = i + 1
 	end
 	return i
