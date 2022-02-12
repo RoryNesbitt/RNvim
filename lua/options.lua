@@ -2,9 +2,15 @@
 vim.wo.cursorline = true -- Highlights the current line
 --vim.wo.cursorcolumn = true        -- Highlights the current column
 vim.cmd([[
-highlight CursorLine ctermbg=black cterm=bold
-highlight Cursorcolumn ctermbg=black cterm=bold
+  highlight CursorLine ctermbg=black cterm=bold
+  highlight Cursorcolumn ctermbg=black cterm=bold
+  highlight TrailingSpace gui=undercurl
+  match TrailingSpace /\s\+$/
 ]])
+vim.g.mapleader = " "
+vim.o.termguicolors = true
+--vim.o.t_Co = '256'
+--vim.bo.t_Co = '256'
 vim.wo.wrap = false -- Long lines won't wrap
 vim.wo.colorcolumn = "80" -- Adds a colour marker on the # column
 vim.wo.signcolumn = "yes" -- Left side info column
