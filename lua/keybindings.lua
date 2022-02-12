@@ -38,6 +38,8 @@ map("n", "s", "zzs", silentOpts)
 map("n", "S", "zzS", silentOpts)
 map("n", "c", "zzc", silentOpts)
 map("n", "C", "zzC", silentOpts)
+map("n", "n", "nzz", silentOpts)
+map("n", "N", "Nzz", silentOpts)
 
 -- Move line
 map("v", "<S-h>", "<gv", silentOpts)
