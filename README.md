@@ -6,10 +6,10 @@ by that guy that made RNvim, and here's why you shouldn't use it.
 ## No Seriously..
 
 RNvim is set up to be simple and make sense..to me.  
-I seperated this out from my main dotfiles config because I find myself needing
-just this on more devices than I need everything. It is written completely
-with my needs in mind and that's unlikely to ever change. Even the installation
-commands are there so I can refrence them later.
+I separated this from my main dotfiles config because I need just this on more
+devices than I need everything. It is written completely with my needs in mind,
+and that's unlikely to change. Even the installation commands are there so I can
+reference them later.
 
 Okay fine.  
 If you choose to ignore me and use it anyway, keybindings are
@@ -24,6 +24,7 @@ bound by plugins are left at default.
 git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
+Language servers can be added with lsp-installer, the keybinding is <leader>li
 
 ### A note on non-leader bindings
 
