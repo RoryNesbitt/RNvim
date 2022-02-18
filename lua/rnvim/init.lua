@@ -13,11 +13,11 @@ M.randomColours = function(show)
   pcall(vim.cmd, "colorscheme "..colourScheme)
   pcall(vim.cmd, "highlight LineNr guibg=none")
   pcall(vim.cmd, "highlight NonText guibg=none")
+end
 
-  function clear_background()
-    pcall(vim.cmd, "highlight Normal guibg=none")
-    pcall(vim.cmd, "highlight LineNr guibg=none")
-  end
+M.transparentBackground = function ()
+  pcall(vim.cmd, "highlight Normal guibg=none")
+  pcall(vim.cmd, "highlight LineNr guibg=none")
 end
 
 return M
