@@ -4,11 +4,11 @@ local map = vim.api.nvim_set_keymap
 
 local HARDMODE = 2
 if HARDMODE>0 then
-	-- Disable Arrow keys in Normal mode
-	map("n", "<up>", "<nop>", silentOpts)
-	map("n", "<down>", "<nop>", silentOpts)
-	map("n", "<left>", "<nop>", silentOpts)
-	map("n", "<right>", "<nop>", silentOpts)
+  -- Disable Arrow keys in Normal mode
+  map("n", "<up>", "<nop>", silentOpts)
+  map("n", "<down>", "<nop>", silentOpts)
+  map("n", "<left>", "<nop>", silentOpts)
+  map("n", "<right>", "<nop>", silentOpts)
 end
 if HARDMODE>1 then
   -- Disable Arrow keys in Insert mode
@@ -28,6 +28,8 @@ end
 -- Center to focus
 map("n", "{", "{zz", silentOpts)
 map("n", "}", "}zz", silentOpts)
+map("n", "n", "nzz", silentOpts)
+map("n", "N", "Nzz", silentOpts)
 map("n", "i", "zzi", silentOpts)
 map("n", "I", "zzI", silentOpts)
 map("n", "o", "zzo", silentOpts)
@@ -38,8 +40,6 @@ map("n", "s", "zzs", silentOpts)
 map("n", "S", "zzS", silentOpts)
 map("n", "c", "zzc", silentOpts)
 map("n", "C", "zzC", silentOpts)
-map("n", "n", "nzz", silentOpts)
-map("n", "N", "Nzz", silentOpts)
 
 -- Move line
 map("v", "<S-h>", "<gv", silentOpts)

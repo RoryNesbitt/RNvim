@@ -1,12 +1,6 @@
 --VISUAL
 vim.wo.cursorline = true -- Highlights the current line
 --vim.wo.cursorcolumn = true        -- Highlights the current column
-vim.cmd([[
-  highlight CursorLine ctermbg=black cterm=bold
-  highlight Cursorcolumn ctermbg=black cterm=bold
-  highlight TrailingSpace gui=undercurl
-  match TrailingSpace /\s\+$/
-]])
 vim.g.mapleader = " "
 vim.o.termguicolors = true
 --vim.o.t_Co = '256'

@@ -12,7 +12,7 @@ and that's unlikely to change. Even the installation commands are there so I can
 reference them later.
 
 Okay fine.  
-If you choose to ignore me and use it anyway, keybindings are
+If you choose to ignore me and use it anyway, keybindings are set
 [here](lua/keybindings.lua), and if you forget, whichkey is included to provide
 a gentle reminder.  
 Everything I bind myself starts with leader, which is set to space. Most things
@@ -24,14 +24,15 @@ bound by plugins are left at default.
 git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
-Language servers can be added with lsp-installer, the keybinding is <leader>li
+Language servers can be added with lsp-installer, the keybinding is
+<kbd>\<leader\>li</kbd>
 
 ### A note on non-leader bindings
 
 - Moving with <kbd>{</kbd>, <kbd>}</kbd>, <kbd>n</kbd> or <kbd>N</kbd> and
 anything that results in being in insert mode is mapped to center the line the
 cursor is on.
-- <kbd>hjkl</kbd> is used for all motions:
+- <kbd>hjkl</kbd> are used for all motions:
   - <kbd>Ctrl-hjkl</kbd> will jump between splits
   - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
   - `Normal` <kbd>Shift-hjkl</kbd> will move the split window that direction
