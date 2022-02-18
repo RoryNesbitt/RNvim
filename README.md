@@ -28,8 +28,9 @@ Language servers can be added with lsp-installer, the keybinding is <leader>li
 
 ### A note on non-leader bindings
 
-- Moving with <kbd>{</kbd> or <kbd>}</kbd> and anything that results in being in
-insert mode is mapped to center the line the cursor is on.
+- Moving with <kbd>{</kbd>, <kbd>}</kbd>, <kbd>n</kbd> or <kbd>N</kbd> and
+anything that results in being in insert mode is mapped to center the line the
+cursor is on.
 - <kbd>hjkl</kbd> is used for all motions:
   - <kbd>Ctrl-hjkl</kbd> will jump between splits
   - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
