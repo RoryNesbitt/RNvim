@@ -234,6 +234,7 @@ return packer.startup(function(use)
     run = function()
       vim.fn["firenvim#install"](0)
     end,
+    config = "vim.cmd('source "..pluginConf.."firen.vim')",
   }
   use {
     "aserowy/tmux.nvim",
