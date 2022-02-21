@@ -163,6 +163,11 @@ return packer.startup(function(use)
 	use {
     "tpope/vim-fugitive",
   }
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = 'require("neogit").setup()',
+  }
 	--use 'airblade/vim-gitgutter'
   use {
     "lewis6991/gitsigns.nvim",
