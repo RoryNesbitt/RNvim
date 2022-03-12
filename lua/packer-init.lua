@@ -232,7 +232,11 @@ return packer.startup(function(use)
 	--program integration
 	use {
     "beeender/Comrade",
-    opt = true,
+    requires = {
+      "Shougo/deoplete.nvim",
+      run = ':UpdateRemotePlugins',
+      config = 'call deoplete#enable()'
+    },
   }
   use {
     "glacambre/firenvim",
