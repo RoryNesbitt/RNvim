@@ -19,7 +19,6 @@ local servers = {
 	"dockerls",
 	"html",
 	"jsonls",
-	"pylsp",
 	"tailwindcss",
 	"texlab",
 	"tsserver",
