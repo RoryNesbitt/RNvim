@@ -11,11 +11,10 @@ devices than I need everything. It is written completely with my needs in mind,
 and that's unlikely to change. Even the installation commands are there so I can
 reference them later.
 
-Okay fine.  
 If you choose to ignore me and use it anyway, keybindings are set
 [here](lua/keybindings.lua), and if you forget, whichkey is included to provide
 a gentle reminder.  
-Everything I bind myself starts with leader, which is set to space. Most things
+Everything I bind myself starts with <kbd>leader</kbd>, which is set to <kbd>space</kbd>. Most things
 bound by plugins are left at default.
 
 ## Installation
@@ -42,4 +41,4 @@ of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
 - <kbd>gh</kbd>, for 'GAHH', will release a little frustration from your code by
   changing to a random colourscheme
 - <kbd>tc</kbd>, for transparent colours, will remove the background colours
-  from the colourscheme. Useful after using <kbd>gh</kbd>
+  from the colourscheme. Useful after a GAHH
