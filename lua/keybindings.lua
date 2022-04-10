@@ -123,7 +123,7 @@ map("n", "<leader>cw", "<cmd>lua require('rnvim.telescope').change_wallpaper()<c
 map("n", "<leader>cc", "<cmd>lua require('rnvim.telescope').change_colourscheme()<cr>", silentOpts)
 
 --Git
-map("n", "<leader>gs", "<cmd>lua require('neogit').open({kind = 'vsplit'})<cr>", silentOpts)
+map("n", "<leader>gs", "<cmd>lua require('neogit').open()<cr>", silentOpts)
 map("n", "<leader>gac", "<cmd>Git add %<cr>", silentOpts)
 map("n", "<leader>gaa", "<cmd>Git add --all<cr>", silentOpts)
 map("n", "<leader>gau", "<cmd>Git add --update<cr>", silentOpts)
