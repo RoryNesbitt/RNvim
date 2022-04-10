@@ -171,6 +171,13 @@ return packer.startup(function(use)
     },
     config = "dofile('"..pluginConf.."neogit.lua')",
   }
+  use {
+    'sindrets/diffview.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = "dofile('"..pluginConf.."diffview.lua')"
+  }
 	--use 'airblade/vim-gitgutter'
   use {
     "lewis6991/gitsigns.nvim",
