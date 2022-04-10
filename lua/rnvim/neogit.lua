@@ -11,6 +11,9 @@ neogit.setup {
   },
   kind = "tab", --This is redundant but I want to move it to floating when it's working
   
+  integrations = {
+    diffview = true,
+  },
   sections = {
     recent = false,
   },

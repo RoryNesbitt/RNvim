@@ -165,7 +165,10 @@ return packer.startup(function(use)
   }
   use {
     'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+    },
     config = "dofile('"..pluginConf.."neogit.lua')",
   }
 	--use 'airblade/vim-gitgutter'
