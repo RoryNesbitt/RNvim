@@ -123,17 +123,13 @@ map("n", "<leader>cw", "<cmd>lua require('rnvim.telescope').change_wallpaper()<c
 map("n", "<leader>cc", "<cmd>lua require('rnvim.telescope').change_colourscheme()<cr>", silentOpts)
 
 --Git
-map("n", "<leader>gs", "<cmd>lua require('neogit').open()<cr>", silentOpts)
-map("n", "<leader>gac", "<cmd>Git add %<cr>", silentOpts)
-map("n", "<leader>gaa", "<cmd>Git add --all<cr>", silentOpts)
-map("n", "<leader>gau", "<cmd>Git add --update<cr>", silentOpts)
-map("n", "<leader>gc", ":Git commit -m \"\"<Left>", opts)
-map("n", "<leader>gg", ":Git add --update <bar> Git commit -m \"\"<Left>", opts)
-map("n", "<leader>gps", "<cmd>Git push<cr>", silentOpts)
-map("n", "<leader>gpl", "<cmd>Git pull<cr>", silentOpts)
-map("n", "<leader>gd", "<cmd>Git diff<cr>", silentOpts)
+map("n", "<leader>gg", "<cmd>lua require('neogit').open()<cr>", silentOpts)
+map("n", "<leader>ga", "<cmd>Git add %<cr>", silentOpts)
+map("n", "<leader>gc", "<cmd>lua require('neogit').open({'commit'})<cr>", silentOpts)
+map("n", "<leader>gp", "<cmd>Git pull<cr>", silentOpts)
+map("n", "<leader>gP", "<cmd>Git push<cr>", silentOpts)
+map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", silentOpts)
 map("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", silentOpts)
-map("n", "<leader>gch", ":Git checkout ", opts)
 
 --whitespace
 map("n", "<leader>w", "<cmd>%s/\\s\\+$//<cr>", silentOpts)
