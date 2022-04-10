@@ -1,6 +1,6 @@
 local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
 local HARDMODE = 2
 if HARDMODE>0 then
@@ -53,15 +53,12 @@ map("n", "<S-k>", "<C-w>K", silentOpts)
 map("n", "<S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
-map("n", "<leader>y", '"+y', silentOpts)
+map({"n","v"}, "<leader>y", '"+y', silentOpts)
 map("n", "<leader>Y", '"+Y', silentOpts)
-map("v", "<leader>y", '"+y', silentOpts)
-map("n", "<leader>d", '"+d', silentOpts)
+map({"n","v"}, "<leader>d", '"+d', silentOpts)
 map("n", "<leader>D", '"+D', silentOpts)
-map("v", "<leader>d", '"+d', silentOpts)
-map("n", "<leader>p", '"+p', silentOpts)
+map({"n","v"}, "<leader>p", '"+p', silentOpts)
 map("n", "<leader>P", '"+P', silentOpts)
-map("v", "<leader>p", '"+p', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
 -- set spellcheck
@@ -79,9 +76,7 @@ map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", silentOpts)
 map("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<cr>", silentOpts)
 map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", silentOpts)
 map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", silentOpts)
---map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", silentOpts)
 map("n", "<leader>la", "<cmd>Telescope lsp_code_actions<cr>", silentOpts)
---map("n", "<leader>ll", "<cmd>lua vim.diagnostic.show_line_diagnostics()<cr>", silentOpts)
 map("n", "<leader>ll", "<cmd>Telescope diagnostics<cr>", silentOpts)
 map("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", silentOpts)
 map("n", "<leader>lp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", silentOpts)
@@ -98,11 +93,9 @@ map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
 map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
 
 -- replace in line
-map("n", "<leader>s", ":s//gI<Left><Left><Left>", opts)
-map("v", "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map({"n","v"}, "<leader>s", ":s//gI<Left><Left><Left>", opts)
 -- replace in file
-map("n", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
-map("v", "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map({"n","v"}, "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --telescope
 map("n", "<leader>j", "<cmd>Telescope find_files<cr>", silentOpts)

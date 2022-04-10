@@ -1,22 +1,26 @@
 local confDir = vim.fn.stdpath('config')..'/lua/'
-vim.cmd([[
-  augroup packer-updater
-    autocmd!
-    autocmd BufWritePost packer-init.lua source <afile> | PackerSync
-  augroup end
 
-  augroup tmux-reload
-    autocmd!
-    autocmd BufWritePost tmux.conf | !tmux source-file ~/.config/tmux/tmux.conf; tmux display-message "tmux.conf reloaded"
-  augroup end
+local onWrite = vim.api.nvim_create_augroup("onFileWrite", { clear = true })
+vim.api.nvim_create_autocmd( "BufWritePost", {
+    pattern = "packer-init.lua",
+    command = "source <afile> | PackerSync",
+    group = onWrite
+  })
+vim.api.nvim_create_autocmd( "BufWritePost", {
+    pattern = "tmux.conf",
+    command = "!tmux source-file ~/.config/tmux/tmux.conf; tmux display-message 'Reloaded tmux config'",
+    group = onWrite
+  })
 
-  augroup my_textwidth
-    au!
-    autocmd FileType text,markdown,tex setlocal textwidth=80
-  augroup END
+local onFileType vim.api.nvim_create_augroup("onFileType", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"markdown", "tex", "text"},
+  callback = "setlocal textwidth=80",
+  group = onFileType
+})
 
-  augroup lualineColors
-    autocmd!
-    autocmd ColorScheme * luafile /home/rory/.config/nvim/lua/rnvim/lualine.lua
-  augroup END
-]])
+local lualineColors vim.api.nvim_create_augroup("lualineColors", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = "luafile "..confDir.."rnvim/lualine.lua",
+  group = onFileType
+})

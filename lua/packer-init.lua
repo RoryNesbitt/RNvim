@@ -234,7 +234,7 @@ return packer.startup(function(use)
     'sunjon/stylish.nvim',
     config = function ()
       -- vim.ui.notify = require('stylish').ui_notification()
-      vim.api.nvim_set_keymap(
+      vim.keymap.set(
         'n',
         '<F12>',
         '<Cmd>lua require"stylish".ui_clock()<CR>',
