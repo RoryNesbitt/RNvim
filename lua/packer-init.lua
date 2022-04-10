@@ -80,10 +80,13 @@ return packer.startup(function(use)
     "onsails/lspkind-nvim",
   }
 	--snippets
+  -- use {
+  --   "hrsh7th/cmp-vsnip",
+  --   requires = { "hrsh7th/vim-vsnip", opt = true },
+  --   after = 'nvim-cmp'
+  -- }
   use {
-    "hrsh7th/cmp-vsnip",
-    requires = { "hrsh7th/vim-vsnip", opt = true },
-    after = 'nvim-cmp'
+    "L3MON4D3/LuaSnip",
   }
 	use {
     "rafamadriz/friendly-snippets",
