@@ -6,7 +6,9 @@ vim.g.dashboard_custom_section = {
 	a = { description = { "  Jump to File               -" }, command = "Telescope find_files" },
 	b = { description = { "  Jump to bookmarks          -" }, command = "Telescope jumplist" },
 	c = { description = { "  Recent Files               -" }, command = "Telescope oldfiles" },
-	d = { description = { "  Change Colourscheme        -" }, command = "lua require('rnvim.telescope').change_colourscheme()" },
+	d = { description = { "  Change Colourscheme        -" }, command = function()
+    require('rnvim.telescope').change_colourscheme()
+  end,  },
 	e = { description = { "  Search Text                -" }, command = "Telescope grep_string" },
 	f = { description = { "  New File                   -" }, command = "enew" },
 	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | Telescope find_files" },

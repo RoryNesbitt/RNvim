@@ -235,9 +235,9 @@ return packer.startup(function(use)
     config = function ()
       -- vim.ui.notify = require('stylish').ui_notification()
       vim.keymap.set(
-        'n',
-        '<F12>',
-        '<Cmd>lua require"stylish".ui_clock()<CR>',
+        'n', '<F12>', function()
+          require"stylish".ui_clock()
+        end,
         { noremap = true, silent = true }
       )
     end
