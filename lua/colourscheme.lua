@@ -7,10 +7,11 @@ if not status_ok then
 end
 
 vim.cmd([[
-  au VimEnter * highlight ColorColumn ctermbg=8
-  au VimEnter * highlight Normal guibg=none
-  au VimEnter * highlight NonText guibg=none
-  au VimEnter * highlight LineNr guibg=none
+  highlight ColorColumn ctermbg=8
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight LineNr guibg=none
+  highlight WinSeparator guibg=none
   highlight CursorLine ctermbg=black cterm=bold
   highlight Cursorcolumn ctermbg=black cterm=bold
   highlight TrailingSpace gui=undercurl
