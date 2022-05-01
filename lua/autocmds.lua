@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 local lualineColors vim.api.nvim_create_augroup("lualineColors", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
   callback = "luafile "..confDir.."rnvim/lualine.lua",
-  group = onFileType
+  group = lualineColors
 })
