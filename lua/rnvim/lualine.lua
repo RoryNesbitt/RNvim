@@ -1,7 +1,3 @@
--- Bubbles config for lualine
--- Author: lokesh-krishna
--- MIT license, see LICENSE for more details.
-
 local getHl = vim.api.nvim_get_hl_by_name
 local colors = {
   blue = getHl("Function", true).foreground,
