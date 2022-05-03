@@ -33,9 +33,10 @@ anything that results in being in insert mode is mapped to center the line the
 cursor is on.
 - <kbd>hjkl</kbd> are used for all motions:
   - <kbd>Ctrl-hjkl</kbd> will jump between splits
-  - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
-  - `Normal` <kbd>Shift-hjkl</kbd> will move the split window that direction
   - <kbd>Alt-hjkl</kbd> will resize the split window
+  - <kbd>Ctrl-Shift-hjkl</kbd> will move the split window that direction
+    - Note: This requires the keypress to be passed through in your terminal
+  - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
 - <kbd>U</kbd> (uppercase) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
 - <kbd>gh</kbd>, for 'GAHH', will release a little frustration from your code by

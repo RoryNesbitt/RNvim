@@ -47,10 +47,10 @@ map("v", "<S-j>", ":m '>+1<cr>gv=gv", silentOpts)
 map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
 map("v", "<S-l>", ">gv", silentOpts)
 -- Move Windows
-map("n", "<S-h>", "<C-W>H", silentOpts)
-map("n", "<S-j>", "<C-w>J", silentOpts)
-map("n", "<S-k>", "<C-w>K", silentOpts)
-map("n", "<S-l>", "<C-w>L", silentOpts)
+map("n", "<C-S-h>", "<C-W>H", silentOpts)
+map("n", "<C-S-j>", "<C-w>J", silentOpts)
+map("n", "<C-S-k>", "<C-w>K", silentOpts)
+map("n", "<C-S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
 map({ "n", "v" }, "<leader>y", '"+y', silentOpts)
@@ -167,7 +167,6 @@ map("v", "<leader>w", "<cmd>s/\\s\\+$//<cr>", silentOpts)
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
-map("i", "<C-j>", "<Esc>Ji", silentOpts)
 map("n", "gh", function()
 	require("rnvim").randomColours(true)
 end, silentOpts)
