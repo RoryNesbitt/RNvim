@@ -17,7 +17,6 @@ end
 
 M.transparentBackground = function ()
   pcall(vim.cmd, "highlight Normal guibg=none")
-  pcall(vim.cmd, "highlight LineNr guibg=none")
 end
 
 return M
