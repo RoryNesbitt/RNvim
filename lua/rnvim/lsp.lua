@@ -1,5 +1,7 @@
-vim.completeopt = "menuone,noinsert,noselect"
-vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
+local status_ok, lspconfig = pcall(require, "lspconfig")
+if not status_ok then
+	return
+end
 
 local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
@@ -7,11 +9,10 @@ local on_attach = function(client, bufnr)
 	end
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local servers = {
 	"ansiblels",
 	"bashls",
@@ -26,7 +27,7 @@ local servers = {
 	"yamlls",
 }
 for _, lsp in ipairs(servers) do
-	require("lspconfig")[lsp].setup({
+	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		flags = {
@@ -35,38 +36,33 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").clangd.setup({
+lspconfig.clangd.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "c", "cpp", "objc", "objcpp", "ino" },
-})
-
-require("lspconfig/configs").ls_emmet = {
-	default_config = {
-		cmd = { "ls_emmet", "--stdio" },
-		filetypes = { "html", "css", "scss", "jsx" }, -- Add the languages you use, see language support
-		root_dir = function(_)
-			return vim.loop.cwd()
-		end,
-		settings = {},
-	},
 }
 
-local system_name = "Linux"
-local sumneko_root_path = os.getenv("HOME") .. ".config/nvim/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-require("lspconfig").sumneko_lua.setup({
-	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+-- lspconfig.config.ls_emmet {
+-- 	on_attach = on_attach,
+-- 	default_config = {
+-- 		cmd = { "ls_emmet", "--stdio" },
+-- 		filetypes = { "html", "css", "scss", "jsx", "tsx" },
+-- 		root_dir = function(_)
+-- 			return vim.loop.cwd()
+-- 		end,
+-- 		settings = {},
+-- 	},
+-- }
+
+lspconfig.sumneko_lua.setup {
+	on_attach = on_attach,
 	settings = {
 		Lua = {
 			runtime = {
 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 				-- Setup your lua path
-				path = runtime_path,
+        path = vim.split(package.path, ";")
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
@@ -83,4 +79,4 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
-})
+}
