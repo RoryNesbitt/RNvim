@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd( "BufWritePost", {
 local onFileType vim.api.nvim_create_augroup("onFileType", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {"markdown", "tex", "text"},
-  callback = "setlocal textwidth=80",
+  command = "setlocal textwidth=80",
   group = onFileType
 })
 
