@@ -243,6 +243,10 @@ return packer.startup(function(use)
     end
   }
 	--program integration
+  use {
+    "aspeddro/pandoc.nvim",
+    config = "require('pandoc').setup()"
+  }
 	use {
     "beeender/Comrade",
     requires = {
