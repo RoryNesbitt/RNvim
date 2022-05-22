@@ -13,7 +13,9 @@ require'diffview'.setup {
     folder_open = "",
   },
   file_panel = {
-    width = 25,
+    win_config = {
+      width = 25,
+    }
   },
   key_bindings = {
     disable_defaults = false,                   -- Disable the default key bindings
