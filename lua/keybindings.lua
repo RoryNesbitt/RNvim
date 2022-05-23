@@ -65,7 +65,7 @@ map("v", "p", '"_dP', silentOpts)
 --map('n', '<leader>l', '<cmd>setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
 
 --LSP
-map("n", "<leader>lI", "<cmd>LspInfo<cr>", silentOpts)
+map("n", "<leader>li", "<cmd>LspInfo<cr>", silentOpts)
 map("n", "<leader>lk", function()
 	vim.lsp.buf.signature_help()
 end, silentOpts)
@@ -103,7 +103,7 @@ map("n", "<leader>lp", function()
 	vim.diagnostic.goto_prev()
 end, silentOpts)
 --LSP-install
-map("n", "<leader>li", "<cmd>LspInstallInfo<cr>", silentOpts)
+map("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", silentOpts)
 --null-ls
 map("n", "<leader>ff", function()
 	vim.lsp.buf.formatting_sync()
