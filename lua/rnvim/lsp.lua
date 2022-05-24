@@ -21,6 +21,7 @@ local servers = {
 	"html",
 	"jedi_language_server",
 	"jsonls",
+  "kotlin_language_server",
   "lemminx",
 	"tailwindcss",
 	"texlab",
