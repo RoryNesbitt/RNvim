@@ -19,14 +19,14 @@ local servers = {
 	"cssls",
 	"dockerls",
 	"html",
+	"jedi_language_server",
 	"jsonls",
+  "lemminx",
 	"tailwindcss",
 	"texlab",
 	"tsserver",
 	"vimls",
 	"yamlls",
-	"jedi_language_server",
-  "lemminx",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -44,17 +44,17 @@ lspconfig.clangd.setup {
 	filetypes = { "c", "cpp", "objc", "objcpp", "ino" },
 }
 
--- lspconfig.config.ls_emmet {
--- 	on_attach = on_attach,
--- 	default_config = {
--- 		cmd = { "ls_emmet", "--stdio" },
--- 		filetypes = { "html", "css", "scss", "jsx", "tsx" },
--- 		root_dir = function(_)
--- 			return vim.loop.cwd()
--- 		end,
--- 		settings = {},
--- 	},
--- }
+lspconfig.emmet_ls.setup {
+	on_attach = on_attach,
+	default_config = {
+		cmd = { "ls_emmet", "--stdio" },
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+		root_dir = function(_)
+			return vim.loop.cwd()
+		end,
+		settings = {},
+	},
+}
 
 lspconfig.sumneko_lua.setup {
 	on_attach = on_attach,
