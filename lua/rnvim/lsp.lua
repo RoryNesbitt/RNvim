@@ -26,6 +26,7 @@ local servers = {
 	"vimls",
 	"yamlls",
 	"jedi_language_server",
+  "lemminx",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
