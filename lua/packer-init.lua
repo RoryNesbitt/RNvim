@@ -58,6 +58,33 @@ return packer.startup(function(use)
 	use {
     "simrat39/symbols-outline.nvim",
   }
+  --Dap
+  use {
+    "mfussenegger/nvim-dap",
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = {
+      "mfussenegger/nvim-dap",
+    },
+    config = "require('dapui').setup()",
+  }
+  use {
+    "theHamsta/nvim-dap-virtual-text",
+    requires = {
+      "mfussenegger/nvim-dap",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = "require('nvim-dap-virtual-text').setup()"
+  }
+  use {
+    "nvim-telescope/telescope-dap.nvim",
+    requires = {
+      "mfussenegger/nvim-dap",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = "require('telescope').load_extension('dap')",
+  }
 	--nvim-cmp
   use {
     "hrsh7th/nvim-cmp",
