@@ -21,4 +21,5 @@ if exists('g:started_by_firenvim')
   nnoremap j gj
   nnoremap k gk
   au BufEnter github.com_*.txt set filetype=markdown
+  au TextChanged,TextChangedI * ++nested write
 endif
