@@ -45,6 +45,10 @@ vim.bo.undofile = true
 vim.o.splitbelow = true -- split down
 vim.o.splitright = true -- vertical split right
 
+--spellcheck
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_gb' }
+
 --Misc
 vim.o.exrc = true -- Loads directory specific .vimrc files
 vim.o.errorbells = false -- Silence

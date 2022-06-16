@@ -136,6 +136,10 @@ return packer.startup(function(use)
     "p00f/nvim-ts-rainbow",
     after = 'nvim-treesitter'
   }
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = "require('spellsitter').setup()"
+  }
 	--Telescope
 	use {
     "nvim-telescope/telescope.nvim",
