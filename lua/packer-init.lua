@@ -278,14 +278,14 @@ return packer.startup(function(use)
     "aspeddro/pandoc.nvim",
     config = "require('pandoc').setup()"
   }
-	use {
-    "beeender/Comrade",
-    requires = {
-      "Shougo/deoplete.nvim",
-      run = ':UpdateRemotePlugins',
-      config = 'call deoplete#enable()'
-    },
-  }
+	-- use {
+ --    "beeender/Comrade",
+ --    requires = {
+ --      "Shougo/deoplete.nvim",
+ --      run = ':UpdateRemotePlugins',
+ --      config = 'call deoplete#enable()'
+ --    },
+ --  }
   use {
     "glacambre/firenvim",
     run = function()
