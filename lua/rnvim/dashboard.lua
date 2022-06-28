@@ -1,18 +1,23 @@
+local status_ok, db = pcall(require, "dashboard")
+if not status_ok then
+	return
+end
+
 vim.g.dashboard_default_executive = "telescope"
 local confDir = vim.fn.stdpath('config')
 local dataDir = vim.fn.stdpath('data')
 
-vim.g.dashboard_custom_section = {
-	a = { description = { "  Jump to File               -" }, command = "Telescope find_files" },
-	b = { description = { "  Jump to bookmarks          -" }, command = "Telescope jumplist" },
-	c = { description = { "  Recent Files               -" }, command = "Telescope oldfiles" },
-	d = { description = { "  Change Colourscheme        -" }, command = function()
+db.custom_center = {
+	{ icon = "  ", desc = "Jump to File                ", action = "Telescope find_files" },
+	{ icon = "  ", desc = "Jump to bookmarks           ", action = "Telescope jumplist" },
+	{ icon = "  ", desc = "Recent Files                ", action = "Telescope oldfiles" },
+	{ icon = "  ", desc = "Change Colourscheme         ", action = function()
     require('rnvim.telescope').change_colourscheme()
   end,  },
-	e = { description = { "  Search Text                -" }, command = "Telescope grep_string" },
-	f = { description = { "  New File                   -" }, command = "enew" },
-	g = { description = { "  Edit Config                -" }, command = "cd ~/.config/nvim/ | Telescope find_files" },
-	h = { description = { "  Update Config              -" }, command = function ()
+	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
+	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
+	{ icon = "  ", desc = "Edit Config                 ", action = "cd ~/.config/nvim/ | Telescope find_files" },
+	{ icon = "  ", desc = "Update Config               ", action = function ()
     print('Pulling config')
     print(vim.fn.system('git --git-dir='..confDir..'/.git --work-tree='..confDir..' pull'))
     dofile(confDir..'/lua/packer-init.lua')
@@ -33,7 +38,7 @@ local function pluginCount()
 	return i
 end
 
-vim.g.dashboard_custom_footer = { "Neovim loaded with " .. pluginCount() .. " plugins" }
+db.custom_footer = { "Neovim loaded with " .. pluginCount() .. " plugins" }
 --
 local logos = {
   {
@@ -217,4 +222,4 @@ local logos = {
 
 math.randomseed(os.clock()*100000000000)
 local s = math.random(1,#logos)
-vim.g.dashboard_custom_header = logos[s]
+db.custom_header = logos[s]
