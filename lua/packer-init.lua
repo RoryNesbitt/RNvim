@@ -46,11 +46,13 @@ return packer.startup(function(use)
 	use {
     "neovim/nvim-lspconfig",
     config = "dofile('"..pluginConf.."lsp.lua')",
-    event = 'BufRead'
   }
 	use {
     "williamboman/nvim-lsp-installer",
     config = "dofile('"..pluginConf.."lsp-installer.lua')",
+    requires = {
+      "neovim/nvim-lspconfig",
+    },
   }
 	use {
     "glepnir/lspsaga.nvim",
