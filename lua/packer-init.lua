@@ -26,7 +26,6 @@ packer.init({
 	},
 })
 
-local pluginConf = vim.fn.stdpath('config').."/lua/rnvim/"
 return packer.startup(function(use)
 	--Self manage packer
 	use "wbthomason/packer.nvim"
@@ -45,14 +44,14 @@ return packer.startup(function(use)
 	--Lsp
 	use {
     "neovim/nvim-lspconfig",
-    config = "dofile('"..pluginConf.."lsp.lua')",
+    config = "require'rnvim.lsp'",
   }
   use {
     "williamboman/mason.nvim"
   }
 	use {
     "williamboman/mason-lspconfig.nvim",
-    config = "dofile('"..pluginConf.."mason.lua')",
+    config = "require'rnvim.mason'",
     requires = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
@@ -94,7 +93,7 @@ return packer.startup(function(use)
 	--nvim-cmp
   use {
     "hrsh7th/nvim-cmp",
-    config = "dofile('"..pluginConf.."nvim-cmp.lua')",
+    config = "require'rnvim.nvim-cmp'",
   }
 	use {
     "hrsh7th/cmp-nvim-lsp",
@@ -127,7 +126,7 @@ return packer.startup(function(use)
 	--Treesitter
 	use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate", config = "dofile('"..pluginConf.."treesitter.lua')",
+    run = ":TSUpdate", config = "require'rnvim.treesitter'",
     event = 'BufWinEnter'
   }
 	use {
@@ -154,7 +153,7 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
-    config = "dofile('"..pluginConf.."telescope.lua')",
+    config = "require'rnvim.telescope'",
   }
 	use {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -164,7 +163,7 @@ return packer.startup(function(use)
 	--Extra info
 	use {
     "glepnir/dashboard-nvim",
-    config = "dofile('"..pluginConf.."dashboard.lua')",
+    config = "require'rnvim.dashboard'",
     event = 'BufWinEnter'
   }
   use {
@@ -174,7 +173,7 @@ return packer.startup(function(use)
       opt = true,
       event = 'BufRead'
     },
-    config = "dofile('"..pluginConf.."lualine.lua')",
+    config = "require'rnvim.lualine'",
   }
   -- use {
   --   "rebelot/heirline.nvim",
@@ -184,7 +183,7 @@ return packer.startup(function(use)
   --     event = "BufRead",
   --     after = 'vim-devicons',
   --   },
-  --   config = "dofile('"..pluginConf.."statusline/init.lua')"
+  --   config = "require'rnvim.statusline/init'"
   -- }
 	use {
     "folke/which-key.nvim",
@@ -209,14 +208,14 @@ return packer.startup(function(use)
       'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim',
     },
-    config = "dofile('"..pluginConf.."neogit.lua')",
+    config = "require'rnvim.neogit'",
   }
   use {
     'sindrets/diffview.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
     },
-    config = "dofile('"..pluginConf.."diffview.lua')"
+    config = "require'rnvim.diffview'"
   }
 	--use 'airblade/vim-gitgutter'
   use {
@@ -238,11 +237,11 @@ return packer.startup(function(use)
   }
 	use {
     "vim-syntastic/syntastic",
-    config = "dofile('"..pluginConf.."syntastic.lua')",
+    config = "require'rnvim.syntastic'",
   }
 	use {
     "windwp/nvim-autopairs",
-    config = "dofile('"..pluginConf.."autopairs.lua')",
+    config = "require'rnvim.autopairs'",
   }
   use {
     'numToStr/Comment.nvim',
@@ -260,12 +259,12 @@ return packer.startup(function(use)
   }
 	use {
     "lukas-reineke/indent-blankline.nvim",
-    config = "dofile('"..pluginConf.."indent-blankline.lua')",
+    config = "require'rnvim.indent-blankline'",
     event = 'BufRead'
   }
 	use {
     "jose-elias-alvarez/null-ls.nvim",
-    config = "dofile('"..pluginConf.."null-ls.lua')",
+    config = "require'rnvim.null-ls'",
   }
   use {
     'sunjon/stylish.nvim',
@@ -297,7 +296,7 @@ return packer.startup(function(use)
     run = function()
       vim.fn["firenvim#install"](0)
     end,
-    config = "vim.cmd('source "..pluginConf.."firen.vim')",
+    config = "require'rnvim.firenvim'",
   }
   use {
     "aserowy/tmux.nvim",
