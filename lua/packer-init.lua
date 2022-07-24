@@ -47,11 +47,15 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
     config = "dofile('"..pluginConf.."lsp.lua')",
   }
+  use {
+    "williamboman/mason.nvim"
+  }
 	use {
-    "williamboman/nvim-lsp-installer",
-    config = "dofile('"..pluginConf.."lsp-installer.lua')",
+    "williamboman/mason-lspconfig.nvim",
+    config = "dofile('"..pluginConf.."mason.lua')",
     requires = {
       "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
     },
   }
 	use {
