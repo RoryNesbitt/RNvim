@@ -53,12 +53,12 @@ map("n", "<C-S-k>", "<C-w>K", silentOpts)
 map("n", "<C-S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
-map({ "n", "v" }, "<leader>y", '"+y', silentOpts)
-map("n", "<leader>Y", '"+Y', silentOpts)
-map({ "n", "v" }, "<leader>d", '"+d', silentOpts)
-map("n", "<leader>D", '"+D', silentOpts)
-map({ "n", "v" }, "<leader>p", '"+p', silentOpts)
-map("n", "<leader>P", '"+P', silentOpts)
+map({ "n", "v" }, "<localleader>y", '"+y', silentOpts)
+map("n", "<localleader>Y", '"+Y', silentOpts)
+map({ "n", "v" }, "<localleader>d", '"+d', silentOpts)
+map("n", "<localleader>D", '"+D', silentOpts)
+map({ "n", "v" }, "<localleader>p", '"+p', silentOpts)
+map("n", "<localleader>P", '"+P', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
 -- set spellcheck
