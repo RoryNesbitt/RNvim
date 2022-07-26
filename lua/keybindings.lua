@@ -4,25 +4,25 @@ local map = vim.keymap.set
 
 local HARDMODE = 2
 if HARDMODE > 0 then
-	-- Disable Arrow keys in Normal mode
-	map("n", "<up>", "<nop>", silentOpts)
-	map("n", "<down>", "<nop>", silentOpts)
-	map("n", "<left>", "<nop>", silentOpts)
-	map("n", "<right>", "<nop>", silentOpts)
+  -- Disable Arrow keys in Normal mode
+  map("n", "<up>", "<nop>", silentOpts)
+  map("n", "<down>", "<nop>", silentOpts)
+  map("n", "<left>", "<nop>", silentOpts)
+  map("n", "<right>", "<nop>", silentOpts)
 end
 if HARDMODE > 1 then
-	-- Disable Arrow keys in Insert mode
-	map("i", "<up>", "<nop>", silentOpts)
-	map("i", "<down>", "<nop>", silentOpts)
-	map("i", "<left>", "<nop>", silentOpts)
-	map("i", "<right>", "<nop>", silentOpts)
+  -- Disable Arrow keys in Insert mode
+  map("i", "<up>", "<nop>", silentOpts)
+  map("i", "<down>", "<nop>", silentOpts)
+  map("i", "<left>", "<nop>", silentOpts)
+  map("i", "<right>", "<nop>", silentOpts)
 end
 if HARDMODE > 2 then
-	-- Disable hjkl in Normal mode
-	map("n", "h", "<nop>", silentOpts)
-	map("n", "j", "<nop>", silentOpts)
-	map("n", "k", "<nop>", silentOpts)
-	map("n", "l", "<nop>", silentOpts)
+  -- Disable hjkl in Normal mode
+  map("n", "h", "<nop>", silentOpts)
+  map("n", "j", "<nop>", silentOpts)
+  map("n", "k", "<nop>", silentOpts)
+  map("n", "l", "<nop>", silentOpts)
 end
 
 -- Center to focus
@@ -66,51 +66,27 @@ map("v", "p", '"_dP', silentOpts)
 
 --LSP
 map("n", "<leader>li", "<cmd>LspInfo<cr>", silentOpts)
-map("n", "<leader>lk", function()
-	vim.lsp.buf.signature_help()
-end, silentOpts)
-map("n", "<leader>lK", function()
-	vim.lsp.buf.hover()
-end, silentOpts)
-map("n", "<leader>lwa", function()
-	vim.lsp.buf.add_workspace_folder()
-end, silentOpts)
-map("n", "<leader>lwr", function()
-	vim.lsp.buf.remove_workspace_folder()
-end, silentOpts)
-map("n", "<leader>lwi", function()
-	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, silentOpts)
-map("n", "<leader>lt", function()
-	vim.lsp.buf.type_definition()
-end, silentOpts)
-map("n", "<leader>ld", function()
-	vim.lsp.buf.definition()
-end, silentOpts)
-map("n", "<leader>lD", function()
-	vim.lsp.buf.declaration()
-end, silentOpts)
+map("n", "<leader>lk", function() vim.lsp.buf.signature_help() end, silentOpts)
+map("n", "<leader>lK", function() vim.lsp.buf.hover() end, silentOpts)
+map("n", "<leader>lwa", function() vim.lsp.buf.add_workspace_folder() end, silentOpts)
+map("n", "<leader>lwr", function() vim.lsp.buf.remove_workspace_folder() end, silentOpts)
+map("n", "<leader>lwi", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, silentOpts)
+map("n", "<leader>lt", function() vim.lsp.buf.type_definition() end, silentOpts)
+map("n", "<leader>ld", function() vim.lsp.buf.definition() end, silentOpts)
+map("n", "<leader>lD", function() vim.lsp.buf.declaration() end, silentOpts)
 map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", silentOpts)
-map("n", "<leader>lR", function()
-	vim.lsp.buf.rename()
-end, silentOpts)
+map("n", "<leader>lR", function() vim.lsp.buf.rename() end, silentOpts)
 map("n", "<leader>la", "<cmd>Telescope lsp_code_actions<cr>", silentOpts)
 map("n", "<leader>ll", "<cmd>Telescope diagnostics<cr>", silentOpts)
-map("n", "<leader>ln", function()
-	vim.diagnostic.goto_next()
-end, silentOpts)
-map("n", "<leader>lp", function()
-	vim.diagnostic.goto_prev()
-end, silentOpts)
---LSP-install
+map("n", "<leader>ln", function() vim.diagnostic.goto_next() end, silentOpts)
+map("n", "<leader>lp", function() vim.diagnostic.goto_prev() end, silentOpts)
+--Mason
 map("n", "<leader>lI", "<cmd>Mason<cr>", silentOpts)
+
+--formatting
 --null-ls
-map("n", "<leader>ff", function()
-	vim.lsp.buf.formatting_sync()
-end, silentOpts)
-map("v", "<leader>ff", function()
-	vim.lsp.buf.range_formatting()
-end, silentOpts)
+map("n", "<leader>ff", function() vim.lsp.buf.formatting_sync() end, silentOpts)
+map("v", "<leader>ff", function() vim.lsp.buf.range_formatting() end, silentOpts)
 map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
 
 -- Open windows
@@ -133,28 +109,20 @@ map("n", "<leader>tb", "<cmd>Telescope buffers<cr>", silentOpts)
 map("n", "<leader>th", "<cmd>Telescope help_tags<cr>", silentOpts)
 map("n", "<leader>tc", "<cmd>Telescope commands<cr>", silentOpts)
 map("n", "<leader>/", function()
-	require("telescope.builtin").current_buffer_fuzzy_find({
-		sorting_strategy = "ascending",
-		layout_config = { prompt_position = "top" },
-		previewer = false,
-	})
+  require("telescope.builtin").current_buffer_fuzzy_find({
+    sorting_strategy = "ascending",
+    layout_config = { prompt_position = "top" },
+    previewer = false,
+  })
 end, silentOpts)
 --Telescope-change-x
-map("n", "<leader>cw", function()
-	require("rnvim.telescope").change_wallpaper()
-end, silentOpts)
-map("n", "<leader>cc", function()
-	require("rnvim.telescope").change_colourscheme()
-end, silentOpts)
+map("n", "<leader>cw", function() require("rnvim.telescope").change_wallpaper() end, silentOpts)
+map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme() end, silentOpts)
 
 --Git
-map("n", "<leader>gg", function()
-	require("neogit").open()
-end, silentOpts)
+map("n", "<leader>gg", function() require("neogit").open() end, silentOpts)
 map("n", "<leader>ga", "<cmd>Git add %<cr>", silentOpts)
-map("n", "<leader>gc", function()
-	require("neogit").open({ "commit" })
-end, silentOpts)
+map("n", "<leader>gc", function() require("neogit").open({ "commit" }) end, silentOpts)
 map("n", "<leader>gp", "<cmd>Git pull<cr>", silentOpts)
 map("n", "<leader>gP", "<cmd>Git push<cr>", silentOpts)
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", silentOpts)
@@ -167,9 +135,5 @@ map("v", "<leader>w", "<cmd>s/\\s\\+$//<cr>", silentOpts)
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
-map("n", "gh", function()
-	require("rnvim").randomColours(true)
-end, silentOpts)
-map("n", "tc", function()
-	require("rnvim").transparentBackground()
-end, silentOpts)
+map("n", "gh", function() require("rnvim").randomColours(true) end, silentOpts)
+map("n", "tc", function() require("rnvim").transparentBackground() end, silentOpts)
