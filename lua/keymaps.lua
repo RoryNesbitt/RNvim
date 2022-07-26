@@ -99,8 +99,6 @@ map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, silent
 map("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, silentOpts)
 map("n", "<leader>dl", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, silentOpts)
 map("n", "<leader>dr", function() require("dap").repl.open() end, silentOpts)
---dapui
-map("n", "<leader>du", function() require("dapui").open() end, silentOpts)
 
 -- Open windows
 map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)

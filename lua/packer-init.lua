@@ -64,7 +64,7 @@ return packer.startup(function(use)
       requires = {
         "mfussenegger/nvim-dap",
       },
-      config = "require('dapui').setup()",
+      config = "require('rnvim.dapui')",
     },
     {
       "theHamsta/nvim-dap-virtual-text",
