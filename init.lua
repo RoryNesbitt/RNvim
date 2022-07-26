@@ -1,5 +1,5 @@
 require"packer"
 require"options"
-require"keybindings"
+require"keymaps"
 require"autocmds"
 require"colourscheme"
