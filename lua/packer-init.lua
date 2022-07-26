@@ -58,7 +58,10 @@ return packer.startup(function(use)
     "glepnir/lspsaga.nvim",
     "simrat39/symbols-outline.nvim",
     --Dap
-    "mfussenegger/nvim-dap",
+    {
+      "mfussenegger/nvim-dap",
+      config = "require('rnvim.dap')"
+    },
     {
       "rcarriga/nvim-dap-ui",
       requires = {
