@@ -103,7 +103,7 @@ map("n", "<leader>lp", function()
 	vim.diagnostic.goto_prev()
 end, silentOpts)
 --LSP-install
-map("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", silentOpts)
+map("n", "<leader>lI", "<cmd>Mason<cr>", silentOpts)
 --null-ls
 map("n", "<leader>ff", function()
 	vim.lsp.buf.formatting_sync()
