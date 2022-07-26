@@ -27,10 +27,10 @@ packer.init({
 })
 
 return packer.startup(function(use)
-  --Self manage packer
-  use "wbthomason/packer.nvim"
-  --Colours
   use {
+    --Self manage packer
+    "wbthomason/packer.nvim",
+    --Colours
     { 'joshdick/onedark.vim', opt = true },
     { 'gruvbox-community/gruvbox', opt = true },
     { 'shaunsingh/nord.nvim', opt = true },
@@ -46,9 +46,7 @@ return packer.startup(function(use)
       "neovim/nvim-lspconfig",
       config = "require'rnvim.lsp'",
     },
-    {
-      "williamboman/mason.nvim"
-    },
+    "williamboman/mason.nvim",
     {
       "williamboman/mason-lspconfig.nvim",
       config = "require'rnvim.mason'",
@@ -57,16 +55,10 @@ return packer.startup(function(use)
         "williamboman/mason.nvim",
       },
     },
-    {
-      "glepnir/lspsaga.nvim",
-    },
-    {
-      "simrat39/symbols-outline.nvim",
-    },
+    "glepnir/lspsaga.nvim",
+    "simrat39/symbols-outline.nvim",
     --Dap
-    {
-      "mfussenegger/nvim-dap",
-    },
+    "mfussenegger/nvim-dap",
     {
       "rcarriga/nvim-dap-ui",
       requires = {
@@ -95,34 +87,17 @@ return packer.startup(function(use)
       "hrsh7th/nvim-cmp",
       config = "require'rnvim.nvim-cmp'",
     },
-    {
-      "hrsh7th/cmp-nvim-lsp",
-    },
+    "hrsh7th/cmp-nvim-lsp",
     {
       "hrsh7th/cmp-buffer",
       after = 'nvim-cmp'
     },
-    {
-      "hrsh7th/cmp-path",
-    },
-    {
-      "hrsh7th/cmp-cmdline",
-    },
-    {
-      "onsails/lspkind-nvim",
-    },
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "onsails/lspkind-nvim",
     --snippets
-    --  {
-    --   "hrsh7th/cmp-vsnip",
-    --   requires = { "hrsh7th/vim-vsnip", opt = true },
-    --   after = 'nvim-cmp'
-    -- },
-    {
-      "L3MON4D3/LuaSnip",
-    },
-    {
-      "rafamadriz/friendly-snippets",
-    },
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
     --Treesitter
     {
       "nvim-treesitter/nvim-treesitter",
@@ -172,31 +147,16 @@ return packer.startup(function(use)
       },
       config = "require'rnvim.lualine'",
     },
-    --  {
-    --   "rebelot/heirline.nvim",
-    --   requires = {
-    --     "kyazdani42/nvim-web-devicons",
-    --     opt = true,
-    --     after = 'vim-devicons',
-    --   },
-    --   config = "require'rnvim.statusline/init'"
-    -- },
     {
       "folke/which-key.nvim",
       config = function()
         require("which-key").setup {}
       end,
     },
-    {
-      "ryanoasis/vim-devicons",
-    },
-    {
-      "nikvdp/ejs-syntax",
-    },
+    "ryanoasis/vim-devicons",
+    "nikvdp/ejs-syntax",
     --git
-    {
-      "tpope/vim-fugitive",
-    },
+    "tpope/vim-fugitive",
     {
       'TimUntersberger/neogit',
       requires = {
@@ -223,12 +183,8 @@ return packer.startup(function(use)
       'lewis6991/impatient.nvim',
       config = "require'impatient'.enable_profile()"
     },
-    {
-      "terryma/vim-multiple-cursors",
-    },
-    {
-      "tpope/vim-surround",
-    },
+    "terryma/vim-multiple-cursors",
+    "tpope/vim-surround",
     {
       "vim-syntastic/syntastic",
       config = "require'rnvim.syntastic'",
@@ -309,7 +265,7 @@ return packer.startup(function(use)
       config = function()
         vim.g.mkdp_auto_start = 1
       end,
-    }
+    },
   }
 
   --Autoinstall packer if not yet setup
