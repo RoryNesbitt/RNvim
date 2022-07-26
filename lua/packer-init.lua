@@ -39,17 +39,17 @@ return packer.startup(function(use)
     { "chriskempson/base16-vim", opt = true },
     {
       "norcalli/nvim-colorizer.lua",
-      config = "require('colorizer').setup()"
+      config = function() require("colorizer").setup() end
     },
     --Lsp
     {
       "neovim/nvim-lspconfig",
-      config = "require'rnvim.lsp'",
+      config = function() require("rnvim.lsp") end,
     },
     "williamboman/mason.nvim",
     {
       "williamboman/mason-lspconfig.nvim",
-      config = "require'rnvim.mason'",
+      config = function() require("rnvim.mason") end,
       requires = {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
@@ -60,14 +60,14 @@ return packer.startup(function(use)
     --Dap
     {
       "mfussenegger/nvim-dap",
-      config = "require('rnvim.dap')"
+      config = function() require("rnvim.dap") end
     },
     {
       "rcarriga/nvim-dap-ui",
       requires = {
         "mfussenegger/nvim-dap",
       },
-      config = "require('rnvim.dapui')",
+      config = function() require("rnvim.dapui") end,
     },
     {
       "theHamsta/nvim-dap-virtual-text",
@@ -75,7 +75,7 @@ return packer.startup(function(use)
         "mfussenegger/nvim-dap",
         "nvim-treesitter/nvim-treesitter",
       },
-      config = "require('nvim-dap-virtual-text').setup()"
+      config = function() require("nvim-dap-virtual-text").setup() end
     },
     {
       "nvim-telescope/telescope-dap.nvim",
@@ -83,12 +83,12 @@ return packer.startup(function(use)
         "mfussenegger/nvim-dap",
         "nvim-telescope/telescope.nvim",
       },
-      config = "require('telescope').load_extension('dap')",
+      config = function() require("telescope").load_extension('dap') end,
     },
     --nvim-cmp
     {
       "hrsh7th/nvim-cmp",
-      config = "require'rnvim.nvim-cmp'",
+      config = function() require("rnvim.nvim-cmp") end,
     },
     "hrsh7th/cmp-nvim-lsp",
     {
@@ -104,7 +104,8 @@ return packer.startup(function(use)
     --Treesitter
     {
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate", config = "require'rnvim.treesitter'",
+      run = ":TSUpdate",
+      config = function() require("rnvim.treesitter") end,
     },
     {
       "nvim-treesitter/playground",
@@ -120,7 +121,7 @@ return packer.startup(function(use)
     },
     {
       'lewis6991/spellsitter.nvim',
-      config = "require('spellsitter').setup()"
+      config = function() require("spellsitter").setup() end
     },
     --Telescope
     {
@@ -130,21 +131,21 @@ return packer.startup(function(use)
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-fzy-native.nvim"
       },
-      config = "require'rnvim.telescope'",
+      config = function() require("rnvim.telescope") end,
     },
     {
       "nvim-telescope/telescope-file-browser.nvim",
-      config = "require('telescope').load_extension 'file_browser'",
+      config = function() require("telescope").load_extension "file_browser" end,
       after = "telescope.nvim",
     },
     {
       'nvim-telescope/telescope-ui-select.nvim',
-      config = "require('telescope').load_extension('ui-select')"
+      config = function() require("telescope").load_extension("ui-select") end
     },
     --Extra info
     {
       "glepnir/dashboard-nvim",
-      config = "require'rnvim.dashboard'",
+      config = function() require("rnvim.dashboard") end,
     },
     {
       "nvim-lualine/lualine.nvim",
@@ -152,7 +153,7 @@ return packer.startup(function(use)
         "kyazdani42/nvim-web-devicons",
         opt = true,
       },
-      config = "require'rnvim.lualine'",
+      config = function() require("rnvim.lualine") end,
     },
     {
       "folke/which-key.nvim",
@@ -170,35 +171,35 @@ return packer.startup(function(use)
         'nvim-lua/plenary.nvim',
         'sindrets/diffview.nvim',
       },
-      config = "require'rnvim.neogit'",
+      config = function() require("rnvim.neogit") end,
     },
     {
       'sindrets/diffview.nvim',
       requires = {
         'nvim-lua/plenary.nvim',
       },
-      config = "require'rnvim.diffview'"
+      config = function() require("rnvim.diffview") end
     },
     -- 'airblade/vim-gitgutter'
     {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim", },
-      config = "require('gitsigns').setup()",
+      config = function() require("gitsigns").setup() end,
     },
     --Functionality
     {
       'lewis6991/impatient.nvim',
-      config = "require'impatient'.enable_profile()"
+      config = function() require("impatient").enable_profile() end
     },
     "terryma/vim-multiple-cursors",
     "tpope/vim-surround",
     {
       "vim-syntastic/syntastic",
-      config = "require'rnvim.syntastic'",
+      config = function() require("rnvim.syntastic") end,
     },
     {
       "windwp/nvim-autopairs",
-      config = "require'rnvim.autopairs'",
+      config = function() require("rnvim.autopairs") end,
     },
     {
       'numToStr/Comment.nvim',
@@ -216,11 +217,11 @@ return packer.startup(function(use)
     },
     {
       "lukas-reineke/indent-blankline.nvim",
-      config = "require'rnvim.indent-blankline'",
+      config = function() require("rnvim.indent-blankline") end,
     },
     {
       "jose-elias-alvarez/null-ls.nvim",
-      config = "require'rnvim.null-ls'",
+      config = function() require("rnvim.null-ls") end,
     },
     {
       'sunjon/stylish.nvim',
@@ -237,7 +238,7 @@ return packer.startup(function(use)
     --program integration
     {
       "aspeddro/pandoc.nvim",
-      config = "require('pandoc').setup()"
+      config = function() require("pandoc").setup() end
     },
     --  {
     --    "beeender/Comrade",
@@ -252,7 +253,7 @@ return packer.startup(function(use)
       run = function()
         vim.fn["firenvim#install"](0)
       end,
-      config = "require'rnvim.firenvim'",
+      config = function() require("rnvim.firenvim") end,
     },
     {
       "aserowy/tmux.nvim",
