@@ -38,8 +38,7 @@ return packer.startup(function(use)
 	use { "chriskempson/base16-vim", opt = true }
 	use {
     "norcalli/nvim-colorizer.lua",
-    config = "require('colorizer').setup()",
-    event = 'BufRead'
+    config = "require('colorizer').setup()"
   }
 	--Lsp
 	use {
@@ -127,7 +126,6 @@ return packer.startup(function(use)
 	use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate", config = "require'rnvim.treesitter'",
-    event = 'BufWinEnter'
   }
 	use {
     "nvim-treesitter/playground",
@@ -164,14 +162,12 @@ return packer.startup(function(use)
 	use {
     "glepnir/dashboard-nvim",
     config = "require'rnvim.dashboard'",
-    event = 'BufWinEnter'
   }
   use {
     "nvim-lualine/lualine.nvim",
     requires = {
       "kyazdani42/nvim-web-devicons",
       opt = true,
-      event = 'BufRead'
     },
     config = "require'rnvim.lualine'",
   }
@@ -180,7 +176,6 @@ return packer.startup(function(use)
   --   requires = {
   --     "kyazdani42/nvim-web-devicons",
   --     opt = true,
-  --     event = "BufRead",
   --     after = 'vim-devicons',
   --   },
   --   config = "require'rnvim.statusline/init'"
@@ -190,7 +185,6 @@ return packer.startup(function(use)
     config = function()
       require("which-key").setup{}
     end,
-    event = 'BufWinEnter'
   }
 	use {
     "ryanoasis/vim-devicons",
@@ -222,7 +216,6 @@ return packer.startup(function(use)
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim", },
     config = "require('gitsigns').setup()",
-    event = 'BufRead'
   }
 	--Functionality
   use {
@@ -260,7 +253,6 @@ return packer.startup(function(use)
 	use {
     "lukas-reineke/indent-blankline.nvim",
     config = "require'rnvim.indent-blankline'",
-    event = 'BufRead'
   }
 	use {
     "jose-elias-alvarez/null-ls.nvim",
