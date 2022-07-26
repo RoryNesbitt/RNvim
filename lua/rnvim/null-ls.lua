@@ -15,7 +15,6 @@ null_ls.setup({
 		formatting.clang_format,
 		formatting.cmake_format,
 		formatting.dart_format,
-		formatting.stylua,
 		formatting.isort,
 		formatting.codespell.with({ filetypes = { "markdown" } }),
 		--formatting.lua_format.with({
