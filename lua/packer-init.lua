@@ -134,6 +134,10 @@ return packer.startup(function(use)
       config = "require('telescope').load_extension 'file_browser'",
       after = "telescope.nvim",
     },
+    {
+      'nvim-telescope/telescope-ui-select.nvim',
+      config = "require('telescope').load_extension('ui-select')"
+    },
     --Extra info
     {
       "glepnir/dashboard-nvim",
