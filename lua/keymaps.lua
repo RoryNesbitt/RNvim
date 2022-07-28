@@ -42,10 +42,10 @@ map("n", "c", "zzc", silentOpts)
 map("n", "C", "zzC", silentOpts)
 
 -- Move line
-map("v", "<S-h>", "<gv", silentOpts)
+map("v", "<", "<gv", silentOpts)
 map("v", "<S-j>", ":m '>+1<cr>gv=gv", silentOpts)
 map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
-map("v", "<S-l>", ">gv", silentOpts)
+map("v", ">", ">gv", silentOpts)
 -- Move Windows
 map("n", "<C-S-h>", "<C-W>H", silentOpts)
 map("n", "<C-S-j>", "<C-w>J", silentOpts)
