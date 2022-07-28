@@ -169,7 +169,6 @@ return packer.startup(function(use)
     "ryanoasis/vim-devicons",
     "nikvdp/ejs-syntax",
     --git
-    "tpope/vim-fugitive",
     {
       'TimUntersberger/neogit',
       requires = {
