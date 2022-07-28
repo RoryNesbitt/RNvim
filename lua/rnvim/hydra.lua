@@ -68,7 +68,7 @@ local hint = [[
  _k_: keymaps     _;_: commands history 
  _r_: resume      _?_: search history
 
- _<Enter>_: Telescope           _<Esc>_
+ _<Enter>_: Telescope           _<Esc>_/_q_
 ]]
 
 hydra({
@@ -103,6 +103,7 @@ hydra({
       { ";", cmd "Telescope command_history", { desc = "command-line history" } },
       { "c", cmd "Telescope commands", { desc = "execute command" } },
       { "<Enter>", cmd "Telescope", { exit = true, desc = "list all pickers" } },
+      { "q", nil, { exit = true, nowait = true, desc = "exit" } },
       { "<Esc>", nil, { exit = true, nowait = true } },
    }
 })
@@ -112,62 +113,63 @@ local hint = [[
  _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file
  ^
- ^ ^              _<Enter>_: Neogit              _q_: exit
+ ^ ^              _<Enter>_: Neogit         _<Esc>_/_q_
 ]]
 
 hydra({
-   name = 'Git',
+   name = "Git",
    hint = hint,
    config = {
       buffer = bufnr,
-      color = 'pink',
+      color = "pink",
       invoke_on_body = true,
       hint = {
-         border = 'rounded'
+         border = "rounded"
       },
       on_enter = function()
-         vim.cmd 'mkview'
-         vim.cmd 'silent! %foldopen!'
+         vim.cmd "mkview"
+         vim.cmd "silent! %foldopen!"
          vim.bo.modifiable = false
          require("gitsigns").toggle_signs(true)
          require("gitsigns").toggle_linehl(true)
       end,
       on_exit = function()
          local cursor_pos = vim.api.nvim_win_get_cursor(0)
-         vim.cmd 'loadview'
+         vim.cmd "loadview"
          vim.api.nvim_win_set_cursor(0, cursor_pos)
-         vim.cmd 'normal zv'
+         vim.cmd "normal zv"
          require("gitsigns").toggle_signs(false)
          require("gitsigns").toggle_linehl(false)
          require("gitsigns").toggle_deleted(false)
       end,
    },
-   mode = {'n','x'},
-   body = '<leader>g',
+   mode = {"n","x"},
+   body = "<leader>g",
    heads = {
-      { 'J',
+      { "J",
          function()
-            if vim.wo.diff then return ']c' end
+            if vim.wo.diff then return "]c" end
             vim.schedule(function() require("gitsigns").next_hunk() end)
-            return '<Ignore>'
+            return "<Ignore>"
          end,
-         { expr = true, desc = 'next hunk' } },
-      { 'K',
+         { expr = true, desc = "next hunk" } },
+      { "K",
          function()
-            if vim.wo.diff then return '[c' end
+            if vim.wo.diff then return "[c" end
             vim.schedule(function() require("gitsigns").prev_hunk() end)
-            return '<Ignore>'
+            return "<Ignore>"
          end,
-         { expr = true, desc = 'prev hunk' } },
-      { 's', ':Gitsigns stage_hunk<CR>', { silent = true, desc = 'stage hunk' } },
-      { 'u', require("gitsigns").undo_stage_hunk, { desc = 'undo last stage' } },
-      { 'S', require("gitsigns").stage_buffer, { desc = 'stage buffer' } },
-      { 'p', require("gitsigns").preview_hunk, { desc = 'preview hunk' } },
-      { 'd', require("gitsigns").toggle_deleted, { nowait = true, desc = 'toggle deleted' } },
-      { 'b', require("gitsigns").blame_line, { desc = 'blame' } },
-      { 'B', function() require("gitsigns").blame_line{ full = true } end, { desc = 'blame show full' } },
-      { '/', require("gitsigns").show, { exit = true, desc = 'show base file' } }, -- show the base of the file
-      { '<Enter>', '<Cmd>Neogit<CR>', { exit = true, desc = 'Neogit' } },
-      { 'q', nil, { exit = true, nowait = true, desc = 'exit' } },
+         { expr = true, desc = "prev hunk" } },
+      { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "stage hunk" } },
+      { "u", require("gitsigns").undo_stage_hunk, { desc = "undo last stage" } },
+      { "S", require("gitsigns").stage_buffer, { desc = "stage buffer" } },
+      { "p", require("gitsigns").preview_hunk, { desc = "preview hunk" } },
+      { "d", require("gitsigns").toggle_deleted, { nowait = true, desc = "toggle deleted" } },
+      { "b", require("gitsigns").blame_line, { desc = "blame" } },
+      { "B", function() require("gitsigns").blame_line{ full = true } end, { desc = "blame show full" } },
+      { "/", require("gitsigns").show, { exit = true, desc = "show base file" } }, -- show the base of the file
+      { "<Enter>", "<Cmd>Neogit<CR>", { exit = true, desc = "Neogit" } },
+      { "q", nil, { exit = true, nowait = true, desc = "exit" } },
+      { "<Esc>", nil, { exit = true, nowait = true } },
    }
 })

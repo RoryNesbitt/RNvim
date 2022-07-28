@@ -96,12 +96,6 @@ map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme
 
 --Git
 map("n", "<leader>gg", function() require("neogit").open() end, silentOpts)
-map("n", "<leader>ga", cmd "Git add %", silentOpts)
-map("n", "<leader>gc", function() require("neogit").open({ "commit" }) end, silentOpts)
-map("n", "<leader>gp", cmd "Git pull", silentOpts)
-map("n", "<leader>gP", cmd "Git push", silentOpts)
-map("n", "<leader>gd", cmd "DiffviewOpen", silentOpts)
-map("n", "<leader>gb", cmd "Telescope git_branches", silentOpts)
 
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", silentOpts)
