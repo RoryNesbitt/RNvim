@@ -73,17 +73,6 @@ map("n", "<leader>ff", function() vim.lsp.buf.formatting_sync() end, silentOpts)
 map("v", "<leader>ff", function() vim.lsp.buf.range_formatting() end, silentOpts)
 map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
 
---Debugging
---dap
-map("n", "<leader>dd", function() require("dap").continue() end, silentOpts)
-map("n", "<leader>do", function() require("dap").step_over() end, silentOpts)
-map("n", "<leader>di", function() require("dap").step_into() end, silentOpts)
-map("n", "<leader>dO", function() require("dap").step_out() end, silentOpts)
-map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, silentOpts)
-map("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, silentOpts)
-map("n", "<leader>dl", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, silentOpts)
-map("n", "<leader>dr", function() require("dap").repl.open() end, silentOpts)
-
 -- Open windows
 map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)
 map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)

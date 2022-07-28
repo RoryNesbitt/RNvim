@@ -26,3 +26,21 @@ hydra({
       { "N", function() vim.diagnostic.goto_prev() end },
    }
 })
+
+hydra({
+  name = "dap",
+  hint = [[ Debugging ]],
+  config = { foreign_keys = "run" },
+  mode = "n",
+  body = "<leader>d",
+  heads = {
+    { "d", function() require("dap").continue() end, { desc = "Continue" } },
+    { "n", function() require("dap").step_into() end, { desc = "Step into" } },
+    { "N", function() require("dap").step_over() end, { desc = "over" } },
+    { "O", function() require("dap").step_out() end, { desc = "out" } },
+    { "b", function() require("dap").toggle_breakpoint() end },
+    { "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
+    { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
+    { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
+  }
+})
