@@ -2,6 +2,10 @@ local opts = { noremap = true }
 local silentOpts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
+local function cmd(command)
+   return table.concat({ '<cmd>', command, '<CR>' })
+end
+
 local HARDMODE = 2
 if HARDMODE > 0 then
   -- Disable Arrow keys in Normal mode
@@ -62,21 +66,21 @@ map("n", "<localleader>P", '"+P', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
 -- set spellcheck
---map('n', '<leader>l', '<cmd>setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
+--map('n', '<leader>l', cmd 'setlocal spell spell! spelllang=en_gb', silentOpts)
 
 --Mason
-map("n", "<leader>m", "<cmd>Mason<cr>", silentOpts)
+map("n", "<leader>m", cmd "Mason", silentOpts)
 
 --formatting
 --null-ls
 map("n", "<leader>ff", function() vim.lsp.buf.formatting_sync() end, silentOpts)
 map("v", "<leader>ff", function() vim.lsp.buf.range_formatting() end, silentOpts)
-map("n", "<leader>fi", "<cmd>NullLsInfo<cr>", silentOpts)
+map("n", "<leader>fi", cmd "NullLsInfo", silentOpts)
 
 -- Open windows
-map("n", "<leader>v", "<cmd>vsp .<cr>", silentOpts)
-map("n", "<leader>h", "<cmd>sp .<cr>", silentOpts)
-map("n", "<leader><cr>", "<cmd>vsp <bar> terminal<cr>", silentOpts)
+map("n", "<leader>v", cmd "vsp .", silentOpts)
+map("n", "<leader>h", cmd "sp .", silentOpts)
+map("n", "<leader><cr>", cmd "vsp <bar> terminal", silentOpts)
 
 -- replace in line
 map({ "n", "v" }, "<leader>s", ":s//gI<Left><Left><Left>", opts)
@@ -84,37 +88,24 @@ map({ "n", "v" }, "<leader>s", ":s//gI<Left><Left><Left>", opts)
 map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 
 --telescope
-map("n", "<leader>j", "<cmd>Telescope find_files<cr>", silentOpts)
-map("n", "<leader>tg", "<cmd>Telescope grep_string<cr>", silentOpts)
-map("n", "<leader>e", "<cmd>Telescope file_browser<cr>", silentOpts)
-map("n", "<leader>tf", "<cmd>Telescope filetypes<cr>", silentOpts)
-map("n", "<leader>te", "<cmd>Telescope builtin<cr>", silentOpts)
-map("n", "<leader>tb", "<cmd>Telescope buffers<cr>", silentOpts)
-map("n", "<leader>th", "<cmd>Telescope help_tags<cr>", silentOpts)
-map("n", "<leader>tc", "<cmd>Telescope commands<cr>", silentOpts)
-map("n", "<leader>/", function()
-  require("telescope.builtin").current_buffer_fuzzy_find({
-    sorting_strategy = "ascending",
-    layout_config = { prompt_position = "top" },
-    previewer = false,
-  })
-end, silentOpts)
+map("n", "<leader>j", cmd "Telescope find_files", silentOpts)
+map("n", "<leader>e", cmd "Telescope file_browser", silentOpts)
 --Telescope-change-x
 map("n", "<leader>cw", function() require("rnvim.telescope").change_wallpaper() end, silentOpts)
 map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme() end, silentOpts)
 
 --Git
 map("n", "<leader>gg", function() require("neogit").open() end, silentOpts)
-map("n", "<leader>ga", "<cmd>Git add %<cr>", silentOpts)
+map("n", "<leader>ga", cmd "Git add %", silentOpts)
 map("n", "<leader>gc", function() require("neogit").open({ "commit" }) end, silentOpts)
-map("n", "<leader>gp", "<cmd>Git pull<cr>", silentOpts)
-map("n", "<leader>gP", "<cmd>Git push<cr>", silentOpts)
-map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", silentOpts)
-map("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", silentOpts)
+map("n", "<leader>gp", cmd "Git pull", silentOpts)
+map("n", "<leader>gP", cmd "Git push", silentOpts)
+map("n", "<leader>gd", cmd "DiffviewOpen", silentOpts)
+map("n", "<leader>gb", cmd "Telescope git_branches", silentOpts)
 
 --whitespace
-map("n", "<leader>w", "<cmd>%s/\\s\\+$//<cr>", silentOpts)
-map("v", "<leader>w", "<cmd>s/\\s\\+$//<cr>", silentOpts)
+map("n", "<leader>w", cmd "%s/\\s\\+$//", silentOpts)
+map("v", "<leader>w", cmd "s/\\s\\+$//", silentOpts)
 
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)

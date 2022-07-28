@@ -1,5 +1,9 @@
 local hydra = require("hydra")
 
+local function cmd(command)
+   return table.concat({ '<cmd>', command, '<CR>' })
+end
+
 hydra({
   name = "LSP",
   hint = [[LSP controls]], -- multiline string
@@ -12,7 +16,7 @@ hydra({
   body = '<leader>l',
   heads = {
     --LSP
-    { "i", "<cmd>LspInfo<cr>" },
+    { "i", cmd "LspInfo" },
     { "k", function() vim.lsp.buf.signature_help() end },
     { "K", function() vim.lsp.buf.hover() end },
     { "wa", function() vim.lsp.buf.add_workspace_folder() end },
@@ -22,10 +26,10 @@ hydra({
     { "t", function() vim.lsp.buf.type_definition() end },
     { "d", function() vim.lsp.buf.definition() end },
     { "D", function() vim.lsp.buf.declaration() end },
-    { "r", "<cmd>Telescope lsp_references<cr>" },
+    { "r", cmd "Telescope lsp_references" },
     { "R", function() vim.lsp.buf.rename() end },
-    { "a", "<cmd>Telescope lsp_code_actions<cr>" },
-    { "l", "<cmd>Telescope diagnostics<cr>" },
+    { "a", cmd "Telescope lsp_code_actions" },
+    { "l", cmd "Telescope diagnostics" },
     { "n", function() vim.diagnostic.goto_next() end },
     { "N", function() vim.diagnostic.goto_prev() end },
   }
@@ -50,4 +54,55 @@ hydra({
     end, { desc = "Log point" } },
     { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
   }
+})
+
+
+local hint = [[
+             Telescope
+
+ _f_: filetypes   _b_: buffers
+ _o_: old files   _g_: live grep
+ _/_: search in file
+
+ _h_: vim help    _c_: execute command
+ _k_: keymaps     _;_: commands history 
+ _r_: resume      _?_: search history
+
+ _<Enter>_: Telescope           _<Esc>_
+]]
+
+hydra({
+   name = "Telescope",
+   hint = hint,
+   config = {
+      color = "teal",
+      invoke_on_body = true,
+      hint = {
+         position = "middle",
+         border = "rounded",
+      },
+   },
+   mode = "n",
+   body = "<Leader>t",
+   heads = {
+      { "f", cmd "Telescope filetypes" },
+      { "g", cmd "Telescope live_grep" },
+      { "o", cmd "Telescope oldfiles", { desc = "recently opened files" } },
+      { "h", cmd "Telescope help_tags", { desc = "vim help" } },
+      { "k", cmd "Telescope keymaps" },
+      { "r", cmd "Telescope resume" },
+      { "/", function()
+        require("telescope.builtin").current_buffer_fuzzy_find({
+          sorting_strategy = "ascending",
+          layout_config = { prompt_position = "top" },
+          previewer = false,
+        })
+      end , { desc = "search in file" } },
+      { "b", cmd "Telescope buffers" },
+      { "?", cmd "Telescope search_history",  { desc = "search history" } },
+      { ";", cmd "Telescope command_history", { desc = "command-line history" } },
+      { "c", cmd "Telescope commands", { desc = "execute command" } },
+      { "<Enter>", cmd "Telescope", { exit = true, desc = "list all pickers" } },
+      { "<Esc>", nil, { exit = true, nowait = true } },
+   }
 })
