@@ -57,6 +57,11 @@ return packer.startup(function(use)
     },
     "glepnir/lspsaga.nvim",
     "simrat39/symbols-outline.nvim",
+    --Null-ls
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function() require("rnvim.null-ls") end,
+    },
     --Dap
     {
       "mfussenegger/nvim-dap",
@@ -98,7 +103,7 @@ return packer.startup(function(use)
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "onsails/lspkind-nvim",
-    --snippets
+    --Snippets
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
     --Treesitter
@@ -180,7 +185,6 @@ return packer.startup(function(use)
       },
       config = function() require("rnvim.diffview") end
     },
-    -- 'airblade/vim-gitgutter'
     {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim", },
@@ -220,10 +224,6 @@ return packer.startup(function(use)
       config = function() require("rnvim.indent-blankline") end,
     },
     {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function() require("rnvim.null-ls") end,
-    },
-    {
       'sunjon/stylish.nvim',
       config = function()
         -- vim.ui.notify = require('stylish').ui_notification()
@@ -240,14 +240,6 @@ return packer.startup(function(use)
       "aspeddro/pandoc.nvim",
       config = function() require("pandoc").setup() end
     },
-    --  {
-    --    "beeender/Comrade",
-    --    requires = {
-    --      "Shougo/deoplete.nvim",
-    --      run = ':UpdateRemotePlugins',
-    --      config = 'call deoplete#enable()'
-    --    },
-    --  },
     {
       "glacambre/firenvim",
       run = function()
@@ -274,6 +266,15 @@ return packer.startup(function(use)
         vim.g.mkdp_auto_start = 1
       end,
     },
+    --  {
+    --    "beeender/Comrade",
+    --    requires = {
+    --      "Shougo/deoplete.nvim",
+    --      run = ':UpdateRemotePlugins',
+    --      config = 'call deoplete#enable()'
+    --    },
+    --  },
+
   }
 
   --Autoinstall packer if not yet setup
