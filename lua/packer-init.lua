@@ -207,10 +207,6 @@ return packer.startup(function(use)
     "terryma/vim-multiple-cursors",
     "tpope/vim-surround",
     {
-      "vim-syntastic/syntastic",
-      config = function() require("rnvim.syntastic") end,
-    },
-    {
       "windwp/nvim-autopairs",
       config = function() require("rnvim.autopairs") end,
     },
