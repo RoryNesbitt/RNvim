@@ -64,24 +64,8 @@ map("v", "p", '"_dP', silentOpts)
 -- set spellcheck
 --map('n', '<leader>l', '<cmd>setlocal spell spell! spelllang=en_gb<CR>', silentOpts)
 
---LSP
-map("n", "<leader>li", "<cmd>LspInfo<cr>", silentOpts)
-map("n", "<leader>lk", function() vim.lsp.buf.signature_help() end, silentOpts)
-map("n", "<leader>lK", function() vim.lsp.buf.hover() end, silentOpts)
-map("n", "<leader>lwa", function() vim.lsp.buf.add_workspace_folder() end, silentOpts)
-map("n", "<leader>lwr", function() vim.lsp.buf.remove_workspace_folder() end, silentOpts)
-map("n", "<leader>lwi", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, silentOpts)
-map("n", "<leader>lt", function() vim.lsp.buf.type_definition() end, silentOpts)
-map("n", "<leader>ld", function() vim.lsp.buf.definition() end, silentOpts)
-map("n", "<leader>lD", function() vim.lsp.buf.declaration() end, silentOpts)
-map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", silentOpts)
-map("n", "<leader>lR", function() vim.lsp.buf.rename() end, silentOpts)
-map("n", "<leader>la", "<cmd>Telescope lsp_code_actions<cr>", silentOpts)
-map("n", "<leader>ll", "<cmd>Telescope diagnostics<cr>", silentOpts)
-map("n", "<leader>ln", function() vim.diagnostic.goto_next() end, silentOpts)
-map("n", "<leader>lp", function() vim.diagnostic.goto_prev() end, silentOpts)
 --Mason
-map("n", "<leader>lI", "<cmd>Mason<cr>", silentOpts)
+map("n", "<leader>m", "<cmd>Mason<cr>", silentOpts)
 
 --formatting
 --null-ls

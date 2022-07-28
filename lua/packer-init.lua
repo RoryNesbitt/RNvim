@@ -192,6 +192,10 @@ return packer.startup(function(use)
     },
     --Functionality
     {
+      'anuvyklack/hydra.nvim',
+      config = function() require("rnvim.hydra") end
+    },
+    {
       'lewis6991/impatient.nvim',
       config = function() require("impatient").enable_profile() end
     },
