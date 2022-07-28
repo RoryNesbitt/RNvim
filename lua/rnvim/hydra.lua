@@ -3,7 +3,11 @@ local hydra = require("hydra")
 hydra({
   name = "LSP",
   hint = [[LSP controls]], -- multiline string
-  config = {...},
+  config = {
+    hint = {
+      border = "rounded",
+    },
+  },
   mode = 'n',
   body = '<leader>l',
   heads = {
@@ -28,20 +32,22 @@ hydra({
 })
 
 hydra({
-  name = "dap",
-  hint = [[ Debugging ]],
-  config = { foreign_keys = "run" },
+  name = "Debugging",
+  config = {
+    foreign_keys = "run",
+    type = "statusline",
+  },
   mode = "n",
   body = "<leader>d",
   heads = {
     { "d", function() require("dap").continue() end, { desc = "Continue" } },
-    { "n", function() require("dap").step_into() end },
-    { "N", function() require("dap").step_over() end },
-    { "O", function() require("dap").step_out() end, { desc = "Step into/over/out" } },
-    { "b", function() require("dap").toggle_breakpoint() end },
-    { "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end },
+    { "n", function() require("dap").step_into() end, { desc = "Step into" } },
+    { "N", function() require("dap").step_over() end, { desc = "Step over" } },
+    { "O", function() require("dap").step_out() end, { desc = "Step out" } },
+    { "b", function() require("dap").toggle_breakpoint() end, { desc = "Breakpoint" } },
+    { "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Conditional breakpoint" } },
     { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
-    end, { desc = "Breakpoints" } },
+    end, { desc = "Log point" } },
     { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
   }
 })
