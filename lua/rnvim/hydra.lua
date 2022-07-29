@@ -70,6 +70,8 @@ hydra({
     { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
     end, { desc = "Log point" } },
     { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
+    { "<Esc>", nil, { exit = true, nowait = true } },
+    { "q", nil, { exit = true, nowait = true, desc = "exit" } },
   }
 })
 
