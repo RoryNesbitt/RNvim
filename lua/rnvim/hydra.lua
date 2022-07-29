@@ -114,7 +114,7 @@ local hint = [[
  _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file
  ^
- ^ ^              _<Enter>_: Neogit         _<Esc>_/_q_
+ ^ ^              _<Enter>_/_g_: Neogit         _<Esc>_/_q_
 ]]
 
 hydra({
@@ -169,7 +169,8 @@ hydra({
       { "b", require("gitsigns").blame_line, { desc = "blame" } },
       { "B", function() require("gitsigns").blame_line{ full = true } end, { desc = "blame show full" } },
       { "/", require("gitsigns").show, { exit = true, desc = "show base file" } }, -- show the base of the file
-      { "<Enter>", "<Cmd>Neogit<CR>", { exit = true, desc = "Neogit" } },
+      { "<Enter>", cmd "Neogit", { exit = true, desc = "Neogit" } },
+      { "g", cmd "Neogit", { exit = true } },
       { "q", nil, { exit = true, nowait = true, desc = "exit" } },
       { "<Esc>", nil, { exit = true, nowait = true } },
    }

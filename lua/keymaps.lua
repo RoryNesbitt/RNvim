@@ -94,9 +94,6 @@ map("n", "<leader>e", cmd "Telescope file_browser", silentOpts)
 map("n", "<leader>cw", function() require("rnvim.telescope").change_wallpaper() end, silentOpts)
 map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme() end, silentOpts)
 
---Git
-map("n", "<leader>gg", function() require("neogit").open() end, silentOpts)
-
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", silentOpts)
 map("v", "<leader>w", cmd "s/\\s\\+$//", silentOpts)
