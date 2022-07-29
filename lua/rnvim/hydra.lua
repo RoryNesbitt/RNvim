@@ -11,6 +11,7 @@ hydra({
     hint = {
       border = "rounded",
     },
+    invoke_on_body = true,
   },
   mode = 'n',
   body = '<leader>l',
@@ -40,6 +41,7 @@ hydra({
   config = {
     foreign_keys = "run",
     type = "statusline",
+    invoke_on_body = true,
   },
   mode = "n",
   body = "<leader>d",
