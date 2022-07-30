@@ -70,9 +70,9 @@ map("n", "<leader>m", cmd "Mason", silentOpts)
 
 --formatting
 --null-ls
-map("n", "<leader>ff", function() vim.lsp.buf.formatting_sync() end, silentOpts)
-map("v", "<leader>ff", function() vim.lsp.buf.range_formatting() end, silentOpts)
-map("n", "<leader>fi", cmd "NullLsInfo", silentOpts)
+map("n", "<leader>nf", function() vim.lsp.buf.formatting_sync() end, silentOpts)
+map("v", "<leader>nf", function() vim.lsp.buf.range_formatting() end, silentOpts)
+map("n", "<leader>ni", cmd "NullLsInfo", silentOpts)
 
 -- Open windows
 map("n", "<leader>v", cmd "vsp .", silentOpts)
