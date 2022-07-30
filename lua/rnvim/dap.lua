@@ -2,7 +2,7 @@ local dap = require('dap')
 
 dap.adapters.python = {
   type = 'executable',
-  command = './.venv/bin/python';
+  command = 'python';
   args = { '-m', 'debugpy.adapter' },
 }
 
