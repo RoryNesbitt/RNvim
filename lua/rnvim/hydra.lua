@@ -129,8 +129,8 @@ hydra({
 })
 
 local hint = [[
- _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
- _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
+ _n_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
+ _N_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  _c_: commit      _S_: stage buffer      ^ ^                 _/_: show base file
  ^
  ^ ^              _<Enter>_/_g_: Neogit         _<Esc>_/_q_
@@ -166,14 +166,14 @@ hydra({
    mode = {"n","x"},
    body = "<leader>g",
    heads = {
-      { "J",
+      { "n",
          function()
             if vim.wo.diff then return "]c" end
             vim.schedule(function() require("gitsigns").next_hunk() end)
             return "<Ignore>"
          end,
          { expr = true, desc = "next hunk" } },
-      { "K",
+      { "N",
          function()
             if vim.wo.diff then return "[c" end
             vim.schedule(function() require("gitsigns").prev_hunk() end)
