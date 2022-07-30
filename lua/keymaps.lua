@@ -65,9 +65,6 @@ map({ "n", "v" }, "<localleader>p", '"+p', silentOpts)
 map("n", "<localleader>P", '"+P', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
--- set spellcheck
---map('n', '<leader>l', cmd 'setlocal spell spell! spelllang=en_gb', silentOpts)
-
 --Mason
 map("n", "<leader>m", cmd "Mason", silentOpts)
 
