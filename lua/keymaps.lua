@@ -65,6 +65,10 @@ map({ "n", "v" }, "<localleader>p", '"+p', silentOpts)
 map("n", "<localleader>P", '"+P', silentOpts)
 map("v", "p", '"_dP', silentOpts)
 
+--Zen
+map({"n"}, "<leader>f", cmd "TZFocus", silentOpts)
+map({"n"}, "<leader>z", cmd "TZAtaraxis", silentOpts)
+
 --Mason
 map("n", "<leader>m", cmd "Mason", silentOpts)
 

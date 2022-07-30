@@ -240,6 +240,14 @@ return packer.startup(function(use)
         )
       end
     },
+    {
+      "Pocco81/true-zen.nvim",
+      config = function() require("rnvim.true-zen") end,
+      requires = {
+        "folke/twilight.nvim",
+        config = function() require("twilight").setup() end
+      },
+    },
     --program integration
     {
       "aspeddro/pandoc.nvim",
