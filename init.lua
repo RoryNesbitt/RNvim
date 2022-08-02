@@ -1,4 +1,4 @@
-require"packer"
+require"packer-init"
 require"options"
 require"keymaps"
 require"autocmds"
