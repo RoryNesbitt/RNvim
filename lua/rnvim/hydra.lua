@@ -195,3 +195,25 @@ hydra({
       { "<Esc>", nil, { exit = true, nowait = true } },
    }
 })
+
+
+hydra({
+  name = "Spellcheck",
+  config = {
+    type = "statusline",
+    foreign_keys = "run",
+    invoke_on_body = true,
+  },
+  mode = "n",
+  body = "<localleader>s",
+  heads = {
+    { "n", "<Cmd>lua require'spellsitter'.nav()<CR>" },
+    { "N", "<Cmd>lua require'spellsitter'.nav(true)<CR>", { desc = "Navigate" } },
+    { "s", "z=", { desc = "Suggestions" } },
+    { "ad", "zg", { desc = "Add to dictionary" } },
+    { "<Esc>", nil, { exit = true, nowait = true } },
+    { "q", nil, { exit = true, nowait = true, desc = "exit" } },
+  }
+})
+
+
