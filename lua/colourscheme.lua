@@ -10,5 +10,5 @@ vim.cmd([[
   " highlight NonText guibg=none
   " highlight CursorLine ctermbg=black cterm=bold
   " highlight Cursorcolumn ctermbg=black cterm=bold
-  highlight TrailingSpace gui=undercurl
+  match TrailingSpace /\s\+$/
 ]])
