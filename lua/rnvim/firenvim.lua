@@ -21,12 +21,14 @@ if vim.g.started_by_firenvim then
   vim.o.showbreak='~'
   vim.keymap.set("n", "j", "gj", {noremap = true})
   vim.keymap.set("n", "k", "gk", {noremap = true})
+
   local fireau = vim.api.nvim_create_augroup("start_by_fire", { clear = true })
   vim.api.nvim_create_autocmd("bufEnter", {
     pattern = "github.com_*.txt",
     command = "set filetype=markdown",
     group = fireau
   })
+
   vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
     pattern = "*",
     callback = function()
@@ -40,4 +42,5 @@ if vim.g.started_by_firenvim then
     nested = true,
     group = fireau
   })
+
 end
