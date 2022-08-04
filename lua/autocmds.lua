@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("FileType", {
     if vim.bo.filetype == "dashboard" then
       vim.cmd([[ highlight TrailingSpace gui=none ]])
     elseif vim.bo.filetype ~= "TelescopePrompt" and vim.bo.filetype ~= "TelescopeResults" then
-      print(vim.bo.filetype)
       vim.cmd([[ highlight TrailingSpace gui=undercurl ]])
     end
   end,
