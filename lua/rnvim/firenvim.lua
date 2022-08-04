@@ -29,6 +29,12 @@ if vim.g.started_by_firenvim then
     group = fireau
   })
 
+  vim.api.nvim_create_autocmd("bufEnter", { -- Node-red function node
+    pattern = "*node-input-*-editor*.txt",  -- Regardless of IP or URL access
+    command = "set filetype=javascript",
+    group = fireau
+  })
+
   vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
     pattern = "*",
     callback = function()
