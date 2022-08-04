@@ -90,6 +90,13 @@ return packer.startup(function(use)
       },
       config = function() require("telescope").load_extension('dap') end,
     },
+    --DAP language adapters
+    {
+      "jbyuki/one-small-step-for-vimkind",
+      requires = {
+        "mfussenegger/nvim-dap",
+      },
+    },
     --nvim-cmp
     {
       "hrsh7th/nvim-cmp",
