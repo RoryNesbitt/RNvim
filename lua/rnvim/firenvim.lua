@@ -41,6 +41,7 @@ if vim.g.started_by_firenvim then
       if vim.bo.filetype ~= "TelescopePrompt"
          and vim.bo.filetype ~= "TelescopeResults"
          and vim.bo.filetype ~= "dashboard"
+         and vim.bo.filetype ~= "mason.nvim"
       then
         vim.cmd("write")
       end
