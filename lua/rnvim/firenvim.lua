@@ -29,7 +29,14 @@ if vim.g.started_by_firenvim then
   })
   vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
     pattern = "*",
-    command = "write",
+    callback = function()
+      if vim.bo.filetype ~= "TelescopePrompt"
+         and vim.bo.filetype ~= "TelescopeResults"
+         and vim.bo.filetype ~= "dashboard"
+      then
+        vim.cmd("write")
+      end
+    end,
     nested = true,
     group = fireau
   })
