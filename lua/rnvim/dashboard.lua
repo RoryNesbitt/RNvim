@@ -4,8 +4,17 @@ if not status_ok then
 end
 
 vim.g.dashboard_default_executive = "telescope"
-local confDir = vim.fn.stdpath('config')
 local dataDir = vim.fn.stdpath('data')
+
+local function findConfig()
+  local configDir = os.getenv("PVIM")
+  if configDir then
+    configDir = configDir.."/config"
+  else
+    configDir = vim.fn.stdpath('config')
+  end
+  return configDir
+end
 
 db.custom_center = {
 	{ icon = "  ", desc = "Jump to File                ", action = "Telescope find_files" },
@@ -16,11 +25,15 @@ db.custom_center = {
   end,  },
 	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
 	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
-	{ icon = "  ", desc = "Edit Config                 ", action = "cd ~/.config/nvim/ | Telescope find_files" },
+	{ icon = "  ", desc = "Edit Config                 ", action = function ()
+    vim.cmd("cd"..findConfig())
+    vim.cmd("Telescope find_files")
+  end},
 	{ icon = "  ", desc = "Update Config               ", action = function ()
+    local dir = findConfig()
     print('Pulling config')
-    print(vim.fn.system('git --git-dir='..confDir..'/.git --work-tree='..confDir..' pull'))
-    dofile(confDir..'/lua/packer-init.lua')
+    print(vim.fn.system('git --git-dir='..dir..'/.git --work-tree='..dir..' pull'))
+    dofile(dir..'/lua/packer-init.lua')
     vim.cmd('PackerSync')
     print('Restart Neovim to see any changes')
   end},
