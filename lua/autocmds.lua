@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
-  callback = "luafile "..confDir.."rnvim/lualine.lua",
+  callback = function ()
+    vim.cmd("source "..confDir.."rnvim/lualine.lua")
+  end,
   group = group
 })
