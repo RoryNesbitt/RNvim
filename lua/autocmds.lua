@@ -1,5 +1,3 @@
-local confDir = vim.fn.stdpath('config')..'/lua/'
-
 local group = vim.api.nvim_create_augroup("RNvim", { clear = true })
 
 vim.api.nvim_create_autocmd( "BufWritePost", {
@@ -38,7 +36,16 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function ()
-    vim.cmd("source "..confDir.."rnvim/lualine.lua")
+    local function findConfig()
+      local configDir = os.getenv("PVIM")
+      if configDir then
+        configDir = configDir.."/config"
+      else
+        configDir = vim.fn.stdpath('config')
+      end
+      return configDir
+    end
+    vim.cmd("source "..findConfig().."/lua/rnvim/lualine.lua")
   end,
   group = group
 })
