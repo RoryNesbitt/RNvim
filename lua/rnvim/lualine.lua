@@ -17,7 +17,7 @@ local colors = {
   },
 }
 
-local bubbles_theme = {
+local auto = {
   normal = {
     a = { fg = colors.black, bg = string.format("#%06x", colors.violet) },
     b = { fg = colors.white, bg = string.format("#%06x", colors.gray)   },
