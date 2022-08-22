@@ -269,16 +269,7 @@ return packer.startup(function(use)
     },
     {
       "aserowy/tmux.nvim",
-      config = function()
-        require("tmux").setup({
-          navigation = {
-            enable_default_keybindings = true,
-          },
-          resize = {
-            enable_default_keybindings = true,
-          },
-        })
-      end,
+      config = function() require("rnvim.tmux") end,
     },
     {
       "iamcco/markdown-preview.nvim",
