@@ -2,17 +2,17 @@ vim.g.firenvim_config = {
   globalSettings = {
     alt = 'all',
   },
-  localSettings = {},
+  localSettings = {
+    ['.*'] = {
+      cmdline = 'neovim',
+      content = 'text',
+      priority = 0,
+      selector = 'textarea',
+      takeover = 'never',
+    }
+  },
 }
 
-local fc = vim.g.firenvim_config['localSettings']
-fc['.*'] = {
-  cmdline = 'neovim',
-  content = 'text',
-  priority = 0,
-  selector = 'textarea',
-  takeover = 'never',
-}
 
 if vim.g.started_by_firenvim then
   vim.o.laststatus=0
