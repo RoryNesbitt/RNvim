@@ -37,7 +37,7 @@ db.custom_center = {
 }
 
 local function pluginCount()
-	local i, _, popen = 0, {}, io.popen
+	local i, popen = 0, io.popen
 	for _ in popen("ls "..dataDir.."/pack/packer/start/"):lines() do
 		i = i + 1
 	end
