@@ -212,7 +212,6 @@ return packer.startup(function(use)
       config = function() require("impatient").enable_profile() end
     },
     "terryma/vim-multiple-cursors",
-    "tpope/vim-surround",
     {
       "windwp/nvim-autopairs",
       config = function() require("rnvim.autopairs") end,
@@ -256,6 +255,10 @@ return packer.startup(function(use)
         "folke/twilight.nvim",
         config = function() require("twilight").setup() end
       },
+    },
+    {
+      "gaoDean/autolist.nvim",
+      config = function() require("autolist").setup() end,
     },
     --program integration
     {
