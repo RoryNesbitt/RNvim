@@ -41,6 +41,11 @@ return packer.startup(function(use)
       "norcalli/nvim-colorizer.lua",
       config = function() require("colorizer").setup() end
     },
+    {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function() require("todo-comments").setup() end
+    },
     --Lsp
     {
       "neovim/nvim-lspconfig",
