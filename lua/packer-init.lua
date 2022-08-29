@@ -223,13 +223,15 @@ return packer.startup(function(use)
         require("Comment").setup()
       end,
     },
-    {
-      "tpope/vim-repeat",
-      config = function()
-        vim.cmd([[
-        silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-        ]])
-      end,
+    {"tpope/vim-surround",
+      requires = {
+        "tpope/vim-repeat",
+        config = function()
+          vim.cmd([[
+          silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+          ]])
+        end,
+      },
     },
     {
       "lukas-reineke/indent-blankline.nvim",
