@@ -81,7 +81,7 @@ local hint = [[
 
  _f_: filetypes   _b_: buffers
  _o_: old files   _g_: live grep
- _p_: packer      _/_: search in file
+ _t_: todos       _/_: search in file
 
  _h_: vim help    _c_: execute command
  _k_: keymaps     _;_: commands history 
@@ -117,7 +117,7 @@ hydra({
           previewer = false,
         })
       end , { desc = "search in file" } },
-      { "p", cmd "Telescope packer" },
+      { "t", cmd "TodoTelescope" },
       { "b", cmd "Telescope buffers" },
       { "?", cmd "Telescope search_history",  { desc = "search history" } },
       { ";", cmd "Telescope command_history", { desc = "command-line history" } },
