@@ -41,6 +41,11 @@ return packer.startup(function(use)
       "norcalli/nvim-colorizer.lua",
       config = function() require("colorizer").setup() end
     },
+    {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function() require("todo-comments").setup() end
+    },
     --Lsp
     {
       "neovim/nvim-lspconfig",
@@ -212,7 +217,6 @@ return packer.startup(function(use)
       config = function() require("impatient").enable_profile() end
     },
     "terryma/vim-multiple-cursors",
-    "tpope/vim-surround",
     {
       "windwp/nvim-autopairs",
       config = function() require("rnvim.autopairs") end,
@@ -223,13 +227,15 @@ return packer.startup(function(use)
         require("Comment").setup()
       end,
     },
-    {
-      "tpope/vim-repeat",
-      config = function()
-        vim.cmd([[
-        silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-        ]])
-      end,
+    {"tpope/vim-surround",
+      requires = {
+        "tpope/vim-repeat",
+        config = function()
+          vim.cmd([[
+          silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+          ]])
+        end,
+      },
     },
     {
       "lukas-reineke/indent-blankline.nvim",
@@ -254,6 +260,10 @@ return packer.startup(function(use)
         "folke/twilight.nvim",
         config = function() require("twilight").setup() end
       },
+    },
+    {
+      "gaoDean/autolist.nvim",
+      config = function() require("autolist").setup() end,
     },
     --program integration
     {

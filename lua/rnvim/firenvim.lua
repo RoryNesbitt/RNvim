@@ -41,6 +41,12 @@ if vim.g.started_by_firenvim then
     group = fireau
   })
 
+  vim.api.nvim_create_autocmd("bufEnter", {
+    pattern = "colab.research.google.com*.txt",
+    command = "set filetype=python",
+    group = fireau
+  })
+
   vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
     pattern = "*",
     callback = function()

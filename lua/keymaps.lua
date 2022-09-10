@@ -58,7 +58,7 @@ map("n", "<C-S-l>", "<C-w>L", silentOpts)
 
 -- Clipboard
 map({ "n", "v" }, "<localleader>y", '"+y', silentOpts)
-map("n", "<localleader>Y", '"+Y', silentOpts)
+map("n", "<localleader>Y", '"+y$', silentOpts)
 map({ "n", "v" }, "<localleader>d", '"+d', silentOpts)
 map("n", "<localleader>D", '"+D', silentOpts)
 map({ "n", "v" }, "<localleader>p", '"+p', silentOpts)
