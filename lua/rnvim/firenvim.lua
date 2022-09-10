@@ -19,8 +19,8 @@ if vim.g.started_by_firenvim then
   vim.wo.wrap=true
   vim.wo.linebreak=true
   vim.o.showbreak='~'
-  vim.keymap.set("n", "j", "gj", {noremap = true})
-  vim.keymap.set("n", "k", "gk", {noremap = true})
+  vim.keymap.set({"n", "v"}, "j", "gj", {noremap = true})
+  vim.keymap.set({"n", "v"}, "k", "gk", {noremap = true})
 
   local fireau = vim.api.nvim_create_augroup("start_by_fire", { clear = true })
   vim.api.nvim_create_autocmd("bufEnter", {
