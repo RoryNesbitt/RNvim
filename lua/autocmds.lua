@@ -46,6 +46,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       return configDir
     end
     vim.cmd("source "..findConfig().."/lua/rnvim/lualine.lua")
+    if vim.g.started_by_firenvim then
+      vim.opt.laststatus = 0
+    end
   end,
   group = group
 })
