@@ -49,7 +49,7 @@ lspconfig.emmet_ls.setup {
 	on_attach = on_attach,
 	default_config = {
 		cmd = { "ls_emmet", "--stdio" },
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'css', 'sass', 'scss', 'less' },
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'css', 'sass', 'scss', 'less', 'ejs' },
 		root_dir = function(_)
 			return vim.loop.cwd()
 		end,
