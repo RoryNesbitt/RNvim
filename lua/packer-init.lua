@@ -39,7 +39,7 @@ return packer.startup(function(use)
     { "chriskempson/base16-vim", opt = true },
     {
       "norcalli/nvim-colorizer.lua",
-      config = function() require("colorizer").setup() end
+      config = function() require("colorizer").setup({'*';},{mode = 'foreground', css = true}) end
     },
     {
       "folke/todo-comments.nvim",
