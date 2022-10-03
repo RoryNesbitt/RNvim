@@ -10,6 +10,7 @@ vim.wo.colorcolumn = "80" -- Adds a colour marker on the # column
 vim.wo.signcolumn = "yes" -- Left side info column
 vim.wo.scrolloff = 4 -- Keeps the cursor away from the top/bottom
 vim.wo.sidescrolloff = 4 -- Keeps the cursor away from the sides
+vim.o.cmdheight = 0 -- Hides the command line when not in use
 
 --Tabs
 vim.o.expandtab = true
