@@ -4,53 +4,6 @@ local function cmd(command)
    return table.concat({ '<cmd>', command, '<CR>' })
 end
 
-local hint = [[
-             LSP
-
- _i_: info         _K_: description
- _k_: signature    _t_: type def
- _d_: definition   _D_: declaration
- _r_: references   _R_: Rename
- _a_: code actions _l_: diagnostics
- workspace _wa_ add _wr_ remove _wi_ info
-
-   _n_/_N_: goto next/prev      _<Esc>_/_q_
-]]
-
-hydra({
-  name = "LSP",
-  hint = hint,
-  config = {
-    hint = {
-      border = "rounded",
-    },
-    invoke_on_body = true,
-  },
-  mode = 'n',
-  body = '<leader>l',
-  heads = {
-    --LSP
-    { "i", cmd "LspInfo", { exit = true } },
-    { "k", function() vim.lsp.buf.signature_help() end },
-    { "K", function() vim.lsp.buf.hover() end, { exit = true } },
-    { "wa", function() vim.lsp.buf.add_workspace_folder() end },
-    { "wr", function() vim.lsp.buf.remove_workspace_folder() end },
-    { "wi", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, { desc = "Workspace" } },
-    { "t", function() vim.lsp.buf.type_definition() end },
-    { "d", function() vim.lsp.buf.definition() end },
-    { "D", function() vim.lsp.buf.declaration() end },
-    { "r", cmd "Telescope lsp_references", { exit = true } },
-    { "R", function() vim.lsp.buf.rename() end, { exit = true } },
-    { "a", cmd "Telescope lsp_code_actions", { exit = true } },
-    { "l", cmd "Telescope diagnostics", { exit = true } },
-    { "n", function() vim.diagnostic.goto_next() end },
-    { "N", function() vim.diagnostic.goto_prev() end },
-    { "q", nil, { exit = true, nowait = true, desc = "exit" } },
-    { "<Esc>", nil, { exit = true, nowait = true } },
-  }
-})
-
 hydra({
   name = "Debugging",
   config = {

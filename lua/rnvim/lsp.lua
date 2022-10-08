@@ -3,12 +3,29 @@ if not status_ok then
 	return
 end
 
+local function cmd(command)
+   return table.concat({ '<cmd>', command, '<CR>' })
+end
+
 local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  -- Add keymaps
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
+  vim.keymap.set("n", "<leader>li", cmd "LspInfo", {buffer = 0, remap = false, silent = true})
+  -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0}) -- This seems to already exist somewhere
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {buffer = 0})
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer = 0})
+  vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, {buffer = 0})
+  vim.keymap.set("n", "<leader>lN", vim.diagnostic.goto_prev, {buffer = 0})
+  vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, {buffer = 0})
+  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {buffer = 0} )
+  vim.keymap.set("n", "<leader>ll", cmd "Telescope diagnostics", {buffer = 0, remap = false, silent = true} )
+  vim.keymap.set("n", "<leader>lr", cmd "Telescope lsp_references", {buffer = 0, remap = false, silent = true} )
+  vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename, {buffer = 0} )
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
