@@ -74,8 +74,8 @@ map("n", "<leader>m", cmd "Mason", silentOpts)
 
 --formatting
 --null-ls
-map("n", "<leader>nf", function() vim.lsp.buf.formatting_sync() end, silentOpts)
-map("v", "<leader>nf", function() vim.lsp.buf.range_formatting() end, silentOpts)
+map("n", "<leader>nf", vim.lsp.buf.formatting_sync, silentOpts)
+map("v", "<leader>nf", vim.lsp.buf.range_formatting, silentOpts)
 map("n", "<leader>ni", cmd "NullLsInfo", silentOpts)
 
 -- Open windows
@@ -92,8 +92,8 @@ map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 map("n", "<leader>j", cmd "Telescope find_files", silentOpts)
 map("n", "<leader>e", cmd "Telescope file_browser", silentOpts)
 --Telescope-change-x
-map("n", "<leader>cw", function() require("rnvim.telescope").change_wallpaper() end, silentOpts)
-map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme() end, silentOpts)
+map("n", "<leader>cw", require("rnvim.telescope").change_wallpaper, silentOpts)
+map("n", "<leader>cc", require("rnvim.telescope").change_colourscheme, silentOpts)
 
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", silentOpts)
@@ -103,4 +103,4 @@ map("v", "<leader>w", cmd "s/\\s\\+$//", silentOpts)
 map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
 map("n", "U", "<C-R>", silentOpts)
 map("n", "gh", function() require("rnvim").randomColours(true) end, silentOpts)
-map("n", "tc", function() require("rnvim").transparentBackground() end, silentOpts)
+map("n", "tc", require("rnvim").transparentBackground, silentOpts)
