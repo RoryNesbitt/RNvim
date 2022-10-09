@@ -91,6 +91,13 @@ map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", opts)
 --telescope
 map("n", "<leader>j", cmd "Telescope find_files", silentOpts)
 map("n", "<leader>e", cmd "Telescope file_browser", silentOpts)
+map("n", "<leader>/", function()
+    require("telescope.builtin").current_buffer_fuzzy_find({
+      sorting_strategy = "ascending",
+      layout_config = { prompt_position = "top" },
+      previewer = false,
+    })
+  end, silentOpts)
 --Telescope-change-x
 map("n", "<leader>cw", require("rnvim.telescope").change_wallpaper, silentOpts)
 map("n", "<leader>cc", require("rnvim.telescope").change_colourscheme, silentOpts)
