@@ -17,6 +17,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = 0})
   vim.keymap.set("n", "<leader>li", cmd "LspInfo", {buffer = 0, remap = false, silent = true})
   -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer = 0}) -- This seems to already exist somewhere
+  vim.keymap.set("n", "gd", "gdzz", {buffer = 0, remap = true}) -- Add zz after regular gd command
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {buffer = 0})
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer = 0})
   vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, {buffer = 0})
