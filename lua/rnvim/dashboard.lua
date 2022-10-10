@@ -15,11 +15,8 @@ end
 
 db.custom_center = {
 	{ icon = "  ", desc = "Jump to File                ", action = "Telescope find_files" },
-	{ icon = "  ", desc = "Jump to bookmarks           ", action = "Telescope jumplist" },
 	{ icon = "  ", desc = "Recent Files                ", action = "Telescope oldfiles" },
-	{ icon = "  ", desc = "Change Colourscheme         ", action = function()
-    require('rnvim.telescope').change_colourscheme()
-  end,  },
+	{ icon = "  ", desc = "Open Neogit                 ", action = "Neogit" },
 	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
 	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
 	{ icon = "  ", desc = "Edit Config                 ", action = function ()
@@ -33,7 +30,7 @@ db.custom_center = {
     vim.cmd('PackerSync')
     print('Restart Neovim to see any changes')
   end},
-  --  
+  --   
 }
 
 local function pluginCount()
