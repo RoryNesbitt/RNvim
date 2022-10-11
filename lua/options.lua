@@ -22,8 +22,6 @@ vim.o.tabstop = 2
 vim.bo.tabstop = 2
 vim.o.softtabstop = 2
 vim.bo.softtabstop = 2
-vim.o.autoindent = true
-vim.bo.autoindent = true
 vim.o.smartindent = true
 vim.bo.smartindent = true
 
@@ -55,5 +53,4 @@ vim.opt.spelllang = { 'en_gb' }
 vim.o.exrc = true -- Loads directory specific .vimrc files
 vim.o.errorbells = false -- Silence
 vim.o.showmatch = true -- Show matching brackets.
-vim.o.showcmd = true -- Show (partial) command in status line.
 vim.o.wildmode = "longest,list,full" -- Enable autocomplete files
