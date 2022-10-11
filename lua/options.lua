@@ -1,5 +1,5 @@
 --VISUAL
-vim.opt.cursorline = true -- Highlights the current line
+-- vim.opt.cursorline = true -- Highlights the current line
 --vim.opt.cursorcolumn = true        -- Highlights the current column
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
