@@ -1,113 +1,111 @@
-local opts = { noremap = true }
-local silentOpts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
 local function cmd(command)
-   return table.concat({ '<cmd>', command, '<CR>' })
+  return table.concat({ '<cmd>', command, '<CR>' })
 end
 
 local HARDMODE = 2
 if HARDMODE > 0 then
   -- Disable Arrow keys in Normal mode
-  map("n", "<up>", "<nop>", silentOpts)
-  map("n", "<down>", "<nop>", silentOpts)
-  map("n", "<left>", "<nop>", silentOpts)
-  map("n", "<right>", "<nop>", silentOpts)
+  map("n", "<up>", "<nop>")
+  map("n", "<down>", "<nop>")
+  map("n", "<left>", "<nop>")
+  map("n", "<right>", "<nop>")
 end
 if HARDMODE > 1 then
   -- Disable Arrow keys in Insert mode
-  map("i", "<up>", "<nop>", silentOpts)
-  map("i", "<down>", "<nop>", silentOpts)
-  map("i", "<left>", "<nop>", silentOpts)
-  map("i", "<right>", "<nop>", silentOpts)
+  map("i", "<up>", "<nop>")
+  map("i", "<down>", "<nop>")
+  map("i", "<left>", "<nop>")
+  map("i", "<right>", "<nop>")
 end
 if HARDMODE > 2 then
   -- Disable hjkl in Normal mode
-  map("n", "h", "<nop>", silentOpts)
-  map("n", "j", "<nop>", silentOpts)
-  map("n", "k", "<nop>", silentOpts)
-  map("n", "l", "<nop>", silentOpts)
+  map("n", "h", "<nop>")
+  map("n", "j", "<nop>")
+  map("n", "k", "<nop>")
+  map("n", "l", "<nop>")
 end
 
 -- Center to focus
-map("n", "{", "{zz", silentOpts)
-map("n", "}", "}zz", silentOpts)
-map("n", "n", "nzz", silentOpts)
-map("n", "N", "Nzz", silentOpts)
-map("n", "i", "zzi", silentOpts)
-map("n", "I", "zzI", silentOpts)
-map("n", "o", "zzo", silentOpts)
-map("n", "O", "zzO", silentOpts)
-map("n", "a", "zza", silentOpts)
-map("n", "A", "zzA", silentOpts)
-map("n", "s", "zzs", silentOpts)
-map("n", "S", "zzS", silentOpts)
-map("n", "c", "zzc", silentOpts)
-map("n", "C", "zzC", silentOpts)
+map("n", "{", "{zz")
+map("n", "}", "}zz")
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+map("n", "i", "zzi")
+map("n", "I", "zzI")
+map("n", "o", "zzo")
+map("n", "O", "zzO")
+map("n", "a", "zza")
+map("n", "A", "zzA")
+map("n", "s", "zzs")
+map("n", "S", "zzS")
+map("n", "c", "zzc")
+map("n", "C", "zzC")
 
 -- Move line
-map("v", "<", "<gv", silentOpts)
-map("v", "<S-j>", ":m '>+1<cr>gv=gv", silentOpts)
-map("v", "<S-k>", ":m '<-2<cr>gv=gv", silentOpts)
-map("v", ">", ">gv", silentOpts)
+map("v", "<", "<gv")
+map("v", "<S-j>", ":m '>+1<cr>gv=gv", { silent = true })
+map("v", "<S-k>", ":m '<-2<cr>gv=gv", { silent = true })
+map("v", ">", ">gv")
 -- Move Windows
-map("n", "<C-S-h>", "<C-W>H", silentOpts)
-map("n", "<C-S-j>", "<C-w>J", silentOpts)
-map("n", "<C-S-k>", "<C-w>K", silentOpts)
-map("n", "<C-S-l>", "<C-w>L", silentOpts)
+map("n", "<C-S-h>", "<C-W>H")
+map("n", "<C-S-j>", "<C-w>J")
+map("n", "<C-S-k>", "<C-w>K")
+map("n", "<C-S-l>", "<C-w>L")
 
 -- Clipboard
-map({ "n", "v" }, "<localleader>y", '"+y', silentOpts)
-map("n", "<localleader>Y", '"+y$', silentOpts)
-map({ "n", "v" }, "<localleader>d", '"+d', silentOpts)
-map("n", "<localleader>D", '"+D', silentOpts)
-map({ "n", "v" }, "<localleader>p", '"+p', silentOpts)
-map("n", "<localleader>P", '"+P', silentOpts)
-map("v", "p", '"_dP', silentOpts)
+map({ "n", "v" }, "<localleader>y", '"+y', { desc = "Yank to Clipboard" })
+map({ "n", "v" }, "<localleader>d", '"+d', { desc = "Delete to Clipboard" })
+map({ "n", "v" }, "<localleader>p", '"+p', { desc = "Paste from Clipboard" })
+map("n", "<localleader>Y", '"+y$', { desc = "YANK to Clipboard" })
+map("n", "<localleader>D", '"+D', { desc = "DELETE to Clipboard" })
+map("n", "<localleader>P", '"+P', { desc = "PASTE from Clipboard" })
+map("v", "p", '"_dP')
 
 --Zen
-map({"n"}, "<leader>f", cmd "TZFocus", silentOpts)
-map({"n"}, "<leader>z", cmd "TZAtaraxis", silentOpts)
+map({ "n" }, "<leader>f", cmd "TZFocus", { desc = "Focus buffer" })
+map({ "n" }, "<leader>z", cmd "TZAtaraxis", { desc = "Zen Mode" })
 
 --Mason
-map("n", "<leader>m", cmd "Mason", silentOpts)
+map("n", "<leader>m", cmd "Mason", { desc = "Open Mason" })
 
 --formatting
 --null-ls
-map("n", "<leader>nf", vim.lsp.buf.formatting_sync, silentOpts)
-map("v", "<leader>nf", vim.lsp.buf.range_formatting, silentOpts)
-map("n", "<leader>ni", cmd "NullLsInfo", silentOpts)
+map("n", "<leader>nf", vim.lsp.buf.formatting_sync, { desc = "Format Buffer" })
+map("v", "<leader>nf", vim.lsp.buf.range_formatting, { desc = "Format Buffer" })
+map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
 -- Open windows
-map("n", "<leader>v", cmd "vsp .", silentOpts)
-map("n", "<leader>h", cmd "sp .", silentOpts)
-map("n", "<leader><cr>", cmd "vsp <bar> terminal", silentOpts)
+map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
+map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
+map("n", "<leader><cr>", cmd "vsp <bar> terminal", { silent = true, desc = "Neovim Terminal" })
 
 -- replace in line
-map({ "n", "v" }, "<leader>s", ":s//gI<Left><Left><Left>", opts)
+map({ "n", "v" }, "<leader>s", ":s//gI<Left><Left><Left>", { desc = "Substitute Line" })
 -- replace in file
-map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", opts)
+map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", { desc = "Substitute File" })
 
 --telescope
-map("n", "<leader>j", cmd "Telescope find_files", silentOpts)
-map("n", "<leader>e", cmd "Telescope file_browser", silentOpts)
+map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
+map("n", "<leader>e", cmd "Telescope file_browser", { silent = true, desc = "File Browser" })
 map("n", "<leader>/", function()
-    require("telescope.builtin").current_buffer_fuzzy_find({
-      sorting_strategy = "ascending",
-      layout_config = { prompt_position = "top" },
-      previewer = false,
-    })
-  end, silentOpts)
+  require("telescope.builtin").current_buffer_fuzzy_find({
+    sorting_strategy = "ascending",
+    layout_config = { prompt_position = "top" },
+    previewer = false,
+  })
+end, { desc = "Fuzzy Search" })
 --Telescope-change-x
-map("n", "<leader>cw", require("rnvim.telescope").change_wallpaper, silentOpts)
-map("n", "<leader>cc", require("rnvim.telescope").change_colourscheme, silentOpts)
+map("n", "<leader>cw", require("rnvim.telescope").change_wallpaper, { desc = "Change wallpaper" })
+map("n", "<leader>cc", require("rnvim.telescope").change_colourscheme, { desc = "Change colourscheme" })
 
 --whitespace
-map("n", "<leader>w", cmd "%s/\\s\\+$//", silentOpts)
-map("v", "<leader>w", cmd "s/\\s\\+$//", silentOpts)
+map("n", "<leader>w", cmd "%s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
+map("v", "<leader>w", cmd "s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
 
 -- misc
-map("n", '""', 'zto""""""<Escape><Left><Left>i', silentOpts)
-map("n", "U", "<C-R>", silentOpts)
-map("n", "gh", function() require("rnvim").randomColours(true) end, silentOpts)
-map("n", "tc", require("rnvim").transparentBackground, silentOpts)
+map("n", '""', 'zto""""""<Escape><Left><Left>i')
+map("n", "U", "<C-R>")
+map("n", "gh", function() require("rnvim").randomColours(true) end, { desc = "GAHH" })
+map("n", "tc", require("rnvim").transparentBackground)
