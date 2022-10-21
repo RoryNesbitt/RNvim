@@ -2,6 +2,7 @@
 -- vim.opt.cursorline = true -- Highlights the current line
 --vim.opt.cursorcolumn = true        -- Highlights the current column
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.opt.termguicolors = true
 --vim.opt.t_Co = '256'
 vim.opt.wrap = false -- Long lines won't wrap
