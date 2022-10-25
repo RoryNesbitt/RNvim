@@ -41,6 +41,13 @@ return packer.startup(function(use)
       "norcalli/nvim-colorizer.lua",
       config = function() require("colorizer").setup({'*';},{mode = 'foreground', css = true}) end
     },
+    {
+      "max397574/colortils.nvim",
+      cmd = "Colortils",
+      config = function()
+        require("colortils").setup()
+      end,
+    },
     "KabbAmine/vCoolor.vim",
     {
       "folke/todo-comments.nvim",
