@@ -141,9 +141,9 @@ hydra({
       { "b", require("gitsigns").blame_line, { desc = "blame" } },
       { "B", function() require("gitsigns").blame_line{ full = true } end, { desc = "blame show full" } },
       { "/", require("gitsigns").show, { exit = true, desc = "show base file" } }, -- show the base of the file
-      { "<Enter>", cmd "Neogit", { exit = true, desc = "Neogit" } },
+      { "<Enter>", require("neogit").open, { exit = true, desc = "Neogit" } },
       { "c", function() require("neogit").open({ "commit" }) end, { exit = true, desc = "Commit" } },
-      { "g", cmd "Neogit", { exit = true } },
+      { "g", require("neogit").open, { exit = true } },
       { "q", nil, { exit = true, nowait = true, desc = "exit" } },
       { "<Esc>", nil, { exit = true, nowait = true } },
    }

@@ -16,7 +16,7 @@ end
 db.custom_center = {
 	{ icon = "  ", desc = "Jump to File                ", action = "Telescope find_files" },
 	{ icon = "  ", desc = "Recent Files                ", action = "Telescope oldfiles" },
-	{ icon = "  ", desc = "Open Neogit                 ", action = "Neogit" },
+	{ icon = "  ", desc = "Open Neogit                 ", action = require("neogit").open },
 	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
 	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
 	{ icon = "  ", desc = "Edit Config                 ", action = function ()
