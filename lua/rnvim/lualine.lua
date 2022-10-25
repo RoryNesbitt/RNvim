@@ -1,39 +1,33 @@
 local getHl = vim.api.nvim_get_hl_by_name
-local colors = {
-  blue = getHl("Function", true).foreground,
-  cyan = getHl("Special", true).foreground,
+local colours = {
+  blue = string.format("#%06x", getHl("Function", true).foreground),
+  cyan = string.format("#%06x", getHl("Special", true).foreground),
   black  = '#080808',
   white  = '#c6c6c6',
-  red = getHl("DiagnosticError", true).foreground,
-  violet = getHl("Statement", true).foreground,
-  gray = getHl("NonText", true).foreground,
-  green = getHl("String", true).foreground,
-  orange = getHl("DiagnosticWarn", true).foreground,
+  red = string.format("#%06x", getHl("DiagnosticError", true).foreground),
+  violet = string.format("#%06x", getHl("Statement", true).foreground),
+  gray = string.format("#%06x", getHl("NonText", true).foreground),
+  green = string.format("#%06x", getHl("String", true).foreground),
+  orange = string.format("#%06x", getHl("DiagnosticWarn", true).foreground),
   diag = {
-    warn = getHl("DiagnosticWarn", true).foreground,
-    error = getHl("DiagnosticError", true).foreground,
-    hint = getHl("DiagnosticHint", true).foreground,
-    info = getHl("DiagnosticInfo", true).foreground,
+    warn = string.format("#%06x", getHl("DiagnosticWarn", true).foreground),
+    error = string.format("#%06x", getHl("DiagnosticError", true).foreground),
+    hint = string.format("#%06x", getHl("DiagnosticHint", true).foreground),
+    info = string.format("#%06x", getHl("DiagnosticInfo", true).foreground),
   },
 }
 
 local auto = {
   normal = {
-    a = { fg = colors.black, bg = string.format("#%06x", colors.violet) },
-    b = { fg = colors.white, bg = string.format("#%06x", colors.gray)   },
-    c = { fg = colors.white, bg = 'none'  },
+    a = { fg = colours.black, bg = colours.violet },
+    b = { fg = colours.white, bg = colours.gray },
+    c = { fg = colours.white, bg = colours.black },
   },
 
-  insert = { a = { fg = colors.black, bg = string.format("#%06x", colors.blue) } },
-  visual = { a = { fg = colors.black, bg = string.format("#%06x", colors.cyan) } },
-  replace = { a = { fg = colors.black, bg = string.format("#%06x", colors.red) } },
-  command = { a = { fg = colors.black, bg = string.format("#%06x", colors.green) } },
-
-  inactive = {
-    a = { fg = colors.white, bg = 'none' },
-    b = { fg = colors.white, bg = 'none' },
-    c = { fg = colors.black, bg = 'none' },
-  },
+  insert = { a = { fg = colours.black, bg = colours.blue } },
+  visual = { a = { fg = colours.black, bg = colours.cyan } },
+  replace = { a = { fg = colours.black, bg = colours.red } },
+  command = { a = { fg = colours.black, bg = colours.green } },
 }
 
 require('lualine').setup {
@@ -48,21 +42,14 @@ require('lualine').setup {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
     lualine_b = { 'filename', },
-    lualine_c = { 'buffers', },
+    lualine_c = { 'tabs', },
     lualine_x = { 'diagnostics', },
     lualine_y = { 'branch', 'filetype', },
     lualine_z = {
       { 'location', separator = { right = '' }, left_padding = 2 },
     },
   },
-  inactive_sections = {
-    lualine_a = { 'filename' },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { 'location' },
-  },
   tabline = {},
+  winbar = {},
   extensions = {},
 }
