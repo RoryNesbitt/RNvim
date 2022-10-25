@@ -228,15 +228,12 @@ return packer.startup(function(use)
         require("Comment").setup()
       end,
     },
-    {"tpope/vim-surround",
-      requires = {
-        "tpope/vim-repeat",
-        config = function()
-          vim.cmd([[
-          silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-          ]])
-        end,
-      },
+    {
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function ()
+        require("nvim-surround").setup()
+      end,
     },
     {
       "lukas-reineke/indent-blankline.nvim",
