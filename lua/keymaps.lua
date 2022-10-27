@@ -82,9 +82,9 @@ map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
 map("n", "<leader><cr>", cmd "vsp <bar> terminal", { silent = true, desc = "Neovim Terminal" })
 
 -- replace in line
-map({ "n", "v" }, "<leader>s", ":s//gI<Left><Left><Left>", { desc = "Substitute Line" })
+map({ "n", "v" }, "<leader>s", ":s///gI<Left><Left><Left><Left>", { desc = "Substitute Line" })
 -- replace in file
-map({ "n", "v" }, "<leader>S", ":%s//gI<Left><Left><Left>", { desc = "Substitute File" })
+map({ "n", "v" }, "<leader>S", ":%s///gI<Left><Left><Left><Left>", { desc = "Substitute File" })
 
 --telescope
 map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
