@@ -52,7 +52,7 @@ return packer.startup(function(use)
     {
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = function() require("todo-comments").setup() end
+      config = require("todo-comments").setup()
     },
     --Lsp
     {
@@ -93,7 +93,7 @@ return packer.startup(function(use)
         "mfussenegger/nvim-dap",
         "nvim-treesitter/nvim-treesitter",
       },
-      config = function() require("nvim-dap-virtual-text").setup() end
+      config = require("nvim-dap-virtual-text").setup()
     },
     {
       "nvim-telescope/telescope-dap.nvim",
@@ -146,7 +146,7 @@ return packer.startup(function(use)
     },
     {
       'lewis6991/spellsitter.nvim',
-      config = function() require("spellsitter").setup() end
+      config = require("spellsitter").setup()
     },
     --Telescope
     {
@@ -213,7 +213,7 @@ return packer.startup(function(use)
     {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim", },
-      config = function() require("gitsigns").setup() end,
+      config = require("gitsigns").setup(),
     },
     --Functionality
     {
@@ -263,17 +263,17 @@ return packer.startup(function(use)
       config = function() require("rnvim.true-zen") end,
       requires = {
         "folke/twilight.nvim",
-        config = function() require("twilight").setup() end
+        config = require("twilight").setup()
       },
     },
     {
       "gaoDean/autolist.nvim",
-      config = function() require("autolist").setup() end,
+      config = require("autolist").setup(),
     },
     --program integration
     {
       "aspeddro/pandoc.nvim",
-      config = function() require("pandoc").setup() end
+      config = require("pandoc").setup()
     },
     {
       "glacambre/firenvim",
