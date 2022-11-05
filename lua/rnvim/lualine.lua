@@ -33,22 +33,32 @@ local auto = {
 require('lualine').setup {
   options = {
     theme = auto,
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
+    component_separators = {left = '', right = ''},
+    section_separators = { left = '', right = '' },
     globalstatus = true,
   },
   sections = {
     lualine_a = {
-      { 'mode', separator = { left = '' }, right_padding = 2 },
+      { 'mode', right_padding = 2 },
     },
-    lualine_b = { 'filename', },
-    lualine_c = { 'tabs', },
+    lualine_b = {
+      {
+        'tabs',
+        mode = 1,
+        tabs_color = {
+          inactive = { fg = colours.white, bg = colours.black },
+        },
+      }
+    },
+    lualine_c = {},
     lualine_x = { 'diagnostics', },
     lualine_y = { 'branch', 'filetype', },
     lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
+      { 'location', left_padding = 2 },
     },
   },
+--  
+--  
   tabline = {},
   winbar = {},
   extensions = {},
