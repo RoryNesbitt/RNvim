@@ -80,6 +80,7 @@ map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" 
 map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
 map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
 map("n", "<leader><cr>", cmd "vsp <bar> terminal", { silent = true, desc = "Neovim Terminal" })
+map("n", "<leader>c", cmd "tabedit .", { silent = true, desc = "New tab" })
 
 -- replace in line
 map({ "n", "v" }, "<leader>s", ":s///gI<Left><Left><Left><Left>", { desc = "Substitute Line" })
