@@ -16,7 +16,8 @@ null_ls.setup({
 		formatting.cmake_format,
 		formatting.dart_format,
 		formatting.isort,
-		formatting.codespell.with({ filetypes = { "markdown" } }),
+		-- formatting.codespell.with({ filetypes = { "markdown", "tex" } }),
+    diagnostics.write_good.with({ filetypes = { "markdown", "tex" }}),
 		--formatting.lua_format.with({
 		--extra_args = {
 		--'--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=80', '--break-after-table-lb', '--indent-width=2'
