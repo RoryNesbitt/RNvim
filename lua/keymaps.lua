@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local function cmd(command)
-  return table.concat({ '<cmd>', command, '<CR>' })
+  return table.concat({ "<cmd>", command, "<CR>" })
 end
 
 local HARDMODE = 2

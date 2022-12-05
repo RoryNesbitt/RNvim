@@ -5,8 +5,8 @@ end
 
 vim.g.dashboard_default_executive = "telescope"
 
-local configDir = vim.fn.stdpath('config')
-local dataDir = vim.fn.stdpath('data').."/site"
+local configDir = vim.fn.stdpath("config")
+local dataDir = vim.fn.stdpath("data").."/site"
 local dir = os.getenv("PVIM")
 if dir then
   configDir = dir.."/config"
@@ -24,11 +24,11 @@ db.custom_center = {
     vim.cmd("Telescope find_files")
   end},
 	{ icon = "  ", desc = "Update Config               ", action = function ()
-    print('Pulling config')
-    print(vim.fn.system('git --git-dir='..configDir..'/.git --work-tree='..configDir..' pull'))
-    dofile(configDir..'/lua/packer-init.lua')
-    vim.cmd('PackerSync')
-    print('Restart Neovim to see any changes')
+    print("Pulling config")
+    print(vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." pull"))
+    dofile(configDir.."/lua/packer-init.lua")
+    vim.cmd("PackerSync")
+    print("Restart Neovim to see any changes")
   end},
   --   
 }

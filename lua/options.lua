@@ -4,7 +4,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.opt.termguicolors = true
---vim.opt.t_Co = '256'
+--vim.opt.t_Co = "256"
 vim.opt.wrap = false -- Long lines won't wrap
 vim.opt.colorcolumn = "80" -- Adds a colour marker on the # column
 vim.opt.signcolumn = "yes" -- Left side info column
@@ -41,7 +41,7 @@ vim.opt.splitright = true -- vertical split right
 
 --spellcheck
 vim.opt.spell = true
-vim.opt.spelllang = { 'en_gb' }
+vim.opt.spelllang = { "en_gb" }
 
 --Misc
 vim.opt.exrc = true -- Loads directory specific .vimrc files

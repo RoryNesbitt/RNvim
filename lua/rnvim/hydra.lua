@@ -1,7 +1,7 @@
 local hydra = require("hydra")
 
 local function cmd(command)
-   return table.concat({ '<cmd>', command, '<CR>' })
+   return table.concat({ "<cmd>", command, "<CR>" })
 end
 
 hydra({
@@ -19,8 +19,8 @@ hydra({
     { "N", function() require("dap").step_over() end, { desc = "Step over" } },
     { "O", function() require("dap").step_out() end, { desc = "Step out" } },
     { "b", function() require("dap").toggle_breakpoint() end, { desc = "Breakpoint" } },
-    { "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Conditional breakpoint" } },
-    { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+    { "B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "Conditional breakpoint" } },
+    { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
     end, { desc = "Log point" } },
     { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
     { "<Esc>", nil, { exit = true, nowait = true } },
@@ -160,8 +160,8 @@ hydra({
   mode = "n",
   body = "<localleader>s",
   heads = {
-    { "n", "<Cmd>lua require'spellsitter'.nav()<CR>" },
-    { "N", "<Cmd>lua require'spellsitter'.nav(true)<CR>", { desc = "Navigate" } },
+    { "n", cmd "lua require'spellsitter'.nav()" },
+    { "N", cmd "lua require'spellsitter'.nav(true)", { desc = "Navigate" } },
     { "s", "z=", { desc = "Suggestions" } },
     { "ad", "zg", { desc = "Add to dictionary" } },
     { "<Esc>", nil, { exit = true, nowait = true } },

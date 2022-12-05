@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 -- Lua
-local cb = require'diffview.config'.diffview_callback
+local cb = require"diffview.config".diffview_callback
 
-require'diffview'.setup {
+require"diffview".setup {
   enhanced_diff_hl = true,
   icons = { -- TODO: Change these
     folder_closed = "",

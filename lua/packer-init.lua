@@ -31,15 +31,15 @@ return packer.startup(function(use)
     --Self manage packer
     "wbthomason/packer.nvim",
     --Colours
-    { 'joshdick/onedark.vim', opt = true },
-    { 'gruvbox-community/gruvbox', opt = true },
-    { 'shaunsingh/nord.nvim', opt = true },
-    { 'dracula/vim', as = 'dracula', opt = true },
+    { "joshdick/onedark.vim", opt = true },
+    { "gruvbox-community/gruvbox", opt = true },
+    { "shaunsingh/nord.nvim", opt = true },
+    { "dracula/vim", as = "dracula", opt = true },
     { "tomasiser/vim-code-dark", opt = true },
     { "chriskempson/base16-vim", opt = true },
     {
       "norcalli/nvim-colorizer.lua",
-      config = function() require("colorizer").setup({'*';},{mode = 'foreground', css = true}) end
+      config = function() require("colorizer").setup({"*";},{mode = "foreground", css = true}) end
     },
     {
       "max397574/colortils.nvim",
@@ -101,7 +101,7 @@ return packer.startup(function(use)
         "mfussenegger/nvim-dap",
         "nvim-telescope/telescope.nvim",
       },
-      config = function() require("telescope").load_extension('dap') end,
+      config = function() require("telescope").load_extension("dap") end,
     },
     --DAP language adapters
     {
@@ -118,7 +118,7 @@ return packer.startup(function(use)
     "hrsh7th/cmp-nvim-lsp",
     {
       "hrsh7th/cmp-buffer",
-      after = 'nvim-cmp'
+      after = "nvim-cmp"
     },
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
@@ -134,18 +134,18 @@ return packer.startup(function(use)
     },
     {
       "nvim-treesitter/playground",
-      after = 'nvim-treesitter'
+      after = "nvim-treesitter"
     },
     {
       "windwp/nvim-ts-autotag",
-      after = 'nvim-treesitter'
+      after = "nvim-treesitter"
     },
     {
       "p00f/nvim-ts-rainbow",
-      after = 'nvim-treesitter'
+      after = "nvim-treesitter"
     },
     {
-      'lewis6991/spellsitter.nvim',
+      "lewis6991/spellsitter.nvim",
       config = require("spellsitter").setup()
     },
     --Telescope
@@ -169,7 +169,7 @@ return packer.startup(function(use)
     --   after = "telescope.nvim",
     -- },
     {
-      'nvim-telescope/telescope-ui-select.nvim',
+      "nvim-telescope/telescope-ui-select.nvim",
       config = function() require("telescope").load_extension("ui-select") end,
       after = "telescope.nvim",
     },
@@ -196,17 +196,17 @@ return packer.startup(function(use)
     "nikvdp/ejs-syntax",
     --git
     {
-      'TimUntersberger/neogit',
+      "TimUntersberger/neogit",
       requires = {
-        'nvim-lua/plenary.nvim',
-        'sindrets/diffview.nvim',
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim",
       },
       config = function() require("rnvim.neogit") end,
     },
     {
-      'sindrets/diffview.nvim',
+      "sindrets/diffview.nvim",
       requires = {
-        'nvim-lua/plenary.nvim',
+        "nvim-lua/plenary.nvim",
       },
       config = function() require("rnvim.diffview") end
     },
@@ -217,11 +217,11 @@ return packer.startup(function(use)
     },
     --Functionality
     {
-      'anuvyklack/hydra.nvim',
+      "anuvyklack/hydra.nvim",
       config = function() require("rnvim.hydra") end
     },
     {
-      'lewis6991/impatient.nvim',
+      "lewis6991/impatient.nvim",
       config = function() require("impatient").enable_profile() end
     },
     "terryma/vim-multiple-cursors",
@@ -230,7 +230,7 @@ return packer.startup(function(use)
       config = function() require("rnvim.autopairs") end,
     },
     {
-      'numToStr/Comment.nvim',
+      "numToStr/Comment.nvim",
       config = function()
         require("Comment").setup()
       end,
@@ -247,11 +247,11 @@ return packer.startup(function(use)
       config = function() require("rnvim.indent-blankline") end,
     },
     {
-      'sunjon/stylish.nvim',
+      "sunjon/stylish.nvim",
       config = function()
-        -- vim.ui.notify = require('stylish').ui_notification()
+        -- vim.ui.notify = require("stylish").ui_notification()
         vim.keymap.set(
-          'n', '<F12>', function()
+          "n", "<F12>", function()
             require "stylish".ui_clock()
           end,
           { noremap = true, silent = true }
@@ -296,8 +296,8 @@ return packer.startup(function(use)
     --    "beeender/Comrade",
     --    requires = {
     --      "Shougo/deoplete.nvim",
-    --      run = ':UpdateRemotePlugins',
-    --      config = 'call deoplete#enable()'
+    --      run = ":UpdateRemotePlugins",
+    --      config = "call deoplete#enable()"
     --    },
     --  },
 

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local function cmd(command)
-  return table.concat({ '<cmd>', command, '<CR>' })
+  return table.concat({ "<cmd>", command, "<CR>" })
 end
 
 local on_attach = function(client, bufnr)
@@ -68,8 +68,8 @@ lspconfig.emmet_ls.setup {
   on_attach = on_attach,
   default_config = {
     cmd = { "ls_emmet", "--stdio" },
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'css', 'sass', 'scss', 'less',
-      'ejs' },
+    filetypes = { "html", "typescriptreact", "javascriptreact", "typescript", "javascript", "css", "sass", "scss", "less",
+      "ejs" },
     root_dir = function(_)
       return vim.loop.cwd()
     end,

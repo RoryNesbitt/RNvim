@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       if configDir then
         configDir = configDir.."/config"
       else
-        configDir = vim.fn.stdpath('config')
+        configDir = vim.fn.stdpath("config")
       end
       return configDir
     end

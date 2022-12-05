@@ -1,14 +1,14 @@
 vim.g.firenvim_config = {
   globalSettings = {
-    alt = 'all',
+    alt = "all",
   },
   localSettings = {
-    ['.*'] = {
-      cmdline = 'neovim',
-      content = 'text',
+    [".*"] = {
+      cmdline = "neovim",
+      content = "text",
       priority = 0,
-      selector = 'textarea',
-      takeover = 'never',
+      selector = "textarea",
+      takeover = "never",
     }
   },
 }
@@ -18,7 +18,7 @@ if vim.g.started_by_firenvim then
   vim.o.laststatus=0
   vim.wo.wrap=true
   vim.wo.linebreak=true
-  vim.o.showbreak='~'
+  vim.o.showbreak="~"
   vim.keymap.set({"n", "v"}, "j", "gj", {noremap = true})
   vim.keymap.set({"n", "v"}, "k", "gk", {noremap = true})
 

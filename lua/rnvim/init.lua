@@ -5,7 +5,7 @@ local function randomNum(i)
   return math.random(i)
 end
 M.randomColours = function(show)
-  local schemes = vim.fn.getcompletion('', 'color')
+  local schemes = vim.fn.getcompletion("", "color")
   local colourScheme = schemes[randomNum(#schemes)]
   if show then
     print(colourScheme)

@@ -21,7 +21,7 @@ bound by plugins are left at default.
 
 ```sh
 git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 ```
 Language servers can be added with lsp-installer, the keybinding is
 <kbd>\<leader\>li</kbd>
@@ -39,7 +39,7 @@ cursor is on.
   - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
 - <kbd>U</kbd> (uppercase) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
-- <kbd>gh</kbd>, for 'GAHH', will release a little frustration from your code by
+- <kbd>gh</kbd>, for "GAHH", will release a little frustration from your code by
   changing to a random colourscheme
 - <kbd>tc</kbd>, for transparent colours, will remove the background colours
   from the colourscheme. Useful after a GAHH

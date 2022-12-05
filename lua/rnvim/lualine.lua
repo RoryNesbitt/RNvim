@@ -2,8 +2,8 @@ local getHl = vim.api.nvim_get_hl_by_name
 local colours = {
   blue = string.format("#%06x", getHl("Function", true).foreground),
   cyan = string.format("#%06x", getHl("Special", true).foreground),
-  black  = '#080808',
-  white  = '#c6c6c6',
+  black  = "#080808",
+  white  = "#c6c6c6",
   red = string.format("#%06x", getHl("DiagnosticError", true).foreground),
   violet = string.format("#%06x", getHl("Statement", true).foreground),
   gray = string.format("#%06x", getHl("NonText", true).foreground),
@@ -30,20 +30,20 @@ local auto = {
   command = { a = { fg = colours.black, bg = colours.green } },
 }
 
-require('lualine').setup {
+require("lualine").setup {
   options = {
     theme = auto,
-    component_separators = {left = '', right = ''},
-    section_separators = { left = '', right = '' },
+    component_separators = {left = "", right = ""},
+    section_separators = { left = "", right = "" },
     globalstatus = true,
   },
   sections = {
     lualine_a = {
-      { 'mode', right_padding = 2 },
+      { "mode", right_padding = 2 },
     },
     lualine_b = {
       {
-        'tabs',
+        "tabs",
         mode = 1,
         tabs_color = {
           inactive = { fg = colours.white, bg = colours.black },
@@ -51,10 +51,10 @@ require('lualine').setup {
       }
     },
     lualine_c = {},
-    lualine_x = { 'diagnostics', },
-    lualine_y = { 'branch', 'filetype', },
+    lualine_x = { "diagnostics", },
+    lualine_y = { "branch", "filetype", },
     lualine_z = {
-      { 'location', left_padding = 2 },
+      { "location", left_padding = 2 },
     },
   },
 --  
