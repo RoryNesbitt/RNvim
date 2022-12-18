@@ -8,7 +8,3 @@ require("mason").setup({
     }
 })
 
-local autoInstall = os.getenv("USER") ~= "root"
-require("mason-lspconfig").setup {
-    automatic_installation = autoInstall,
-}

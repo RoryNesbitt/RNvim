@@ -7,7 +7,7 @@ local function cmd(command)
   return table.concat({ "<cmd>", command, "<CR>" })
 end
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
@@ -32,74 +32,70 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = {
-  "ansiblels",
-  "bashls",
-  "cssls",
-  "dockerls",
-  "html",
-  "jedi_language_server",
-  "jsonls",
-  "kotlin_language_server",
-  "lemminx",
-  "tailwindcss",
-  "texlab",
-  "tsserver",
-  "vimls",
-  "yamlls",
-}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  })
-end
+require("mason-lspconfig").setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+    lspconfig[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = {
+        debounce_text_changes = 150,
+      },
+    }
+  end,
+  -- Next, you can provide a dedicated handler for specific servers.
 
-lspconfig.clangd.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "c", "cpp", "objc", "objcpp", "ino" },
-}
+  ["clangd"] = function ()
+    lspconfig.clangd.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "c", "cpp", "objc", "objcpp", "ino" },
+    }
+  end,
 
-lspconfig.emmet_ls.setup {
-  on_attach = on_attach,
-  default_config = {
-    cmd = { "ls_emmet", "--stdio" },
-    filetypes = { "html", "typescriptreact", "javascriptreact", "typescript", "javascript", "css", "sass", "scss", "less",
-      "ejs" },
-    root_dir = function(_)
-      return vim.loop.cwd()
-    end,
-    settings = {},
-  },
-}
+  ["emmet_ls"] = function ()
+    lspconfig.emmet_ls.setup {
+      on_attach = on_attach,
+      default_config = {
+        cmd = { "ls_emmet", "--stdio" },
+        filetypes = { "html", "typescriptreact", "javascriptreact", "typescript", "javascript", "css", "sass", "scss", "less",
+          "ejs" },
+        root_dir = function(_)
+          return vim.loop.cwd()
+        end,
+        settings = {},
+      },
+    }
+  end,
 
-lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-        -- Setup your lua path
-        path = vim.split(package.path, ";")
+  ["sumneko_lua"] = function ()
+    lspconfig.sumneko_lua.setup {
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = "LuaJIT",
+            -- Setup your lua path
+            path = vim.split(package.path, ";")
+          },
+          -- diagnostics = {
+          --   -- Get the language server to recognize the `vim` global
+          --   globals = { "vim" },
+          -- },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
       },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
+    }
+  end,
 }
