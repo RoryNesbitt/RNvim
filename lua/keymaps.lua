@@ -45,8 +45,8 @@ map("n", "C", "zzC")
 
 -- Move line
 map("v", "<", "<gv")
-map("v", "<S-j>", ":m '>+1<cr>gv=gv", { silent = true })
-map("v", "<S-k>", ":m '<-2<cr>gv=gv", { silent = true })
+map("v", "J", ":m '>+1<cr>gv=gv", { silent = true })
+map("v", "K", ":m '<-2<cr>gv=gv", { silent = true })
 map("v", ">", ">gv")
 -- Move Windows
 map("n", "<C-S-h>", "<C-W>H")
