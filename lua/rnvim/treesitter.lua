@@ -11,6 +11,8 @@ if not status_ok then
 	return
 end
 
+--TODO: look in to textObjects
+--TODO: look in to move
 configs.setup({
 	ensure_installed = "all",
 	highlight = {
