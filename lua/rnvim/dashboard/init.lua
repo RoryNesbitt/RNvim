@@ -24,11 +24,21 @@ db.custom_center = {
     vim.cmd.Telescope("find_files")
   end},
 	{ icon = "  ", desc = "Update Config               ", action = function ()
-    print("Pulling config")
+    print [[
+===================================
+          Pulling config
+===================================
+
+]]
     print(vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." pull"))
     dofile(configDir.."/lua/packer-init.lua")
     vim.cmd.PackerSync()
-    print("Restart Neovim to see any changes")
+    print [[
+===================================
+  Press enter to update plugins
+   Wait until packer completes
+ Restart Neovim to see any changes
+===================================]]
   end},
   --   
 }
