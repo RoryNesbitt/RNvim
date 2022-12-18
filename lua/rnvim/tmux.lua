@@ -5,6 +5,9 @@ require("tmux").setup({
   resize = {
     enable_default_keybindings = true,
   },
+  copy_sync = {
+    enable = false,
+  },
 })
 
 vim.keymap.set("i", "<C-h>", function() require("tmux").move_left() end, { noremap = true, silent = true})
