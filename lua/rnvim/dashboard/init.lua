@@ -17,7 +17,7 @@ db.custom_center = {
 	{ icon = "  ", desc = "Jump to File                ", action = "Telescope find_files" },
 	{ icon = "  ", desc = "Recent Files                ", action = "Telescope oldfiles" },
 	{ icon = "  ", desc = "Open Neogit                 ", action = require("neogit").open },
-	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
+	{ icon = "  ", desc = "Search Text                 ", action = "Telescope live_grep" },
 	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
 	{ icon = "  ", desc = "Edit Config                 ", action = function ()
     vim.cmd.cd(configDir)
