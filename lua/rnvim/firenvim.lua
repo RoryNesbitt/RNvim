@@ -55,7 +55,7 @@ if vim.g.started_by_firenvim then
          and vim.bo.filetype ~= "dashboard"
          and vim.bo.filetype ~= "mason.nvim"
       then
-        vim.cmd("write")
+        vim.cmd.write()
       end
     end,
     nested = true,

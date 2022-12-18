@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 and not os.getenv("PVIM") then
     install_path,
   })
   print("Installing packer")
-  vim.cmd([[packadd packer.nvim]])
+  vim.cmd.packadd("packer.nvim")
 end
 
 local status_ok, packer = pcall(require, "packer")

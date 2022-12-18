@@ -20,14 +20,14 @@ db.custom_center = {
 	{ icon = "  ", desc = "Search Text                 ", action = "Telescope grep_string" },
 	{ icon = "  ", desc = "New File                    ", action = "DashboardNewFile" },
 	{ icon = "  ", desc = "Edit Config                 ", action = function ()
-    vim.cmd("cd"..configDir)
-    vim.cmd("Telescope find_files")
+    vim.cmd.cd(configDir)
+    vim.cmd.Telescope("find_files")
   end},
 	{ icon = "  ", desc = "Update Config               ", action = function ()
     print("Pulling config")
     print(vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." pull"))
     dofile(configDir.."/lua/packer-init.lua")
-    vim.cmd("PackerSync")
+    vim.cmd.PackerSync()
     print("Restart Neovim to see any changes")
   end},
   --   

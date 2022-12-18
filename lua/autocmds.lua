@@ -22,12 +22,12 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function ()
     if vim.bo.filetype == "dashboard" then
-      vim.cmd([[ highlight TrailingSpace gui=none ]])
+      vim.cmd.highlight("TrailingSpace gui=none")
     elseif vim.bo.filetype ~= "TelescopePrompt"
     and vim.bo.filetype ~= "TelescopeResults"
     and vim.bo.filetype ~= "packer"
     and vim.bo.filetype ~= "mason.nvim" then
-      vim.cmd([[ highlight TrailingSpace gui=undercurl ]])
+      vim.cmd.highlight("TrailingSpace gui=undercurl")
     end
   end,
   group = group,
@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       end
       return configDir
     end
-    vim.cmd("source "..findConfig().."/lua/rnvim/lualine.lua")
+    vim.cmd.source(findConfig().."/lua/rnvim/lualine.lua")
     if vim.g.started_by_firenvim then
       vim.opt.laststatus = 0
     end

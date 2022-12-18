@@ -1,6 +1,6 @@
 local colorscheme = "base16-material-vivid"
 
-pcall(vim.cmd, "colorscheme " .. colorscheme)
+pcall(vim.cmd.colorscheme(colorscheme))
 
 vim.cmd([[
   highlight Normal guibg=none

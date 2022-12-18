@@ -47,18 +47,18 @@ M.change_colourscheme = function ()
       function set_colour(close)
         local content =
           require("telescope.actions.state").get_selected_entry()
-        pcall(vim.cmd, "colorscheme "..content.value)
-        -- pcall(vim.cmd, "highlight Normal guibg=none")
-        -- pcall(vim.cmd, "highlight NonText guibg=none")
-        pcall(vim.cmd, "highlight LineNr guibg=none")
+        pcall(vim.cmd.colorscheme(content.value))
+        -- pcall(vim.cmd.highlight("Normal guibg=none"))
+        -- pcall(vim.cmd.highlight("NonText guibg=none"))
+        pcall(vim.cmd.highlight("LineNr guibg=none"))
         if close then
           require("telescope.actions").close(prompt_bufnr)
         end
       end
       function clear_background()
-        pcall (vim.cmd, "highlight Normal guibg=none")
-        pcall (vim.cmd, "highlight NonText guibg=none")
-        pcall (vim.cmd, "highlight LineNr guibg=none")
+        pcall (vim.cmd.highlight("Normal guibg=none"))
+        pcall (vim.cmd.highlight("NonText guibg=none"))
+        pcall (vim.cmd.highlight("LineNr guibg=none"))
       end
 
       map("i", "<C-s>", function(bufnr)
