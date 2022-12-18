@@ -39,7 +39,9 @@ return packer.startup(function(use)
     { "chriskempson/base16-vim", opt = true },
     {
       "norcalli/nvim-colorizer.lua",
-      config = function() require("colorizer").setup({"*";},{mode = "foreground", css = true}) end
+      config = function() require("colorizer").setup(
+        {"*";}, {mode = "foreground", css = true}
+        )end
     },
     {
       "max397574/colortils.nvim",
@@ -115,14 +117,16 @@ return packer.startup(function(use)
       "hrsh7th/nvim-cmp",
       config = function() require("rnvim.nvim-cmp") end,
     },
-    "hrsh7th/cmp-nvim-lsp",
     {
       "hrsh7th/cmp-buffer",
       after = "nvim-cmp"
     },
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
     "onsails/lspkind-nvim",
+    'saadparwaiz1/cmp_luasnip',
     --Snippets
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
