@@ -297,12 +297,6 @@ return packer.startup(function(use)
       "aserowy/tmux.nvim",
       config = function() require("rnvim.tmux") end,
     },
-    {
-      "iamcco/markdown-preview.nvim",
-      config = function()
-        vim.g.mkdp_auto_start = 1
-      end,
-    },
     --  {
     --    "beeender/Comrade",
     --    requires = {
