@@ -14,9 +14,7 @@ null_ls.setup({
 mason_null_ls.setup_handlers {
   function(source_name, methods)
     -- All sources with no handler get passed here
-    vim.tbl_map(function(method)
-      null_ls.register(null_ls.builtins[method][source_name])
-    end, methods)
+    require("mason-null-ls.automatic_setup")(source_name, methods)
   end,
 
   write_good = function(source_name, methods)
