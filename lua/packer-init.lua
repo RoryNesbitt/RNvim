@@ -77,6 +77,13 @@ return packer.startup(function(use)
       "jose-elias-alvarez/null-ls.nvim",
       config = function() require("rnvim.null-ls") end,
     },
+    {
+      "jay-babu/mason-null-ls.nvim",
+      requires = {
+        "jose-elias-alvarez/null-ls.nvim",
+        "williamboman/mason.nvim",
+      },
+    },
     --Dap
     {
       "mfussenegger/nvim-dap",
