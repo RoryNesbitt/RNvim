@@ -61,10 +61,12 @@ return packer.startup(function(use)
       "neovim/nvim-lspconfig",
       config = function() require("rnvim.lsp") end,
     },
+    {
     "williamboman/mason.nvim",
+      config = function() require("rnvim.mason") end,
+    },
     {
       "williamboman/mason-lspconfig.nvim",
-      config = function() require("rnvim.mason") end,
       requires = {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
