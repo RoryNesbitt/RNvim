@@ -10,7 +10,7 @@ local dataDir = vim.fn.stdpath("data").."/site"
 local dir = os.getenv("PVIM")
 if dir then
   configDir = dir.."/config"
-  dataDir = dir
+  dataDir = dir .."/clutter/packer"
 end
 
 db.custom_center = {
