@@ -1,44 +1,30 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 and not os.getenv("PVIM") then
-  Packer_bootstrap = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) and not os.getenv("PVIM") then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer")
-  vim.cmd.packadd("packer.nvim")
 end
+vim.opt.rtp:prepend(lazypath)
 
-local status_ok, packer = pcall(require, "packer")
+
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   return
 end
 
-packer.reset()
-packer.init({
-  display = {
-    compact = true,
-    open_fn = function()
-      return require("packer.util").float({})
-    end,
-  },
-  autoremove = true,
-})
-
-packer.use {
-  --Self manage packer
-  "wbthomason/packer.nvim",
+lazy.setup {
   --Colours
-  { "joshdick/onedark.vim", opt = true },
-  { "gruvbox-community/gruvbox", opt = true },
-  { "shaunsingh/nord.nvim", opt = true },
-  { "dracula/vim", as = "dracula", opt = true },
-  { "tomasiser/vim-code-dark", opt = true },
-  { "chriskempson/base16-vim", opt = true },
+  { "joshdick/onedark.vim" },
+  { "gruvbox-community/gruvbox" },
+  { "shaunsingh/nord.nvim" },
+  { "dracula/vim", name = "dracula" },
+  { "tomasiser/vim-code-dark" },
+  { "chriskempson/base16-vim" },
   {
     "norcalli/nvim-colorizer.lua",
     config = function() require("colorizer").setup(
@@ -55,9 +41,10 @@ packer.use {
   "KabbAmine/vCoolor.vim",
   {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function() require("todo-comments").setup() end,
   },
+  "folke/neodev.nvim",
   --Lsp
   {
     "neovim/nvim-lspconfig",
@@ -69,7 +56,7 @@ packer.use {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    requires = {
+    dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
     },
@@ -83,7 +70,7 @@ packer.use {
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    requires = {
+    dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
       "williamboman/mason.nvim",
     },
@@ -95,14 +82,14 @@ packer.use {
   },
   {
     "rcarriga/nvim-dap-ui",
-    requires = {
+    dependencies = {
       "mfussenegger/nvim-dap",
     },
     config = function() require("rnvim.dapui") end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    requires = {
+    dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-treesitter/nvim-treesitter",
     },
@@ -110,7 +97,7 @@ packer.use {
   },
   {
     "nvim-telescope/telescope-dap.nvim",
-    requires = {
+    dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-telescope/telescope.nvim",
     },
@@ -119,7 +106,7 @@ packer.use {
   --DAP language adapters
   {
     "jbyuki/one-small-step-for-vimkind",
-    requires = {
+    dependencies = {
       "mfussenegger/nvim-dap",
     },
   },
@@ -130,7 +117,7 @@ packer.use {
   },
   {
     "hrsh7th/cmp-buffer",
-    after = "nvim-cmp"
+    -- after = "nvim-cmp"
   },
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
@@ -144,20 +131,20 @@ packer.use {
   --Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    build = ":TSUpdate",
     config = function() require("rnvim.treesitter") end,
   },
   {
     "nvim-treesitter/playground",
-    after = "nvim-treesitter"
+    -- after = "nvim-treesitter"
   },
   {
     "windwp/nvim-ts-autotag",
-    after = "nvim-treesitter"
+    -- after = "nvim-treesitter"
   },
   {
     "p00f/nvim-ts-rainbow",
-    after = "nvim-treesitter"
+    -- after = "nvim-treesitter"
   },
   {
     "lewis6991/spellsitter.nvim",
@@ -166,7 +153,7 @@ packer.use {
   --Telescope
   {
     "nvim-telescope/telescope.nvim",
-    requires = {
+    dependencies = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
@@ -176,7 +163,7 @@ packer.use {
   {
     "nvim-telescope/telescope-file-browser.nvim",
     config = function() require("telescope").load_extension "file_browser" end,
-    after = "telescope.nvim",
+    -- after = "telescope.nvim",
   },
   -- {
   --   "nvim-telescope/telescope-packer.nvim",
@@ -186,7 +173,7 @@ packer.use {
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function() require("telescope").load_extension("ui-select") end,
-    after = "telescope.nvim",
+    -- after = "telescope.nvim",
   },
   --Extra info
   {
@@ -195,9 +182,9 @@ packer.use {
   },
   {
     "nvim-lualine/lualine.nvim",
-    requires = {
+    dependencies = {
       "kyazdani42/nvim-web-devicons",
-      opt = true,
+      lazy = true,
     },
     config = function() require("rnvim.lualine") end,
   },
@@ -212,7 +199,7 @@ packer.use {
   --git
   {
     "TimUntersberger/neogit",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
     },
@@ -220,24 +207,20 @@ packer.use {
   },
   {
     "sindrets/diffview.nvim",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
     },
     config = function() require("rnvim.diffview") end
   },
   {
     "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim", },
+    dependencies = { "nvim-lua/plenary.nvim", },
     config = function() require("gitsigns").setup() end,
   },
   --Functionality
   {
     "anuvyklack/hydra.nvim",
     config = function() require("rnvim.hydra") end
-  },
-  {
-    "lewis6991/impatient.nvim",
-    config = function() require("impatient").enable_profile() end
   },
   "terryma/vim-multiple-cursors",
   {
@@ -252,7 +235,7 @@ packer.use {
   },
   {
     "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function ()
       require("nvim-surround").setup()
     end,
@@ -276,7 +259,7 @@ packer.use {
   {
     "Pocco81/true-zen.nvim",
     config = function() require("rnvim.true-zen") end,
-    requires = {
+    dependencies = {
       "folke/twilight.nvim",
       config = function() require("twilight").setup() end,
     },
@@ -292,7 +275,7 @@ packer.use {
   },
   {
     "glacambre/firenvim",
-    run = function()
+    build = function()
       vim.fn["firenvim#install"](0)
     end,
     config = function() require("rnvim.firenvim") end,
@@ -303,16 +286,11 @@ packer.use {
   },
   --  {
   --    "beeender/Comrade",
-  --    requires = {
+  --    dependencies = {
   --      "Shougo/deoplete.nvim",
-  --      run = ":UpdateRemotePlugins",
+  --      build = ":UpdateRemotePlugins",
   --      config = "call deoplete#enable()"
   --    },
   --  },
 
 }
-
---Autoinstall packer if not yet setup
-if Packer_bootstrap then
-  require("packer").sync()
-end

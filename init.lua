@@ -1,5 +1,5 @@
-require"packer-init"
 require"options"
+require"lazy-init"
 require"keymaps"
 require"autocmds"
 require"colourscheme"
