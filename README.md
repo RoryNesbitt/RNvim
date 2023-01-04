@@ -21,7 +21,7 @@ bound by plugins are left at default.
 
 ```sh
 git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
-nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+nvim --headless "+Lazy! sync" +qa
 ```
 Language servers can be added with mason, the keybinding is
 <kbd>\<leader\>m</kbd>
