@@ -1,3 +1,9 @@
+require"rnvim.options"
+require"rnvim.lazy"
+require"rnvim.keymaps"
+require"rnvim.autocmds"
+require"rnvim.colourscheme"
+
 local M = {}
 
 local function randomNum(i)

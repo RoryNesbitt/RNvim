@@ -6,11 +6,11 @@ end
 vim.g.dashboard_default_executive = "telescope"
 
 local configDir = vim.fn.stdpath("config")
-local dataDir = vim.fn.stdpath("data").."/site"
+local dataDir = vim.fn.stdpath("data")
 local dir = os.getenv("PVIM")
 if dir then
   configDir = dir.."/config"
-  dataDir = dir .."/clutter/packer"
+  dataDir = dir .."/clutter/lazy"
 end
 
 db.custom_center = {
@@ -31,12 +31,12 @@ db.custom_center = {
 
 ]]
     print(vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." pull"))
-    dofile(configDir.."/lua/packer-init.lua")
-    vim.cmd.PackerSync()
+    dofile(configDir.."/lua/rnvim/lazy.lua")
+    require"lazy".sync()
     print [[
 ===================================
   Press enter to update plugins
-   Wait until packer completes
+    Wait until lazy completes
  Restart Neovim to see any changes
 ===================================]]
   end},
@@ -45,10 +45,7 @@ db.custom_center = {
 
 local function pluginCount()
 	local i, popen = 0, io.popen
-	for _ in popen("ls "..dataDir.."/pack/packer/start/"):lines() do
-		i = i + 1
-	end
-	for _ in popen("ls "..dataDir.."/pack/packer/opt/"):lines() do
+	for _ in popen("ls "..dataDir.."/lazy/"):lines() do
 		i = i + 1
 	end
 	return i
