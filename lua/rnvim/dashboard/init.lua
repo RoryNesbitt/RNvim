@@ -30,21 +30,34 @@ db.custom_center = {
 ===================================
 
 ]]
+
+    vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." fetch")
+    local changes = vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." diff --name-only ..origin")
     print(vim.fn.system("git --git-dir="..configDir.."/.git --work-tree="..configDir.." pull"))
-  vim.ui.input({ prompt = [[
+    if string.find(changes, "lua/rnvim/lazy/") then
+      vim.ui.input({ prompt = [[
 ===================================
           Config updated
-          Close or sync?
-               [c/S]
+      Neovim needs to restart
 ===================================
 ]]
-  }, function(input)
-    if input == "c" or input == "C" then
-      vim.cmd.quitall()
+      }, function(input)
+        if input == "c" or input == "C" then
+        else
+          vim.cmd.quitall()
+        end
+      end)
     else
-      require"lazy".sync()
+      vim.ui.input({ prompt = [[
+===================================
+          Config updated
+    Press enter to sync plugins
+===================================
+]]
+      }, function(input)
+        require"lazy".sync()
+      end)
     end
-  end)
   end},
   --   
 }
