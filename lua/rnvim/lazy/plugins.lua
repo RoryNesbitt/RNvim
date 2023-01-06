@@ -124,7 +124,7 @@ return {
     -- after = "nvim-treesitter"
   },
   {
-    "p00f/nvim-ts-rainbow",
+    "mrjones2014/nvim-ts-rainbow",
     -- after = "nvim-treesitter"
   },
   {
