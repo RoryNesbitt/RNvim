@@ -101,7 +101,7 @@ hydra({
       border = "rounded"
     },
     on_enter = function()
-      if vim.bo.filetype ~= "dashboard" then
+      if vim.bo.filetype ~= "dashboard" and vim.bo.filetype ~= "netrw" then
         vim.cmd.mkview()
         vim.cmd "silent! %foldopen!"
         vim.bo.modifiable = false
@@ -109,7 +109,7 @@ hydra({
       end
     end,
     on_exit = function()
-      if vim.bo.filetype ~= "dashboard" then
+      if vim.bo.filetype ~= "dashboard" and vim.bo.filetype ~= "netrw" then
         local cursor_pos = vim.api.nvim_win_get_cursor(0)
         vim.cmd.loadview()
         vim.api.nvim_win_set_cursor(0, cursor_pos)
