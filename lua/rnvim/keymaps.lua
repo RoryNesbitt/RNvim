@@ -98,8 +98,8 @@ map("n", "<leader>/", function()
   })
 end, { desc = "Fuzzy Search" })
 --Telescope-change-x
-map("n", "<leader>cw", function() require("rnvim.telescope").change_wallpaper() end, { desc = "Change wallpaper" })
-map("n", "<leader>cc", function() require("rnvim.telescope").change_colourscheme() end, { desc = "Change colourscheme" })
+map("n", "<localleader>cw", function() require("rnvim.telescope").change_wallpaper() end, { desc = "Change wallpaper" })
+map("n", "<localleader>cc", function() require("rnvim.telescope").change_colourscheme() end, { desc = "Change colourscheme" })
 
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
