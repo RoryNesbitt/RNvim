@@ -98,4 +98,18 @@ require("mason-lspconfig").setup_handlers {
       },
     }
   end,
+
+  ["ltex"] = function()
+    lspconfig.ltex.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        ltex = {
+          language = "en",
+          disabledRules = { ["en-GB"] = { "OXFORD_SPELLING_NOUNS" }},
+        }
+      }
+    }
+  end
+
 }
