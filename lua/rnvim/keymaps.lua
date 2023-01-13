@@ -64,8 +64,8 @@ map("n", "<localleader>P", '"+P', { desc = "PASTE from Clipboard" })
 map("v", "p", '"_dP')
 
 --Zen
-map({ "n" }, "<leader>f", cmd "TZFocus", { desc = "Focus buffer" })
-map({ "n" }, "<leader>z", cmd "TZAtaraxis", { desc = "Zen Mode" })
+map("n", "<leader>f", cmd "TZFocus", { desc = "Focus buffer" })
+map("n", "<leader>z", cmd "TZAtaraxis", { desc = "Zen Mode" })
 
 --Mason
 map("n", "<leader>m", cmd "Mason", { desc = "Open Mason" })
