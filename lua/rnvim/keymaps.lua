@@ -72,8 +72,7 @@ map("n", "<leader>m", cmd "Mason", { desc = "Open Mason" })
 
 --formatting
 --null-ls
-map("n", "<leader>nf", vim.lsp.buf.formatting_sync, { desc = "Format Buffer" })
-map("v", "<leader>nf", vim.lsp.buf.range_formatting, { desc = "Format Buffer" })
+map({ "n", "v" }, "<leader>nf", vim.lsp.buf.format, { desc = "Format Buffer" })
 map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
 -- Open windows
