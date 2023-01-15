@@ -147,11 +147,6 @@ return {
     config = function() require("telescope").load_extension "file_browser" end,
     -- after = "telescope.nvim",
   },
-  -- {
-  --   "nvim-telescope/telescope-packer.nvim",
-  --   config = function() require("telescope").load_extension "packer" end,
-  --   after = "telescope.nvim",
-  -- },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function() require("telescope").load_extension("ui-select") end,
@@ -266,13 +261,4 @@ return {
     "aserowy/tmux.nvim",
     config = function() require("rnvim.tmux") end,
   },
-  --  {
-  --    "beeender/Comrade",
-  --    dependencies = {
-  --      "Shougo/deoplete.nvim",
-  --      build = ":UpdateRemotePlugins",
-  --      config = "call deoplete#enable()"
-  --    },
-  --  },
-
 }
