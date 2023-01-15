@@ -18,15 +18,13 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group
 })
 
+local ignoredTrails = { "TelescopeResults", "TelescopePrompt", "lazy", "mason" }
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     if vim.bo.filetype == "dashboard" then
       vim.cmd.highlight("TrailingSpace gui=none")
-    elseif vim.bo.filetype ~= "TelescopePrompt"
-        and vim.bo.filetype ~= "TelescopeResults"
-        and vim.bo.filetype ~= "packer"
-        and vim.bo.filetype ~= "mason.nvim" then
+    elseif not vim.tbl_contains(ignoredTrails, vim.bo.filetype) then
       vim.cmd.highlight("TrailingSpace gui=undercurl")
     end
   end,
