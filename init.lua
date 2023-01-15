@@ -1,1 +1,1 @@
-require"rnvim"
+require "rnvim"

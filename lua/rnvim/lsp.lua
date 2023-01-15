@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local function cmd(command)
-  return table.concat({ "<cmd>", command, "<CR>" })
+  return table.concat { "<cmd>", command, "<CR>" }
 end
 
 local on_attach = function(_, bufnr)
@@ -26,7 +26,8 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { buffer = 0, desc = "Previous" })
   vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, { buffer = 0, desc = "Code Actions" })
   vim.keymap.set("n", "<leader>ll", cmd "Telescope diagnostics", { buffer = 0, silent = true, desc = "Show Diagnostics" })
-  vim.keymap.set("n", "<leader>lr", cmd "Telescope lsp_references", { buffer = 0, silent = true, desc = "Show References" })
+  vim.keymap.set("n", "<leader>lr", cmd "Telescope lsp_references",
+    { buffer = 0, silent = true, desc = "Show References" })
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0, desc = "Rename Object" })
 end
 
@@ -36,7 +37,7 @@ require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
-  function (server_name) -- default handler (optional)
+  function(server_name) -- default handler (optional)
     lspconfig[server_name].setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -47,7 +48,7 @@ require("mason-lspconfig").setup_handlers {
   end,
   -- Next, you can provide a dedicated handler for specific servers.
 
-  ["clangd"] = function ()
+  ["clangd"] = function()
     lspconfig.clangd.setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -55,12 +56,13 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  ["emmet_ls"] = function ()
+  ["emmet_ls"] = function()
     lspconfig.emmet_ls.setup {
       on_attach = on_attach,
       default_config = {
         cmd = { "ls_emmet", "--stdio" },
-        filetypes = { "html", "typescriptreact", "javascriptreact", "typescript", "javascript", "css", "sass", "scss", "less",
+        filetypes = { "html", "typescriptreact", "javascriptreact", "typescript", "javascript", "css", "sass", "scss",
+          "less",
           "ejs" },
         root_dir = function(_)
           return vim.loop.cwd()
@@ -70,7 +72,7 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  ["sumneko_lua"] = function ()
+  ["sumneko_lua"] = function()
     lspconfig.sumneko_lua.setup {
       on_attach = on_attach,
       settings = {
@@ -106,7 +108,7 @@ require("mason-lspconfig").setup_handlers {
       settings = {
         ltex = {
           language = "en",
-          disabledRules = { ["en-GB"] = { "OXFORD_SPELLING_NOUNS" }},
+          disabledRules = { ["en-GB"] = { "OXFORD_SPELLING_NOUNS" } },
         }
       }
     }

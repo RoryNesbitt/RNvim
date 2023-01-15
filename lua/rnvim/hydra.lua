@@ -1,10 +1,10 @@
 local hydra = require("hydra")
 
 local function cmd(command)
-  return table.concat({ "<cmd>", command, "<CR>" })
+  return table.concat { "<cmd>", command, "<CR>" }
 end
 
-hydra({
+hydra {
   name = "Debugging",
   config = {
     foreign_keys = "run",
@@ -27,7 +27,7 @@ hydra({
     { "<Esc>", nil, { exit = true, nowait = true } },
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
   }
-})
+}
 
 
 local hint = [[
@@ -44,7 +44,7 @@ local hint = [[
  _<Enter>_: Telescope           _<Esc>_/_q_
 ]]
 
-hydra({
+hydra {
   name = "Telescope",
   hint = hint,
   config = {
@@ -65,11 +65,11 @@ hydra({
     { "k", cmd "Telescope keymaps" },
     { "r", cmd "Telescope resume" },
     { "/", function()
-      require("telescope.builtin").current_buffer_fuzzy_find({
+      require("telescope.builtin").current_buffer_fuzzy_find {
         sorting_strategy = "ascending",
         layout_config = { prompt_position = "top" },
         previewer = false,
-      })
+      }
     end, { desc = "search in file" } },
     { "t", cmd "TodoTelescope" },
     { "b", cmd "Telescope buffers" },
@@ -80,7 +80,7 @@ hydra({
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
     { "<Esc>", nil, { exit = true, nowait = true } },
   }
-})
+}
 
 local hint = [[
  _n_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
@@ -90,7 +90,7 @@ local hint = [[
  ^ ^              _<Enter>_/_g_: Neogit         _<Esc>_/_q_
 ]]
 
-hydra({
+hydra {
   name = "Git",
   hint = hint,
   config = {
@@ -150,10 +150,10 @@ hydra({
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
     { "<Esc>", nil, { exit = true, nowait = true } },
   }
-})
+}
 
 
-hydra({
+hydra {
   name = "Spellcheck",
   config = {
     type = "statusline",
@@ -170,4 +170,4 @@ hydra({
     { "<Esc>", nil, { exit = true, nowait = true } },
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
   }
-})
+}

@@ -1,52 +1,53 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-	return
+  return
 end
 
 local actions = require("telescope.actions")
-telescope.setup({
-	defaults = {
-		file_sorter = require("telescope.sorters").get_fzy_sorter,
-		prompt_prefix = "﬌",
-		selection_caret = " ",
-		color_devicons = true,
+telescope.setup {
+  defaults = {
+    file_sorter = require("telescope.sorters").get_fzy_sorter,
+    prompt_prefix = "﬌",
+    selection_caret = " ",
+    color_devicons = true,
 
-		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
-		mappings = {
-			i = {
-				["<C-x>"] = false,
-				["<C-q>"] = actions.send_to_qflist,
-				["<C-h>"] = "which_key",
-			},
-		},
-	},
-	extentions = {
-		fzy_native = {
-			overide_generic_sorter = false,
-			overide_file_sorter = true,
-		},
-	},
-})
+    mappings = {
+      i = {
+        ["<C-x>"] = false,
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-h>"] = "which_key",
+      },
+    },
+  },
+  extentions = {
+    fzy_native = {
+      overide_generic_sorter = false,
+      overide_file_sorter = true,
+    },
+  },
+}
 
 if os.getenv("USER") ~= "pi" then
-	require("telescope").load_extension("fzy_native")
+  require("telescope").load_extension("fzy_native")
 end
 
-function set_background(content)
+local function set_background(content)
   vim.fn.system(
-    "nitrogen --set-scaled "..content
+    "nitrogen --set-scaled " .. content
   )
 end
+
 local M = {}
-M.change_colourscheme = function ()
-  require("telescope.builtin").colorscheme({
-    attach_mappings = function (prompt_bufnr, map)
-      function set_colour(close)
+M.change_colourscheme = function()
+  require("telescope.builtin").colorscheme {
+    attach_mappings = function(prompt_bufnr, map)
+      local function set_colour(close)
         local content =
-          require("telescope.actions.state").get_selected_entry()
+        require("telescope.actions.state").get_selected_entry()
         pcall(vim.cmd.colorscheme(content.value))
         -- pcall(vim.cmd.highlight("Normal guibg=none"))
         -- pcall(vim.cmd.highlight("NonText guibg=none"))
@@ -55,10 +56,11 @@ M.change_colourscheme = function ()
           require("telescope.actions").close(prompt_bufnr)
         end
       end
-      function clear_background()
-        pcall (vim.cmd.highlight("Normal guibg=none"))
-        pcall (vim.cmd.highlight("NonText guibg=none"))
-        pcall (vim.cmd.highlight("LineNr guibg=none"))
+
+      local function clear_background()
+        pcall(vim.cmd.highlight("Normal guibg=none"))
+        pcall(vim.cmd.highlight("NonText guibg=none"))
+        pcall(vim.cmd.highlight("LineNr guibg=none"))
       end
 
       map("i", "<C-s>", function(bufnr)
@@ -83,20 +85,20 @@ M.change_colourscheme = function ()
       end)
       return true
     end
-  })
+  }
 end
 
 M.change_wallpaper = function()
-	require("telescope.builtin").find_files({
-		prompt_title = "Wallpaper",
-		cwd = "~/Pictures/Wallpapers",
-    previewer=false,
+  require("telescope.builtin").find_files {
+    prompt_title = "Wallpaper",
+    cwd = "~/Pictures/Wallpapers",
+    previewer = false,
 
     attach_mappings = function(prompt_bufnr, map)
-      function set_the_background(close)
+      local function set_the_background(close)
         local content =
-          require("telescope.actions.state").get_selected_entry()
-        set_background(content.cwd.."/"..content.value)
+        require("telescope.actions.state").get_selected_entry()
+        set_background(content.cwd .. "/" .. content.value)
         if close then
           require("telescope.actions").close(prompt_bufnr)
         end
@@ -118,7 +120,7 @@ M.change_wallpaper = function()
 
       return true
     end
-	})
+  }
 end
 
 return M

@@ -9,8 +9,9 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     config = function() require("colorizer").setup(
-      {"*";}, {mode = "foreground", css = true}
-      )end
+        { "*"; }, { mode = "foreground", css = true }
+      )
+    end
   },
   {
     "max397574/colortils.nvim",
@@ -32,7 +33,7 @@ return {
     config = function() require("rnvim.lsp") end,
   },
   {
-  "williamboman/mason.nvim",
+    "williamboman/mason.nvim",
     config = function() require("rnvim.mason") end,
   },
   {
@@ -74,7 +75,7 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function() require("nvim-dap-virtual-text").setup({}) end,
+    config = function() require("nvim-dap-virtual-text").setup {} end,
   },
   {
     "nvim-telescope/telescope-dap.nvim",
@@ -217,7 +218,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function ()
+    config = function()
       require("nvim-surround").setup()
     end,
   },

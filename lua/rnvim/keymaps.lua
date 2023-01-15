@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local function cmd(command)
-  return table.concat({ "<cmd>", command, "<CR>" })
+  return table.concat { "<cmd>", command, "<CR>" }
 end
 
 local HARDMODE = 2
@@ -90,15 +90,16 @@ map({ "n", "v" }, "<leader>S", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { d
 map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
 map("n", "<leader>e", cmd "Telescope file_browser", { silent = true, desc = "File Browser" })
 map("n", "<leader>/", function()
-  require("telescope.builtin").current_buffer_fuzzy_find({
+  require("telescope.builtin").current_buffer_fuzzy_find {
     sorting_strategy = "ascending",
     layout_config = { prompt_position = "top" },
     previewer = false,
-  })
+  }
 end, { desc = "Fuzzy Search" })
 --Telescope-change-x
 map("n", "<localleader>cw", function() require("rnvim.telescope").change_wallpaper() end, { desc = "Change wallpaper" })
-map("n", "<localleader>cc", function() require("rnvim.telescope").change_colourscheme() end, { desc = "Change colourscheme" })
+map("n", "<localleader>cc", function() require("rnvim.telescope").change_colourscheme() end,
+  { desc = "Change colourscheme" })
 
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
@@ -108,4 +109,4 @@ map("v", "<leader>w", cmd "s/\\s\\+$//", { silent = true, desc = "Remove trailin
 map("n", '""', 'zto""""""<Escape><Left><Left>i')
 map("n", "U", "<C-R>")
 map("n", "gh", function() require("rnvim").randomColours(true) end, { desc = "GAHH" })
-map("n", "tb", function() require("rnvim").transparentBackground() end, {desc = "Transparent Background"})
+map("n", "tb", function() require("rnvim").transparentBackground() end, { desc = "Transparent Background" })

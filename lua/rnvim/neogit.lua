@@ -1,6 +1,6 @@
 local status_ok, neogit = pcall(require, "neogit")
 if not status_ok then
-	return
+  return
 end
 
 neogit.setup {
@@ -10,7 +10,7 @@ neogit.setup {
     kind = "split",
   },
   kind = "tab", --This is redundant but I want to move it to floating when it's working
-  
+
   integrations = {
     diffview = true,
   },

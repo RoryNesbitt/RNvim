@@ -15,12 +15,12 @@ vim.g.firenvim_config = {
 
 
 if vim.g.started_by_firenvim then
-  vim.o.laststatus=0
-  vim.wo.wrap=true
-  vim.wo.linebreak=true
-  vim.o.showbreak="~"
-  vim.keymap.set({"n", "v"}, "j", "gj", {noremap = true})
-  vim.keymap.set({"n", "v"}, "k", "gk", {noremap = true})
+  vim.o.laststatus = 0
+  vim.wo.wrap = true
+  vim.wo.linebreak = true
+  vim.o.showbreak = "~"
+  vim.keymap.set({ "n", "v" }, "j", "gj", { noremap = true })
+  vim.keymap.set({ "n", "v" }, "k", "gk", { noremap = true })
 
   local fireau = vim.api.nvim_create_augroup("start_by_fire", { clear = true })
   vim.api.nvim_create_autocmd("bufEnter", {
@@ -36,7 +36,7 @@ if vim.g.started_by_firenvim then
   })
 
   vim.api.nvim_create_autocmd("bufEnter", { -- Node-red function node
-    pattern = "*node-input-*-editor*.txt",  -- Regardless of IP or URL access
+    pattern = "*node-input-*-editor*.txt", -- Regardless of IP or URL access
     command = "set filetype=javascript",
     group = fireau
   })
@@ -47,13 +47,13 @@ if vim.g.started_by_firenvim then
     group = fireau
   })
 
-  vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
+  vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
     pattern = "*",
     callback = function()
       if vim.bo.filetype ~= "TelescopePrompt"
-         and vim.bo.filetype ~= "TelescopeResults"
-         and vim.bo.filetype ~= "dashboard"
-         and vim.bo.filetype ~= "mason.nvim"
+          and vim.bo.filetype ~= "TelescopeResults"
+          and vim.bo.filetype ~= "dashboard"
+          and vim.bo.filetype ~= "mason.nvim"
       then
         vim.cmd.write()
       end
