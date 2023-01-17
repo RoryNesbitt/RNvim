@@ -14,7 +14,7 @@ end
 --TODO: look in to textObjects
 --TODO: look in to move
 configs.setup {
-  ensure_installed = "all",
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
