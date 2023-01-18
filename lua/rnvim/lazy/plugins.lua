@@ -99,7 +99,7 @@ return {
   },
   {
     "hrsh7th/cmp-buffer",
-    requires = "nvim-cmp"
+    dependencies = "nvim-cmp"
   },
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
@@ -118,15 +118,15 @@ return {
   },
   {
     "nvim-treesitter/playground",
-    requires = "nvim-treesitter"
+    dependencies = "nvim-treesitter"
   },
   {
     "windwp/nvim-ts-autotag",
-    requires = "nvim-treesitter"
+    dependencies = "nvim-treesitter"
   },
   {
     "mrjones2014/nvim-ts-rainbow",
-    requires = "nvim-treesitter"
+    dependencies = "nvim-treesitter"
   },
   {
     "lewis6991/spellsitter.nvim",
@@ -145,12 +145,12 @@ return {
   {
     "nvim-telescope/telescope-file-browser.nvim",
     config = function() require("telescope").load_extension "file_browser" end,
-    requires = "telescope.nvim",
+    dependencies = "telescope.nvim",
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function() require("telescope").load_extension("ui-select") end,
-    requires = "telescope.nvim",
+    dependencies = "telescope.nvim",
   },
   --Extra info
   {
