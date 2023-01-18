@@ -253,4 +253,8 @@ return {
     "aserowy/tmux.nvim",
     config = function() require("rnvim.tmux") end,
   },
+  {
+    "stevearc/oil.nvim",
+    config = {},
+  }
 }

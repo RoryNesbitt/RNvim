@@ -80,6 +80,7 @@ map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
 map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
 map("n", "<leader><cr>", cmd "vsp <bar> terminal", { silent = true, desc = "Neovim Terminal" })
 map("n", "<leader>c", cmd "tabedit .", { silent = true, desc = "New tab" })
+map("n", "<leader>e", cmd "edit .", { silent = true, desc = "File Browser" })
 
 -- replace in line
 map({ "n", "v" }, "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Substitute Line" })
@@ -88,7 +89,6 @@ map({ "n", "v" }, "<leader>S", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { d
 
 --telescope
 map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
-map("n", "<leader>e", cmd "Telescope file_browser", { silent = true, desc = "File Browser" })
 map("n", "<leader>/", function()
   require("telescope.builtin").current_buffer_fuzzy_find {
     sorting_strategy = "ascending",
