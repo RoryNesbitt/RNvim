@@ -16,15 +16,13 @@ return {
   {
     "max397574/colortils.nvim",
     cmd = "Colortils",
-    config = function()
-      require("colortils").setup()
-    end,
+    config = {},
   },
   "KabbAmine/vCoolor.vim",
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
-    config = function() require("todo-comments").setup() end,
+    config = {},
   },
   "folke/neodev.nvim",
   --Lsp
@@ -75,7 +73,7 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function() require("nvim-dap-virtual-text").setup {} end,
+    config = {},
   },
   {
     "nvim-telescope/telescope-dap.nvim",
@@ -130,7 +128,7 @@ return {
   },
   {
     "lewis6991/spellsitter.nvim",
-    config = function() require("spellsitter").setup() end,
+    config = {},
   },
   --Telescope
   {
@@ -167,9 +165,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {}
-    end,
+    config = {},
   },
   "ryanoasis/vim-devicons",
   "nikvdp/ejs-syntax",
@@ -192,7 +188,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim", },
-    config = function() require("gitsigns").setup() end,
+    config = {},
   },
   --Functionality
   {
@@ -206,16 +202,12 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
+    config = {},
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-      require("nvim-surround").setup()
-    end,
+    config = {},
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -238,17 +230,17 @@ return {
     config = function() require("rnvim.true-zen") end,
     dependencies = {
       "folke/twilight.nvim",
-      config = function() require("twilight").setup() end,
+      config = {},
     },
   },
   {
     "gaoDean/autolist.nvim",
-    config = function() require("autolist").setup() end,
+    config = {},
   },
   --program integration
   {
     "aspeddro/pandoc.nvim",
-    config = function() require("pandoc").setup() end,
+    config = {},
   },
   {
     "glacambre/firenvim",
