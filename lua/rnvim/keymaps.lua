@@ -83,9 +83,9 @@ map("n", "<leader>c", cmd "tabedit .", { silent = true, desc = "New tab" })
 map("n", "<leader>e", cmd "edit .", { silent = true, desc = "File Browser" })
 
 -- replace in line
-map({ "n", "v" }, "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Substitute Line" })
+map({ "n", "v" }, "<leader>s", [[:s/<C-r><C-w>//gI<Left><Left><Left>]], { desc = "Substitute Line" })
 -- replace in file
-map({ "n", "v" }, "<leader>S", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Substitute File" })
+map({ "n", "v" }, "<leader>S", [[:%s//gI<Left><Left><Left>]], { desc = "Substitute File" })
 
 --telescope
 map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
