@@ -110,6 +110,12 @@ db.setup {
             end)
           end
         end },
+      { icon = 'X  ', desc = "Quit",
+        key = 'q',
+        icon_hl = 'Title',
+        desc_hl = 'String',
+        key_hl = 'Number',
+        action = "quit" },
       --   
     },
     footer = { "Neovim loaded with " .. pluginCount() .. " plugins" },
