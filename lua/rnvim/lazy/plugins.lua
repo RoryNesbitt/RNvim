@@ -150,6 +150,11 @@ return {
     config = function() require("telescope").load_extension("ui-select") end,
     dependencies = "telescope.nvim",
   },
+  {
+    "tsakirist/telescope-lazy.nvim",
+    dependencies = "nvim-telescope/telescope.nvim",
+    config = function () require("telescope").load_extension"lazy" end
+  },
   --Extra info
   {
     "glepnir/dashboard-nvim",

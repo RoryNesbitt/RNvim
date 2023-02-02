@@ -39,7 +39,7 @@ local hint = [[
 
  _h_: vim help    _c_: execute command
  _k_: keymaps     _;_: commands history 
- _r_: resume      _?_: search history
+ _p_: plugins     _?_: search history
 
  _<Enter>_: Telescope           _<Esc>_/_q_
 ]]
@@ -63,7 +63,7 @@ hydra {
     { "o", cmd "Telescope oldfiles", { desc = "recently opened files" } },
     { "h", cmd "Telescope help_tags", { desc = "vim help" } },
     { "k", cmd "Telescope keymaps" },
-    { "r", cmd "Telescope resume" },
+    { "p", cmd "Telescope lazy" },
     { "/", function()
       require("telescope.builtin").current_buffer_fuzzy_find {
         sorting_strategy = "ascending",
