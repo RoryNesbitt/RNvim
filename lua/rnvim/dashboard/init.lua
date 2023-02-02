@@ -110,7 +110,7 @@ db.setup {
             end)
           end
         end },
-      { icon = 'X  ', desc = "Quit",
+      { icon = '󱎘  ', desc = "Quit",
         key = 'q',
         icon_hl = 'Title',
         desc_hl = 'String',
