@@ -4,12 +4,19 @@ local function cmd(command)
   return table.concat { "<cmd>", command, "<CR>" }
 end
 
+local hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
+
 hydra {
   name = "Debugging",
+  hint = hint,
   config = {
     foreign_keys = "run",
     type = "statusline",
     invoke_on_body = true,
+    hint = {
+      position = "middle",
+      border = "rounded",
+    },
   },
   mode = "n",
   body = "<leader>d",
@@ -152,13 +159,17 @@ hydra {
   }
 }
 
+local hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
 
 hydra {
   name = "Spellcheck",
+  hint = hint,
   config = {
-    type = "statusline",
     foreign_keys = "run",
     invoke_on_body = true,
+    hint = {
+      border = "rounded"
+    },
   },
   mode = "n",
   body = "<localleader>s",
