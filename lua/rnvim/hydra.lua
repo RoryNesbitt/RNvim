@@ -37,7 +37,7 @@ hydra {
 }
 
 
-local hint = [[
+hint = [[
              Telescope
 
  _f_: filetypes   _b_: buffers
@@ -89,7 +89,7 @@ hydra {
   }
 }
 
-local hint = [[
+hint = [[
  _n_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
  _N_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  _c_: commit      _S_: stage buffer      ^ ^                 _/_: show base file
@@ -159,7 +159,7 @@ hydra {
   }
 }
 
-local hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
+hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
 
 hydra {
   name = "Spellcheck",
