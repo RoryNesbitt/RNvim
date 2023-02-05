@@ -159,7 +159,8 @@ hydra {
   }
 }
 
-hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
+hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
+_<Esc>_/_q_        _ag_: add as good word  _ab_: add as bad word      _n_/_N_]]
 
 hydra {
   name = "Spellcheck",
@@ -177,7 +178,10 @@ hydra {
     { "n", cmd "lua require'spellsitter'.nav()" },
     { "N", cmd "lua require'spellsitter'.nav(true)", { desc = "Navigate" } },
     { "s", "z=", { desc = "Suggestions" } },
-    { "ad", "zg", { desc = "Add to dictionary" } },
+    { "f", "1z=", { desc = "Fix word Automatically" } },
+    { "ra", cmd "spellrepall", { desc = "Repeat fix for all instances" } },
+    { "ag", "zg", { desc = "Add as good" } },
+    { "ab", "zg", { desc = "Add as bad" } },
     { "<Esc>", nil, { exit = true, nowait = true } },
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
   }
