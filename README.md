@@ -29,15 +29,15 @@ Language servers can be added with mason, the keybinding is
 ### A note on non-leader bindings
 
 - Moving with <kbd>{</kbd>, <kbd>}</kbd>, <kbd>n</kbd> or <kbd>N</kbd> and
-anything that results in being in insert mode is mapped to center the line the
+anything that results in being in insert mode is mapped to centre the line the
 cursor is on.
 - <kbd>hjkl</kbd> are used for all motions:
   - <kbd>Ctrl-hjkl</kbd> will jump between splits
   - <kbd>Alt-hjkl</kbd> will resize the split window
   - <kbd>Ctrl-Shift-hjkl</kbd> will move the split window that direction
-    - Note: This requires the keypress to be passed through in your terminal
+    - Note: This requires the key press to be passed through in your terminal
   - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
-- <kbd>U</kbd> (uppercase) is used to redo, as e.g. <kbd>N</kbd> is the inverse
+- <kbd>U</kbd> (upper-case) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
 - <kbd>gh</kbd>, for "GAHH", will release a little frustration from your code by
   changing to a random colourscheme
