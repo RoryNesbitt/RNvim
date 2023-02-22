@@ -177,7 +177,7 @@ hydra {
   heads = {
     { "n", cmd "lua require'spellsitter'.nav()" },
     { "N", cmd "lua require'spellsitter'.nav(true)", { desc = "Navigate" } },
-    { "s", "z=", { desc = "Suggestions" } },
+    { "s", "z=", { exit = true, desc = "Suggestions" } },
     { "f", "1z=", { desc = "Fix word Automatically" } },
     { "ra", cmd "spellrepall", { desc = "Repeat fix for all instances" } },
     { "ag", "zg", { desc = "Add as good" } },
