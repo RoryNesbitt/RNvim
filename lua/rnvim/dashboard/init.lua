@@ -15,7 +15,7 @@ end
 
 local function pluginCount()
   local i, popen = 0, io.popen
-  for _ in popen("ls " .. dataDir .. "/lazy/"):lines() do
+  for _ in popen("ls \"" .. dataDir .. "\"/lazy/"):lines() do
     i = i + 1
   end
   return i
