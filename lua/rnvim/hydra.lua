@@ -160,7 +160,7 @@ hydra {
 }
 
 hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
-_<Esc>_/_q_        _ag_: add as good word  _ab_: add as bad word      _n_/_N_]]
+_<Esc>_/_q_        _ag_: add as good word  _ab_: add as bad word    _b_ _n_/_N_]]
 
 hydra {
   name = "Spellcheck",
@@ -177,6 +177,7 @@ hydra {
   heads = {
     { "n", cmd "lua require'spellsitter'.nav()" },
     { "N", cmd "lua require'spellsitter'.nav(true)", { desc = "Navigate" } },
+    { "b", cmd "lua require'spellsitter'.nav(true)", { desc = "Back" } },
     { "s", "z=", { exit = true, desc = "Suggestions" } },
     { "f", "1z=", { desc = "Fix word Automatically" } },
     { "ra", cmd "spellrepall", { desc = "Repeat fix for all instances" } },
