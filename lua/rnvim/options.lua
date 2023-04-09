@@ -48,3 +48,4 @@ vim.opt.exrc = true -- Loads directory specific .vimrc files
 vim.opt.errorbells = false -- Silence
 vim.opt.showmatch = true -- Show matching brackets.
 vim.opt.wildmode = "longest,list,full" -- Enable autocomplete files
+vim.g.tex_flavor = 'latex'
