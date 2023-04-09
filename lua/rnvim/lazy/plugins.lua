@@ -126,10 +126,6 @@ return {
     "mrjones2014/nvim-ts-rainbow",
     dependencies = "nvim-treesitter"
   },
-  {
-    "lewis6991/spellsitter.nvim",
-    config = {},
-  },
   --Telescope
   {
     "nvim-telescope/telescope.nvim",
