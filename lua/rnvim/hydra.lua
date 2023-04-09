@@ -175,9 +175,9 @@ hydra {
   mode = "n",
   body = "<localleader>s",
   heads = {
-    { "n", cmd "lua require'spellsitter'.nav()" },
-    { "N", cmd "lua require'spellsitter'.nav(true)", { desc = "Navigate" } },
-    { "b", cmd "lua require'spellsitter'.nav(true)", { desc = "Back" } },
+    { "n", "]s" },
+    { "N", "[s", { desc = "Navigate" } },
+    { "b", "[s", { desc = "Back" } },
     { "s", "z=", { exit = true, desc = "Suggestions" } },
     { "f", "1z=", { desc = "Fix word Automatically" } },
     { "ra", cmd "spellrepall", { desc = "Repeat fix for all instances" } },
