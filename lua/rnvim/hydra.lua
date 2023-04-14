@@ -160,7 +160,7 @@ hydra {
 }
 
 hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
-_<Esc>_/_q_        _ag_: add as good word  _ab_: add as bad word    _b_ _n_/_N_]]
+_<Esc>_/_q_    _ag_: add as good word   _ab_: add as bad word     _u_ _n_/_N_/_b_]]
 
 hydra {
   name = "Spellcheck",
@@ -183,6 +183,7 @@ hydra {
     { "ra", cmd "spellrepall", { desc = "Repeat fix for all instances" } },
     { "ag", "zg", { desc = "Add as good" } },
     { "ab", "zg", { desc = "Add as bad" } },
+    { "u", "u" },
     { "<Esc>", nil, { exit = true, nowait = true } },
     { "q", nil, { exit = true, nowait = true, desc = "exit" } },
   }
