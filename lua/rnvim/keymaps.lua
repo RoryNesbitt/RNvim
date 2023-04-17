@@ -27,6 +27,18 @@ if HARDMODE > 2 then
   map("n", "l", "<nop>")
 end
 
+-- Better mouse mode
+map({"n","v","i"}, "<RightMouse>", "<nop>")
+map({"n","v","i"}, "<2-RightMouse>", "<nop>")
+map({"n","v"}, "<ScrollWheelLeft>", "h")
+map({"n","v"}, "<ScrollWheelDown>", "j")
+map({"n","v"}, "<ScrollWheelUp>", "k")
+map({"n","v"}, "<ScrollWheelRight>", "l")
+map("i", "<ScrollWheelLeft>", "<left>")
+map("i", "<ScrollWheelRight>", "<right>")
+map("i", "<ScrollWheelUp>", "<up>")
+map("i", "<ScrollWheelDown>", "<down>")
+
 -- Center to focus
 map("n", "{", "{zz")
 map("n", "}", "}zz")

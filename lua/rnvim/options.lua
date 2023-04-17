@@ -12,7 +12,6 @@ vim.opt.scrolloff = 4 -- Keeps the cursor away from the top/bottom
 vim.opt.sidescrolloff = 4 -- Keeps the cursor away from the sides
 vim.opt.cmdheight = 0 -- Hides the command line when not in use
 vim.opt.showtabline = 0 -- Hides the tabline
-vim.opt.mouse = "" -- Disables mouse
 
 --Tabs
 vim.opt.expandtab = true
