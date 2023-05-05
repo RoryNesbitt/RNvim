@@ -12,10 +12,11 @@ and that's unlikely to change. Even the installation commands are there so I can
 reference them later.
 
 If you choose to ignore me and use it anyway, keybindings are set
-[here](lua/keybindings.lua), and if you forget, whichkey is included to provide
-a gentle reminder.  
-Everything I bind myself starts with <kbd>leader</kbd>, which is set to <kbd>space</kbd>. Most things
-bound by plugins are left at default.
+[here](lua/rnvim/keymaps.lua), and if you forget, whichkey is included to
+provide a gentle reminder.  
+Everything I bind myself starts with <kbd>leader</kbd> or
+<kbd>localleader</kbd>, which are set to <kbd>space</kbd> and <kbd>,</kbd>
+respectively. Most things bound by plugins are left at default.
 
 ## Installation
 
