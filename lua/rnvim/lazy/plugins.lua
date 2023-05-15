@@ -195,6 +195,7 @@ return {
     config = {},
   },
   --Functionality
+  "RRethy/vim-illuminate",
   {
     "rcarriga/nvim-notify",
     opts = {
