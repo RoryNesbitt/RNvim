@@ -28,11 +28,11 @@ return {
   --Lsp
   {
     "neovim/nvim-lspconfig",
-    config = function() require("rnvim.lsp") end,
+    config = function() require("plugins.lsp") end,
   },
   {
     "williamboman/mason.nvim",
-    config = function() require("rnvim.mason") end,
+    config = function() require("plugins.mason") end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -46,7 +46,7 @@ return {
   --Null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
-    config = function() require("rnvim.null-ls") end,
+    config = function() require("plugins.null-ls") end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
@@ -58,14 +58,14 @@ return {
   --Dap
   {
     "mfussenegger/nvim-dap",
-    config = function() require("rnvim.dap") end
+    config = function() require("plugins.dap") end
   },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    config = function() require("rnvim.dapui") end,
+    config = function() require("plugins.dapui") end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
@@ -93,7 +93,7 @@ return {
   --nvim-cmp
   {
     "hrsh7th/nvim-cmp",
-    config = function() require("rnvim.nvim-cmp") end,
+    config = function() require("plugins.nvim-cmp") end,
   },
   {
     "hrsh7th/cmp-buffer",
@@ -112,7 +112,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function() require("rnvim.treesitter") end,
+    config = function() require("plugins.treesitter") end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -138,7 +138,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
-    config = function() require("rnvim.telescope") end,
+    config = function() require("plugins.telescope") end,
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -158,7 +158,7 @@ return {
   --Extra info
   {
     "glepnir/dashboard-nvim",
-    config = function() require("rnvim.dashboard") end,
+    config = function() require("plugins.dashboard") end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -166,7 +166,7 @@ return {
       "kyazdani42/nvim-web-devicons",
       lazy = true,
     },
-    config = function() require("rnvim.lualine") end,
+    config = function() require("plugins.lualine") end,
   },
   {
     "folke/which-key.nvim",
@@ -181,14 +181,14 @@ return {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
     },
-    config = function() require("rnvim.neogit") end,
+    config = function() require("plugins.neogit") end,
   },
   {
     "sindrets/diffview.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    config = function() require("rnvim.diffview") end
+    config = function() require("plugins.diffview") end
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -198,12 +198,12 @@ return {
   --Functionality
   {
     "anuvyklack/hydra.nvim",
-    config = function() require("rnvim.hydra") end
+    config = function() require("plugins.hydra") end
   },
   "terryma/vim-multiple-cursors",
   {
     "windwp/nvim-autopairs",
-    config = function() require("rnvim.autopairs") end,
+    config = function() require("plugins.autopairs") end,
   },
   {
     "numToStr/Comment.nvim",
@@ -216,7 +216,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function() require("rnvim.indent-blankline") end,
+    config = function() require("plugins.indent-blankline") end,
   },
   {
     "sunjon/stylish.nvim",
@@ -232,7 +232,7 @@ return {
   },
   {
     "Pocco81/true-zen.nvim",
-    config = function() require("rnvim.true-zen") end,
+    config = function() require("plugins.true-zen") end,
     dependencies = {
       "folke/twilight.nvim",
       config = {},
@@ -252,10 +252,10 @@ return {
     build = function()
       vim.fn["firenvim#install"](0)
     end,
-    config = function() require("rnvim.firenvim") end,
+    config = function() require("plugins.firenvim") end,
   },
   {
     "aserowy/tmux.nvim",
-    config = function() require("rnvim.tmux") end,
+    config = function() require("plugins.tmux") end,
   },
 }

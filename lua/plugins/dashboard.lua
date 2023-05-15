@@ -23,9 +23,9 @@ end
 
 local logos = {}
 if dir then
-  logos = require("rnvim.dashboard.pvim")
+  logos = require("rnvim.logos.pvim")
 else
-  logos = require("rnvim.dashboard.rnvim")
+  logos = require("rnvim.logos.rnvim")
 end
 math.randomseed(os.clock() * 100000000000)
 local s = math.random(1, #logos)
