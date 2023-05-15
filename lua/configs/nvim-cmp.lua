@@ -30,6 +30,7 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm { select = false }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
