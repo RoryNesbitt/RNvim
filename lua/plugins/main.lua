@@ -238,6 +238,24 @@ return {
     end,
   },
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      lazy = true
+    },
+    opts = {
+      cmdline = {
+        view = "cmdline",
+      },
+      presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+      },
+    },
+  },
+  {
     "anuvyklack/hydra.nvim",
     config = function() require("configs.hydra") end
   },

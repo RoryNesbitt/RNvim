@@ -50,16 +50,43 @@ require("lualine").setup {
         },
       }
     },
-    lualine_c = {},
-    lualine_x = { "diagnostics", },
+    lualine_c = {
+      {
+        function() return require("nvim-navic").get_location() end,
+        cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
+      },
+    },
+    lualine_x = {
+      "diagnostics",
+      -- stylua: ignore
+      {
+        function() return require("noice").api.status.command.get() end,
+        cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+      },
+      -- stylua: ignore
+      {
+        function() return require("noice").api.status.mode.get() end,
+        cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+      },
+      -- stylua: ignore
+      {
+        function() return "  " .. require("dap").status() end,
+        cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
+      },
+      { require("lazy.status").updates, cond = require("lazy.status").has_updates },
+      {
+        "diff",
+      },
+    },
     lualine_y = { "branch", "filetype", },
     lualine_z = {
-      { "location", left_padding = 2 },
+      { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      { "location", padding = { left = 0, right = 1 } },
     },
   },
 --  
 --  
   tabline = {},
   winbar = {},
-  extensions = {},
+  extensions = { "lazy" },
 }
