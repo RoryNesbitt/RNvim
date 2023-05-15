@@ -93,9 +93,8 @@ map("n", "<leader>li", cmd "LspInfo", { silent = true, desc = "LSP Info" })
 map("n", "gd", "gdzz", { remap = true, desc = "Go to Definition" }) -- Add zz after regular gd command
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-map("n", "<leader>ln", vim.diagnostic.goto_next, { desc = "Next" })
-map("n", "<leader>lN", vim.diagnostic.goto_prev, { desc = "Previous" })
-map("n", "<leader>lp", vim.diagnostic.goto_prev, { desc = "Previous" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Next" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Actions" })
 map("n", "<leader>ll", cmd "Telescope diagnostics", { silent = true, desc = "Show Diagnostics" })
 map("n", "<leader>lr", cmd "Telescope lsp_references",
