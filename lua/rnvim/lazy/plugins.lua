@@ -172,7 +172,6 @@ return {
     "folke/which-key.nvim",
     config = {},
   },
-  "ryanoasis/vim-devicons",
   "nikvdp/ejs-syntax",
   --git
   {
