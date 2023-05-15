@@ -17,4 +17,10 @@ if not status_ok then
   return
 end
 
-lazy.setup("rnvim.lazy.plugins")
+lazy.setup{
+   spec = {
+     { import = "rnvim.lazy.plugins"},
+   },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = { enabled = true },
+}
