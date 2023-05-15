@@ -19,7 +19,7 @@ end
 
 lazy.setup{
    spec = {
-     { import = "rnvim.lazy.plugins"},
+     { import = "plugins"},
    },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true },

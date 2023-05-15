@@ -38,11 +38,11 @@ return {
   --Lsp
   {
     "neovim/nvim-lspconfig",
-    config = function() require("plugins.lsp") end,
+    config = function() require("configs.lsp") end,
   },
   {
     "williamboman/mason.nvim",
-    config = function() require("plugins.mason") end,
+    config = function() require("configs.mason") end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -56,7 +56,7 @@ return {
   --Null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
-    config = function() require("plugins.null-ls") end,
+    config = function() require("configs.null-ls") end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
@@ -68,14 +68,14 @@ return {
   --Dap
   {
     "mfussenegger/nvim-dap",
-    config = function() require("plugins.dap") end
+    config = function() require("configs.dap") end
   },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    config = function() require("plugins.dapui") end,
+    config = function() require("configs.dapui") end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
@@ -103,7 +103,7 @@ return {
   --nvim-cmp
   {
     "hrsh7th/nvim-cmp",
-    config = function() require("plugins.nvim-cmp") end,
+    config = function() require("configs.nvim-cmp") end,
   },
   {
     "hrsh7th/cmp-buffer",
@@ -138,7 +138,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function() require("plugins.treesitter") end,
+    config = function() require("configs.treesitter") end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -164,7 +164,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
-    config = function() require("plugins.telescope") end,
+    config = function() require("configs.telescope") end,
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -184,7 +184,7 @@ return {
   --Extra info
   {
     "glepnir/dashboard-nvim",
-    config = function() require("plugins.dashboard") end,
+    config = function() require("configs.dashboard") end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -192,7 +192,7 @@ return {
       "nvim-tree/nvim-web-devicons",
       lazy = true,
     },
-    config = function() require("plugins.lualine") end,
+    config = function() require("configs.lualine") end,
   },
   {
     "folke/which-key.nvim",
@@ -206,14 +206,14 @@ return {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
     },
-    config = function() require("plugins.neogit") end,
+    config = function() require("configs.neogit") end,
   },
   {
     "sindrets/diffview.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    config = function() require("plugins.diffview") end
+    config = function() require("configs.diffview") end
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -239,12 +239,12 @@ return {
   },
   {
     "anuvyklack/hydra.nvim",
-    config = function() require("plugins.hydra") end
+    config = function() require("configs.hydra") end
   },
   "terryma/vim-multiple-cursors",
   {
     "windwp/nvim-autopairs",
-    config = function() require("plugins.autopairs") end,
+    config = function() require("configs.autopairs") end,
   },
   {
     "numToStr/Comment.nvim",
@@ -257,7 +257,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function() require("plugins.indent-blankline") end,
+    config = function() require("configs.indent-blankline") end,
   },
   {
     "sunjon/stylish.nvim",
@@ -273,7 +273,7 @@ return {
   },
   {
     "Pocco81/true-zen.nvim",
-    config = function() require("plugins.true-zen") end,
+    config = function() require("configs.true-zen") end,
     dependencies = {
       "folke/twilight.nvim",
       config = {},
@@ -293,10 +293,10 @@ return {
     build = function()
       vim.fn["firenvim#install"](0)
     end,
-    config = function() require("plugins.firenvim") end,
+    config = function() require("configs.firenvim") end,
   },
   {
     "aserowy/tmux.nvim",
-    config = function() require("plugins.tmux") end,
+    config = function() require("configs.tmux") end,
   },
 }
