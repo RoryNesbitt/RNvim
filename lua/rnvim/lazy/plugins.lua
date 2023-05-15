@@ -7,6 +7,16 @@ return {
   "chriskempson/base16-vim",
   { "dracula/vim", name = "dracula" },
   {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "moon" },
+  },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin",
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     config = function() require("colorizer").setup(
         { "*"; }, { mode = "foreground", css = true }
