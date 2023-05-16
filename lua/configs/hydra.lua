@@ -4,11 +4,8 @@ local function cmd(command)
   return table.concat { "<cmd>", command, "<CR>" }
 end
 
-local hint = "_n_/_N_: navigate _s_: suggestions _ad_: Add to dictionary _<Esc>_/_q_"
-
 hydra {
   name = "Debugging",
-  hint = hint,
   config = {
     foreign_keys = "run",
     type = "statusline",
