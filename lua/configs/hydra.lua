@@ -87,8 +87,8 @@ hydra {
 }
 
 hint = [[
- _n_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
- _N_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
+ _]_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
+ _[_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  _c_: commit      _S_: stage buffer      ^ ^                 _/_: show base file
  ^
  ^ ^              _<Enter>_/_g_: Neogit         _<Esc>_/_q_
@@ -126,20 +126,20 @@ hydra {
   mode = { "n", "x" },
   body = "<leader>g",
   heads = {
-    { "n",
+    { "]",
       function()
         if vim.wo.diff then return "]c" end
         vim.schedule(function() require("gitsigns").next_hunk() end)
         return "<Ignore>"
       end,
-      { expr = true, desc = "next hunk" } },
-    { "N",
+      { expr = true, nowait = true, desc = "next hunk" } },
+    { "[",
       function()
         if vim.wo.diff then return "[c" end
         vim.schedule(function() require("gitsigns").prev_hunk() end)
         return "<Ignore>"
       end,
-      { expr = true, desc = "prev hunk" } },
+      { expr = true, nowait = true, desc = "prev hunk" } },
     { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "stage hunk" } },
     { "u", require("gitsigns").undo_stage_hunk, { desc = "undo last stage" } },
     { "S", require("gitsigns").stage_buffer, { desc = "stage buffer" } },
@@ -157,7 +157,7 @@ hydra {
 }
 
 hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
-_<Esc>_/_q_    _ag_: add as good word   _ab_: add as bad word     _u_ _n_/_N_/_b_]]
+_<Esc>_/_q_    _ag_: add as good word   _ab_: add as bad word     _u_ _[_/_]_/_b_]]
 
 hydra {
   name = "Spellcheck",
@@ -172,8 +172,8 @@ hydra {
   mode = "n",
   body = "<localleader>s",
   heads = {
-    { "n", "]s" },
-    { "N", "[s", { desc = "Navigate" } },
+    { "]", "]s" },
+    { "[", "[s", { desc = "Navigate" } },
     { "b", "[s", { desc = "Back" } },
     { "s", "z=", { exit = true, desc = "Suggestions" } },
     { "f", "1z=", { desc = "Fix word Automatically" } },
