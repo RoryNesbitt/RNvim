@@ -234,7 +234,9 @@ return {
       end,
     },
     init = function()
-      vim.notify = require("notify")
+      vim.notify = require("notify").setup({
+        background_colour = "#000000",
+      })
     end,
   },
   {
