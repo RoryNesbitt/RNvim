@@ -280,18 +280,6 @@ return {
     config = function() require("configs.indent-blankline") end,
   },
   {
-    "sunjon/stylish.nvim",
-    config = function()
-      -- vim.ui.notify = require("stylish").ui_notification()
-      vim.keymap.set(
-        "n", "<F12>", function()
-          require "stylish".ui_clock()
-        end,
-        { noremap = true, silent = true }
-      )
-    end
-  },
-  {
     "Pocco81/true-zen.nvim",
     config = function() require("configs.true-zen") end,
     dependencies = {
