@@ -1,19 +1,12 @@
 return {
   --Colours
-  "joshdick/onedark.vim",
-  "gruvbox-community/gruvbox",
-  "shaunsingh/nord.nvim",
-  "tomasiser/vim-code-dark",
   "chriskempson/base16-vim",
-  { "dracula/vim", name = "dracula" },
   {
     "folke/tokyonight.nvim",
-    lazy = true,
     opts = { style = "moon" },
   },
   {
     "catppuccin/nvim",
-    lazy = true,
     name = "catppuccin",
   },
   {
