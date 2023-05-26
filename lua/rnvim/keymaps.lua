@@ -126,8 +126,8 @@ map("n", "<leader>/", function()
   }
 end, { desc = "Fuzzy Search" })
 --Telescope-change-x
-map("n", "<localleader>cw", function() require("rnvim.telescope").change_wallpaper() end, { desc = "Change wallpaper" })
-map("n", "<localleader>cc", function() require("rnvim.telescope").change_colourscheme() end,
+map("n", "<localleader>cw", function() require("configs.telescope").change_wallpaper() end, { desc = "Change wallpaper" })
+map("n", "<localleader>cc", function() require("configs.telescope").change_colourscheme() end,
   { desc = "Change colourscheme" })
 
 --whitespace
