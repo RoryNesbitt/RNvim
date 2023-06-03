@@ -30,6 +30,7 @@ end
 math.randomseed(os.clock() * 100000000000)
 local s = math.random(1, #logos)
 
+local _, neogit = pcall(require, "neogit")
 db.setup {
   theme = 'doom',
   config = {
@@ -46,7 +47,7 @@ db.setup {
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = require("neogit").open },
+        action = neogit.open },
       { icon = "  ", desc = "Search Text",
         key = 't',
         icon_hl = 'Title',
