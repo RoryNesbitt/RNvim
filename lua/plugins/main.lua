@@ -83,6 +83,7 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
     },
     config = function() require("telescope").load_extension("dap") end,
   },
@@ -97,17 +98,16 @@ return {
   {
     "hrsh7th/nvim-cmp",
     config = function() require("configs.nvim-cmp") end,
+      dependencies = {
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "onsails/lspkind-nvim",
+        'saadparwaiz1/cmp_luasnip',
+      },
   },
-  {
-    "hrsh7th/cmp-buffer",
-    dependencies = "nvim-cmp"
-  },
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
-  "onsails/lspkind-nvim",
-  'saadparwaiz1/cmp_luasnip',
   --Snippets
   {
     "L3MON4D3/LuaSnip",
@@ -132,22 +132,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function() require("configs.treesitter") end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = "nvim-treesitter"
-  },
-  {
-    "nvim-treesitter/playground",
-    dependencies = "nvim-treesitter"
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = "nvim-treesitter"
-  },
-  {
-    "mrjones2014/nvim-ts-rainbow",
-    dependencies = "nvim-treesitter"
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-context",
+      "nvim-treesitter/playground",
+      "windwp/nvim-ts-autotag",
+      "mrjones2014/nvim-ts-rainbow",
+    },
   },
   --Telescope
   {
@@ -162,17 +152,26 @@ return {
   {
     "nvim-telescope/telescope-file-browser.nvim",
     config = function() require("telescope").load_extension "file_browser" end,
-    dependencies = "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function() require("telescope").load_extension("ui-select") end,
-    dependencies = "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
   },
   {
     "tsakirist/telescope-lazy.nvim",
-    dependencies = "nvim-telescope/telescope.nvim",
-    config = function() require("telescope").load_extension "lazy" end
+    config = function() require("telescope").load_extension "lazy" end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
   },
   --Extra info
   {
@@ -258,6 +257,9 @@ return {
   {
     "windwp/nvim-autopairs",
     config = function() require("configs.autopairs") end,
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    }
   },
   {
     "numToStr/Comment.nvim",
@@ -277,7 +279,6 @@ return {
     config = function() require("configs.true-zen") end,
     dependencies = {
       "folke/twilight.nvim",
-      config = {},
     },
   },
   {
