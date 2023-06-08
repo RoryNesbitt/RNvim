@@ -31,3 +31,9 @@ configs.setup {
     enable = true,
   },
 }
+vim.treesitter.language.register('javascript', 'ejs')
+vim.filetype.add {
+  extension = {
+    ejs = "ejs"
+  }
+}

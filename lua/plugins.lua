@@ -190,7 +190,6 @@ return {
     "folke/which-key.nvim",
     config = {},
   },
-  "nikvdp/ejs-syntax",
   --git
   {
     "TimUntersberger/neogit",
