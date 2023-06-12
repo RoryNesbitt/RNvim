@@ -228,6 +228,10 @@ return {
       vim.notify = require("notify").setup({
         background_colour = "#000000",
       })
+      local status_ok, ts = pcall(require, "telescope")
+      if status_ok then
+        ts.load_extension "notify"
+      end
     end,
   },
   {
