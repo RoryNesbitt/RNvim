@@ -75,25 +75,23 @@ db.setup {
         desc_hl = 'String',
         key_hl = 'Number',
         action = function()
-          print [[
-===================================
-          Pulling config
-===================================
-
-]]
-
-          vim.fn.system("git --git-dir=" .. configDir .. "/.git --work-tree=" .. configDir .. " fetch")
-          print(vim.fn.system("git --git-dir=" .. configDir .. "/.git --work-tree=" .. configDir .. " pull"))
-          vim.ui.input({ prompt = [[
-===================================
-          Config updated
-    Press enter to sync plugins
-===================================
-]]
-          }, function(input)
-            require "lazy".sync()
-          end)
-        end },
+          vim.notify("Pulling config")
+          vim.fn.system("git -C " .. configDir .. " fetch")
+          local changes = vim.fn.system("git -C " .. configDir .. " diff --name-only ..origin")
+          local x = vim.fn.system("git -C " .. configDir .. " pull")
+          vim.notify(x)
+          if string.find(x, "You have unstaged changes") then
+            vim.cmd.cd(configDir)
+            neogit.open()
+          else
+            if string.find(changes, "lua/plugins.lua") then
+              vim.notify("Neovim needs to restart", warning)
+            else
+              require "lazy".sync()
+            end
+          end
+        end
+      },
       { icon = '󱎘  ', desc = "Quit",
         key = 'q',
         icon_hl = 'Title',
