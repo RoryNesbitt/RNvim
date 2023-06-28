@@ -57,6 +57,8 @@ map("n", "s", "zzs")
 map("n", "S", "zzS")
 map("n", "c", "zzc")
 map("n", "C", "zzC")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 
 -- Move line
 map("v", "<", "<gv")
