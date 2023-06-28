@@ -214,6 +214,11 @@ return {
   --Functionality
   "RRethy/vim-illuminate",
   {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    config = function() require("configs.flash") end
+  },
+  {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 3000,
