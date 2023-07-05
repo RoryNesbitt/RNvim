@@ -18,19 +18,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group
 })
 
-local ignoredTrails = { "dashboard", "TelescopeResults", "TelescopePrompt", "lazy", "mason", "Trouble", "help" }
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-  pattern = "*",
-  callback = function()
-    if vim.tbl_contains(ignoredTrails, vim.bo.filetype) then
-      vim.cmd.highlight("TrailingSpace gui=none")
-    else
-      vim.cmd.highlight("TrailingSpace gui=undercurl")
-    end
-  end,
-  group = group,
-})
-
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
