@@ -106,6 +106,16 @@ map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename Object" })
 map({ "n", "x" }, "<leader>nf", vim.lsp.buf.format, { desc = "Format Buffer" })
 map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
+map("n", "]g", function()
+          if vim.wo.diff then return "]c" end
+          vim.schedule(function() require("gitsigns").next_hunk() end)
+          return "<Ignore>"
+        end, { expr = true, nowait = true, desc = "Next git hunk" } )
+map("n", "[g", function()
+          if vim.wo.diff then return "[c" end
+          vim.schedule(function() require("gitsigns").prev_hunk() end)
+          return "<Ignore>"
+          end, { expr = true, nowait = true, desc = "Previous git hunk" } )
 -- Open windows
 map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
 map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
