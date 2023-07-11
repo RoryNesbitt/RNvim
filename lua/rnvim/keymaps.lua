@@ -28,14 +28,14 @@ if HARDMODE > 2 then
 end
 
 -- Better mouse mode
-map({"n","v","i"}, "<RightMouse>", "<nop>")
-map({"n","v","i"}, "<2-RightMouse>", "<nop>")
-map({"n","v"}, "<ScrollWheelLeft>", "h")
-map({"n","v"}, "<ScrollWheelDown>", "j")
-map({"n","v"}, "<ScrollWheelUp>", "k")
-map({"n","v"}, "<ScrollWheelRight>", "l")
-map({"n","v"}, "<S-ScrollWheelDown>", cmd "keepj norm! }")
-map({"n","v"}, "<S-ScrollWheelUp>", cmd "keepj norm! {")
+map({"n","x","i"}, "<RightMouse>", "<nop>")
+map({"n","x","i"}, "<2-RightMouse>", "<nop>")
+map({"n","x"}, "<ScrollWheelLeft>", "h")
+map({"n","x"}, "<ScrollWheelDown>", "j")
+map({"n","x"}, "<ScrollWheelUp>", "k")
+map({"n","x"}, "<ScrollWheelRight>", "l")
+map({"n","x"}, "<S-ScrollWheelDown>", cmd "keepj norm! }")
+map({"n","x"}, "<S-ScrollWheelUp>", cmd "keepj norm! {")
 map("i", "<ScrollWheelLeft>", "<left>")
 map("i", "<ScrollWheelRight>", "<right>")
 map("i", "<ScrollWheelUp>", "<up>")
@@ -61,10 +61,10 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 -- Move line
-map("v", "<", "<gv")
-map("v", "J", ":m '>+1<cr>gv=gv", { silent = true })
-map("v", "K", ":m '<-2<cr>gv=gv", { silent = true })
-map("v", ">", ">gv")
+map("x", "<", "<gv")
+map("x", "J", ":m '>+1<cr>gv=gv", { silent = true })
+map("x", "K", ":m '<-2<cr>gv=gv", { silent = true })
+map("x", ">", ">gv")
 -- Move Windows
 map("n", "<C-S-h>", "<C-W>H")
 map("n", "<C-S-j>", "<C-w>J")
@@ -72,13 +72,13 @@ map("n", "<C-S-k>", "<C-w>K")
 map("n", "<C-S-l>", "<C-w>L")
 
 -- Clipboard
-map({ "n", "v" }, "<localleader>y", '"+y', { desc = "Yank to Clipboard" })
-map({ "n", "v" }, "<localleader>d", '"+d', { desc = "Delete to Clipboard" })
-map({ "n", "v" }, "<localleader>p", '"+p', { desc = "Paste from Clipboard" })
+map({ "n", "x" }, "<localleader>y", '"+y', { desc = "Yank to Clipboard" })
+map({ "n", "x" }, "<localleader>d", '"+d', { desc = "Delete to Clipboard" })
+map({ "n", "x" }, "<localleader>p", '"+p', { desc = "Paste from Clipboard" })
 map("n", "<localleader>Y", '"+y$', { desc = "YANK to Clipboard" })
 map("n", "<localleader>D", '"+D', { desc = "DELETE to Clipboard" })
 map("n", "<localleader>P", '"+P', { desc = "PASTE from Clipboard" })
-map("v", "p", '"_dP')
+map("x", "p", '"_dP')
 
 --Zen
 map("n", "<leader>f", cmd "TZFocus", { desc = "Focus buffer" })
@@ -103,7 +103,7 @@ map("n", "<leader>lr", cmd "Telescope lsp_references",
   { silent = true, desc = "Show References" })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename Object" })
 --null-ls
-map({ "n", "v" }, "<leader>nf", vim.lsp.buf.format, { desc = "Format Buffer" })
+map({ "n", "x" }, "<leader>nf", vim.lsp.buf.format, { desc = "Format Buffer" })
 map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
 -- Open windows
@@ -114,9 +114,9 @@ map("n", "<leader>c", cmd "tabedit .", { silent = true, desc = "New tab" })
 map("n", "<leader>e", cmd "edit .", { silent = true, desc = "File Browser" })
 
 -- replace in line
-map({ "n", "v" }, "<leader>s", [[:s/<C-r><C-w>//gI<Left><Left><Left>]], { desc = "Substitute Line" })
+map({ "n", "x" }, "<leader>s", [[:s/<C-r><C-w>//gI<Left><Left><Left>]], { desc = "Substitute Line" })
 -- replace in file
-map({ "n", "v" }, "<leader>S", [[:%s//gI<Left><Left><Left>]], { desc = "Substitute File" })
+map({ "n", "x" }, "<leader>S", [[:%s//gI<Left><Left><Left>]], { desc = "Substitute File" })
 
 --telescope
 map("n", "<leader>j", cmd "Telescope find_files", { silent = true, desc = "Jump to file" })
@@ -134,7 +134,7 @@ map("n", "<localleader>cc", function() require("configs.telescope").change_colou
 
 --whitespace
 map("n", "<leader>w", cmd "%s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
-map("v", "<leader>w", cmd "s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
+map("x", "<leader>w", cmd "s/\\s\\+$//", { silent = true, desc = "Remove trailing space" })
 
 -- misc
 map("n", '""', 'zto""""""<Escape><Left><Left>i')
