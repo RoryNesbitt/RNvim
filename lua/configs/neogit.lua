@@ -4,23 +4,31 @@ if not status_ok then
 end
 
 neogit.setup {
-  disable_insert_on_commit = false,
   disable_commit_confirmation = true,
+  use_telescope = true,
+  telescope_sorter = function()
+    return require("telescope").extensions.fzf.native_fzf_sorter()
+  end,
+  kind = "floating",
+  ignored_settings = {},
   commit_popup = {
-    kind = "split",
+    kind = "floating",
   },
-  kind = "tab", --This is redundant but I want to move it to floating when it's working
-
+  preview_buffer = {
+    kind = "floating",
+  },
+  popup = {
+    kind = "floating",
+  },
   integrations = {
     diffview = true,
   },
-  sections = {
-    recent = false,
-  },
-
   mappings = {
     status = {
-      [""] = "Close",
+      ["B"] = "BranchPopup",
     },
-  },
+    finder = {
+      ["<cr>"] = "select",
+    }
+  }
 }
