@@ -2,13 +2,7 @@ local status_ok, flash = pcall(require, "flash")
 if not status_ok then
   return
 end
-flash.setup{
-  modes = {
-    search = {
-      enabled = false,
-    },
-  },
-}
+flash.setup{}
 
 local map = vim.keymap.set
 
