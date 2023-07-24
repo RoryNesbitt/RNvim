@@ -295,6 +295,16 @@ return {
   },
   --program integration
   {
+    "meatballs/notebook.nvim",
+    config = function() require("configs.ipynb") end,
+    dependencies = {
+      {
+        "meatballs/magma-nvim",
+        build = ":UpdateRemotePlugins",
+      }
+    }
+  },
+  {
     "aspeddro/pandoc.nvim",
     config = {},
   },
