@@ -9,16 +9,16 @@ neogit.setup {
   telescope_sorter = function()
     return require("telescope").extensions.fzf.native_fzf_sorter()
   end,
-  kind = "floating",
+  kind = "tab",
   ignored_settings = {},
   commit_popup = {
-    kind = "floating",
+    kind = "tab",
   },
   preview_buffer = {
-    kind = "floating",
+    kind = "tab",
   },
   popup = {
-    kind = "floating",
+    kind = "tab",
   },
   integrations = {
     diffview = true,
