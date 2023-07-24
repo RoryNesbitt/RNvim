@@ -24,9 +24,6 @@ neogit.setup {
     diffview = true,
   },
   mappings = {
-    status = {
-      ["B"] = "BranchPopup",
-    },
     finder = {
       ["<cr>"] = "select",
     }
