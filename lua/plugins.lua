@@ -174,6 +174,7 @@ return {
     },
   },
   --Extra info
+  "creativenull/dotfyle-metadata.nvim",
   {
     "glepnir/dashboard-nvim",
     config = function() require("configs.dashboard") end,
