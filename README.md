@@ -24,10 +24,20 @@ respectively. Most things bound by plugins are left at default.
 
 ## Installation
 
+Use this as your main config
 ```sh
 git clone https://github.com/RoryNesbitt/RNvim ~/.config/nvim
 nvim --headless "+Lazy! sync" +qa
 ```
+Or if you're on neovim 0.9+ you can try it separately
+```sh
+git clone git@github.com:RoryNesbitt/RNvim ~/.config/RNvim
+NVIM_APPNAME=RNvim/ nvim --headless +Lazy! sync +qa
+
+: Open Neovim with this config
+NVIM_APPNAME=RNvim/ nvim
+```
+
 Language servers can be added with mason, the keybinding is
 <kbd>\<leader\>m</kbd>
 
@@ -48,23 +58,6 @@ of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
   changing to a random colourscheme
 - <kbd>tb</kbd>, for transparent background, will remove the background colours
   from the colourscheme. Useful after a GAHH
-
-## Install Instructions
-
- > Install requires Neovim 0.9+. Always review the code before installing a configuration.
-
-Clone the repository and install the plugins:
-
-```sh
-git clone git@github.com:RoryNesbitt/RNvim ~/.config/RoryNesbitt/RNvim
-NVIM_APPNAME=RoryNesbitt/RNvim/ nvim --headless +Lazy! sync +qa
-```
-
-Open Neovim with this config:
-
-```sh
-NVIM_APPNAME=RoryNesbitt/RNvim/ nvim
-```
 
 ## Plugins
 
