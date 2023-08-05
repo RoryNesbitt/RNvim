@@ -25,7 +25,7 @@ neogit.setup {
   },
   mappings = {
     finder = {
-      ["<cr>"] = "select",
+      ["<cr>"] = "Select",
     }
   }
 }
