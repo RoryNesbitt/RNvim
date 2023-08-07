@@ -12,14 +12,14 @@ local on_attach = function(_, bufnr)
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_ok then
   return
 end
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local status_ok, mason_lsp = pcall(require, "mason-lspconfig")
-if not status_ok then
+local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
+if not mason_lsp_ok then
   return
 end
 
