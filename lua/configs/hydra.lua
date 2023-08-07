@@ -4,8 +4,8 @@ local function cmd(command)
   return table.concat { "<cmd>", command, "<CR>" }
 end
 
-local status_ok, dap = pcall(require, "dap")
-if status_ok then
+local dap_ok, dap = pcall(require, "dap")
+if dap_ok then
   hydra {
     name = "Debugging",
     config = {
@@ -36,9 +36,9 @@ if status_ok then
   }
 end
 
-local status_ok, telescope = pcall(require, "telescope")
-if status_ok then
-  hint = [[
+local telescope_ok, telescope = pcall(require, "telescope")
+if telescope_ok then
+  local telescope_hint = [[
                Telescope
 
    _f_: filetypes   _b_: buffers
@@ -54,7 +54,7 @@ if status_ok then
 
   hydra {
     name = "Telescope",
-    hint = hint,
+    hint = telescope_hint,
     config = {
       color = "teal",
       invoke_on_body = true,
@@ -91,9 +91,9 @@ if status_ok then
   }
 end
 
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if status_ok then
-  hint = [[
+local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
+if gitsigns_ok then
+  local gitsigns_hint = [[
    _]_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
    _[_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
    _c_: commit      _S_: stage buffer      ^ ^                 _/_: show base file
@@ -103,7 +103,7 @@ if status_ok then
 
   hydra {
     name = "Git",
-    hint = hint,
+    hint = gitsigns_hint,
     config = {
       buffer = bufnr,
       color = "pink",
@@ -164,12 +164,12 @@ if status_ok then
   }
 end
 
-hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
+local spell_hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
 _<Esc>_/_q_    _ag_: add as good word   _ab_: add as bad word     _u_ _[_/_]_/_b_]]
 
 hydra {
   name = "Spellcheck",
-  hint = hint,
+  hint = spell_hint,
   config = {
     foreign_keys = "run",
     invoke_on_body = true,
