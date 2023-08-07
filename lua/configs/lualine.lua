@@ -57,7 +57,10 @@ require("lualine").setup {
       },
     },
     lualine_x = {
-      "diagnostics",
+      {
+        "diagnostics",
+        symbols = { error = " ", warn = " ", hint = " ", info = " " },
+      },
       -- stylua: ignore
       {
         function() return require("noice").api.status.command.get() end,
