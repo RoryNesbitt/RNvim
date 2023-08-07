@@ -3,10 +3,6 @@ if not status_ok then
   return
 end
 
-local function cmd(command)
-  return table.concat { "<cmd>", command, "<CR>" }
-end
-
 local on_attach = function(_, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
