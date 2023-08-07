@@ -77,9 +77,6 @@ require("lualine").setup {
         cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
       },
       { require("lazy.status").updates, cond = require("lazy.status").has_updates },
-      {
-        "diff",
-      },
     },
     lualine_y = { "branch", "filetype", },
     lualine_z = {
