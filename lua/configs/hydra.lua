@@ -6,6 +6,7 @@ end
 
 local dap_ok, dap = pcall(require, "dap")
 if dap_ok then
+  local dap_hint = [[ _d_: continue _n_: step into _N_: step over _O_: step out _b_: breakpoint _B_: conditional breakpoint _L_: log point _r_: repl _q_/_<Esc>_: exit ]]
   hydra {
     name = "Debugging",
     config = {
@@ -13,10 +14,11 @@ if dap_ok then
       type = "statusline",
       invoke_on_body = true,
       hint = {
-        position = "middle",
-        border = "rounded",
+        position = "top",
+        border = "none",
       },
     },
+    hint = dap_hint,
     mode = "n",
     body = "<leader>d",
     heads = {
