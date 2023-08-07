@@ -10,7 +10,6 @@ neogit.setup {
     return require("telescope").extensions.fzf.native_fzf_sorter()
   end,
   kind = "tab",
-  ignored_settings = {},
   commit_popup = {
     kind = "tab",
   },
