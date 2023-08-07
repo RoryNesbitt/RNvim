@@ -20,16 +20,16 @@ if status_ok then
     mode = "n",
     body = "<leader>d",
     heads = {
-      { "d", function() require("dap").continue() end, { desc = "Continue" } },
-      { "n", function() require("dap").step_into() end, { desc = "Step into" } },
-      { "N", function() require("dap").step_over() end, { desc = "Step over" } },
-      { "O", function() require("dap").step_out() end, { desc = "Step out" } },
-      { "b", function() require("dap").toggle_breakpoint() end, { desc = "Breakpoint" } },
-      { "B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+      { "d", function() dap.continue() end, { desc = "Continue" } },
+      { "n", function() dap.step_into() end, { desc = "Step into" } },
+      { "N", function() dap.step_over() end, { desc = "Step over" } },
+      { "O", function() dap.step_out() end, { desc = "Step out" } },
+      { "b", function() dap.toggle_breakpoint() end, { desc = "Breakpoint" } },
+      { "B", function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
         { desc = "Conditional breakpoint" } },
-      { "L", function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      { "L", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
       end, { desc = "Log point" } },
-      { "r", function() require("dap").repl.open() end, { desc = "Repl" } },
+      { "r", function() dap.repl.open() end, { desc = "Repl" } },
       { "<Esc>", nil, { exit = true, nowait = true } },
       { "q", nil, { exit = true, nowait = true, desc = "exit" } },
     }
@@ -73,7 +73,7 @@ if status_ok then
       { "k", cmd "Telescope keymaps" },
       { "p", cmd "Telescope lazy" },
       { "/", function()
-        require("telescope.builtin").current_buffer_fuzzy_find {
+        telescope.builtin.current_buffer_fuzzy_find {
           sorting_strategy = "ascending",
           layout_config = { prompt_position = "top" },
           previewer = false,
@@ -116,7 +116,7 @@ if status_ok then
           vim.cmd.mkview()
           vim.cmd "silent! %foldopen!"
           vim.bo.modifiable = false
-          require("gitsigns").toggle_linehl(true)
+          gitsigns.toggle_linehl(true)
         end
       end,
       on_exit = function()
@@ -125,8 +125,8 @@ if status_ok then
           vim.cmd.loadview()
           vim.api.nvim_win_set_cursor(0, cursor_pos)
           vim.cmd.normal("zv")
-          require("gitsigns").toggle_linehl(false)
-          require("gitsigns").toggle_deleted(false)
+          gitsigns.toggle_linehl(false)
+          gitsigns.toggle_deleted(false)
         end
       end,
     },
@@ -136,25 +136,25 @@ if status_ok then
       { "]",
         function()
           if vim.wo.diff then return "]c" end
-          vim.schedule(function() require("gitsigns").next_hunk() end)
+          vim.schedule(function() gitsigns.next_hunk() end)
           return "<Ignore>"
         end,
         { expr = true, nowait = true, desc = "next hunk" } },
       { "[",
         function()
           if vim.wo.diff then return "[c" end
-          vim.schedule(function() require("gitsigns").prev_hunk() end)
+          vim.schedule(function() gitsigns.prev_hunk() end)
           return "<Ignore>"
         end,
         { expr = true, nowait = true, desc = "prev hunk" } },
       { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "stage hunk" } },
-      { "u", require("gitsigns").undo_stage_hunk, { desc = "undo last stage" } },
-      { "S", require("gitsigns").stage_buffer, { desc = "stage buffer" } },
-      { "p", require("gitsigns").preview_hunk, { desc = "preview hunk" } },
-      { "d", require("gitsigns").toggle_deleted, { nowait = true, desc = "toggle deleted" } },
-      { "b", require("gitsigns").blame_line, { desc = "blame" } },
-      { "B", function() require("gitsigns").blame_line { full = true } end, { desc = "blame show full" } },
-      { "/", require("gitsigns").show, { exit = true, desc = "show base file" } }, -- show the base of the file
+      { "u", gitsigns.undo_stage_hunk, { desc = "undo last stage" } },
+      { "S", gitsigns.stage_buffer, { desc = "stage buffer" } },
+      { "p", gitsigns.preview_hunk, { desc = "preview hunk" } },
+      { "d", gitsigns.toggle_deleted, { nowait = true, desc = "toggle deleted" } },
+      { "b", gitsigns.blame_line, { desc = "blame" } },
+      { "B", function() gitsigns.blame_line { full = true } end, { desc = "blame show full" } },
+      { "/", gitsigns.show, { exit = true, desc = "show base file" } }, -- show the base of the file
       { "<Enter>", cmd "Neogit", { exit = true, desc = "Neogit" } },
       { "c", cmd "Neogit commit", { exit = true, desc = "Commit" } },
       { "g", cmd "Neogit", { exit = true } },
