@@ -19,13 +19,13 @@ return {
   {
     "max397574/colortils.nvim",
     cmd = "Colortils",
-    config = {},
+    opts = {},
   },
   "KabbAmine/vCoolor.vim",
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
-    config = {},
+    opts = {},
   },
   "folke/neodev.nvim",
   --Lsp
@@ -76,7 +76,7 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = {},
+    opts = {},
   },
   {
     "nvim-telescope/telescope-dap.nvim",
@@ -189,7 +189,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    config = {},
+    opts = {},
   },
   --git
   {
@@ -210,7 +210,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim", },
-    config = {},
+    opts = {},
   },
   --Functionality
   "RRethy/vim-illuminate",
@@ -272,12 +272,12 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    config = {},
+    opts = {},
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = {},
+    opts = {},
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -292,7 +292,7 @@ return {
   },
   {
     "gaoDean/autolist.nvim",
-    config = {},
+    opts = {},
   },
   --program integration
   {
@@ -307,7 +307,7 @@ return {
   },
   {
     "aspeddro/pandoc.nvim",
-    config = {},
+    opts = {},
   },
   {
     "glacambre/firenvim",
