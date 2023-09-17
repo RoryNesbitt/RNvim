@@ -56,7 +56,13 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", function()
+      if #vim.api.nvim_list_wins() > 1 then
+        vim.api.nvim_win_close(0,1)
+      else
+        vim.cmd.quit()
+      end
+    end, { buffer = event.buf, silent = true })
   end,
   group = group
 })
