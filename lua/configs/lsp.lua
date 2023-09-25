@@ -1,5 +1,13 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
+local lsp_ok, lspconfig = pcall(require, "lspconfig")
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
+local efm_ls_ok, efm_ls_defaults = pcall(require, "efmls-configs.defaults")
+if not (
+      lsp_ok
+      or cmp_nvim_lsp_ok
+      or mason_lsp_ok
+      or efm_ls_ok
+    ) then
   return
 end
 
@@ -7,21 +15,29 @@ local on_attach = function(_, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
-
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 end
-
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_ok then
-  return
-end
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
-if not mason_lsp_ok then
-  return
-end
+local efm_languages = efm_ls_defaults.languages()
+
+local efmls_config = {
+  filetypes = vim.tbl_keys(efm_languages),
+  settings = {
+    rootMarkers = { '.git/' },
+    languages = efm_languages,
+  },
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+}
+
+lspconfig.efm.setup(vim.tbl_extend('force', efmls_config, {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}))
 
 mason_lsp.setup_handlers {
   -- The first entry (without a key) will be the default handler

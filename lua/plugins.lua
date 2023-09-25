@@ -44,20 +44,14 @@ return {
       "williamboman/mason.nvim",
     },
   },
-  "glepnir/lspsaga.nvim",
-  "simrat39/symbols-outline.nvim",
-  --Null-ls
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function() require("configs.null-ls") end,
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
+    "creativenull/efmls-configs-nvim",
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
     },
   },
+  "glepnir/lspsaga.nvim",
+  "simrat39/symbols-outline.nvim",
   --Dap
   {
     "mfussenegger/nvim-dap",
