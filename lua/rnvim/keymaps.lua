@@ -103,7 +103,7 @@ map("n", "<leader>lr", cmd "Telescope lsp_references",
   { silent = true, desc = "Show References" })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename Object" })
 --null-ls
-map({ "n", "x" }, "<leader>nf", vim.lsp.buf.format, { desc = "Format Buffer" })
+map({ "n", "x" }, "<leader>nf", function() vim.lsp.buf.format(); vim.cmd.retab() end, { desc = "Format Buffer" })
 map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
 map("n", "]g", function()
