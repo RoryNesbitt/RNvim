@@ -20,25 +20,6 @@ local on_attach = function(_, bufnr)
 end
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local efm_languages = efm_ls_defaults.languages()
-
-local efmls_config = {
-  filetypes = vim.tbl_keys(efm_languages),
-  settings = {
-    rootMarkers = { '.git/' },
-    languages = efm_languages,
-  },
-  init_options = {
-    documentFormatting = true,
-    documentRangeFormatting = true,
-  },
-}
-
-lspconfig.efm.setup(vim.tbl_extend('force', efmls_config, {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}))
-
 mason_lsp.setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
@@ -118,6 +99,28 @@ mason_lsp.setup_handlers {
         }
       }
     }
-  end
+  end,
+
+  ["efm"] = function()
+  local efm_languages = efm_ls_defaults.languages()
+
+  local efmls_config = {
+    filetypes = vim.tbl_keys(efm_languages),
+    settings = {
+      rootMarkers = { ".git/" },
+      languages = efm_languages,
+    },
+    init_options = {
+      documentFormatting = true,
+      documentRangeFormatting = true,
+    },
+  }
+
+  lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }))
+end,
+
 
 }
