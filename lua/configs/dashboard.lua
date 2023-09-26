@@ -1,5 +1,7 @@
-local status_ok, db = pcall(require, "dashboard")
-if not status_ok then
+local db_ok, db = pcall(require, "dashboard")
+if not (
+      db_ok
+    ) then
   return
 end
 
@@ -31,36 +33,51 @@ math.randomseed(os.clock() * 100000000000)
 local s = math.random(1, #logos)
 
 local _, neogit = pcall(require, "neogit")
+local _, lazy = pcall(require, "lazy")
 db.setup {
   theme = 'doom',
   config = {
     header = logos[s],
     center = {
-      { icon = '  ', desc = "Jump to File                      ",
+      {
+        icon = '  ',
+        desc = "Jump to File                      ",
         key = 'f',
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = "Telescope find_files" },
-      { icon = "  ", desc = "Open Neogit",
+        action = "Telescope find_files"
+      },
+      {
+        icon = "  ",
+        desc = "Open Neogit",
         key = 'g',
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = neogit.open },
-      { icon = "  ", desc = "Search Text",
+        action = neogit.open
+      },
+      {
+        icon = "  ",
+        desc = "Search Text",
         key = 't',
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = "Telescope live_grep" },
-      { icon = "  ", desc = "New File",
+        action = "Telescope live_grep"
+      },
+      {
+        icon = "  ",
+        desc = "New File",
         key = 'n',
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = "enew" },
-      { icon = "  ", desc = "Edit Config",
+        action = "enew"
+      },
+      {
+        icon = "  ",
+        desc = "Edit Config",
         key = 'c',
         icon_hl = 'Title',
         desc_hl = 'String',
@@ -68,8 +85,11 @@ db.setup {
         action = function()
           vim.cmd.cd(configDir)
           vim.cmd.Telescope("find_files")
-        end },
-      { icon = "  ", desc = "Update Config",
+        end
+      },
+      {
+        icon = "  ",
+        desc = "Update Config",
         key = 'u',
         icon_hl = 'Title',
         desc_hl = 'String',
@@ -87,17 +107,20 @@ db.setup {
             if string.find(changes, "lua/plugins.lua") then
               vim.notify("Neovim needs to restart", warning)
             else
-              require "lazy".sync()
+              lazy.sync()
             end
           end
         end
       },
-      { icon = '󱎘  ', desc = "Quit",
+      {
+        icon = '󱎘  ',
+        desc = "Quit",
         key = 'q',
         icon_hl = 'Title',
         desc_hl = 'String',
         key_hl = 'Number',
-        action = "quit" },
+        action = "quit"
+      },
       --   
     },
     footer = { "Neovim loaded with " .. pluginCount() .. " plugins" },

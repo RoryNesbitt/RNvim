@@ -1,5 +1,9 @@
-local status_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
-if not status_ok then
+local ap_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
+local cmp_ok, cmp = pcall(require, "cmp")
+if not (
+      ap_ok
+      or cmp_ok
+    ) then
   return
 end
 
@@ -7,10 +11,6 @@ nvim_autopairs.setup {
   check_ts = true,
 }
 
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
-  return
-end
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on(
   "confirm_done",

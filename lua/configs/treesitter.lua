@@ -1,3 +1,8 @@
+local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not configs_ok then
+  return
+end
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
   virtual_text = {
@@ -6,10 +11,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   },
   update_in_insert = true,
 })
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
 
 --TODO: look in to textObjects
 --TODO: look in to move

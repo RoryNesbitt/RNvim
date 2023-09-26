@@ -1,3 +1,10 @@
+local lualine_ok, lualine = pcall(require, "lualine")
+if not (
+      lualine_ok
+    ) then
+  return
+end
+
 local getHl = vim.api.nvim_get_hl_by_name
 local colours = {
   blue = string.format("#%06x", getHl("Function", true).foreground),
@@ -30,7 +37,7 @@ local auto = {
   command = { a = { fg = colours.black, bg = colours.green } },
 }
 
-require("lualine").setup {
+lualine.setup {
   options = {
     theme = auto,
     component_separators = {left = "", right = ""},

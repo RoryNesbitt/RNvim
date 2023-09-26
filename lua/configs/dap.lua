@@ -1,4 +1,9 @@
-local dap = require("dap")
+local dap_ok, dap = pcall(require, "dap")
+if not (
+      dap_ok
+    ) then
+  return
+end
 
 dap.adapters.python = {
   type = "executable",

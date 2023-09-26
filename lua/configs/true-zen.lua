@@ -1,4 +1,9 @@
-local tz = require("true-zen")
+local tz_ok, tz = pcall(require, "true-zen")
+if not (
+      tz_ok
+    ) then
+  return
+end
 
 tz.setup {
   modes = { -- configurations per mode

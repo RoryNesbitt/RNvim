@@ -1,4 +1,9 @@
-local hydra = require("hydra")
+local hydra_ok, hydra = pcall(require, "hydra")
+if not (
+      hydra_ok
+    ) then
+  return
+end
 
 local function cmd(command)
   return table.concat { "<cmd>", command, "<CR>" }

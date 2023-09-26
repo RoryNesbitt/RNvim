@@ -1,6 +1,13 @@
-require("notebook")
-local api = require("notebook.api")
-local settings = require("notebook.settings")
+local notebook_ok, notebook = pcall(require, "notebook")
+local api_ok, api = pcall(require, "notebook.api")
+local settings_ok, settings = pcall(require, "notebook.settings")
+if not (
+      notebook_ok
+      or api_ok
+      or settings_ok
+    ) then
+  return
+end
 
 function _G.define_cell(extmark)
     if extmark == nil then

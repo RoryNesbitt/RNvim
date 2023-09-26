@@ -1,12 +1,16 @@
-local status_ok, diffview = pcall(require, "diffview")
-if not status_ok then
+local diffview_ok, diffview = pcall(require, "diffview")
+local config_ok, config = pcall(require, "diffview.config")
+if not (
+      diffview_ok
+      or config_ok
+    ) then
   return
 end
 
 -- Lua
-local cb = require "diffview.config".diffview_callback
+local cb = config.diffview_callback
 
-require "diffview".setup {
+diffview.setup {
   enhanced_diff_hl = true,
   icons = { -- TODO: Change these
     folder_closed = "",

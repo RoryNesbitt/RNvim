@@ -1,21 +1,21 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
-
--- Setup nvim-cmp.
 local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if not (
+      cmp_status_ok
+      or lspkind_ok
+      or luasnip_ok
+    ) then
   return
 end
 
-local status_ok, lspkind = pcall(require, "lspkind")
-if not status_ok then
-  return
-end
+vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 
 cmp.setup {
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
