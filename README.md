@@ -51,7 +51,7 @@ cursor is on.
   - <kbd>Alt-hjkl</kbd> will resize the split window
   - <kbd>Ctrl-Shift-hjkl</kbd> will move the split window that direction
     - Note: This requires the key press to be passed through in your terminal
-  - `Visual` <kbd>Shift-hjkl</kbd> will move the highlighted line(s)
+  - `Visual` <kbd>Shift-jk</kbd> will move the highlighted line(s)
 - <kbd>U</kbd> (upper-case) is used to redo, as e.g. <kbd>N</kbd> is the inverse
 of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
 - <kbd>gh</kbd>, for "GAHH", will release a little frustration from your code by
