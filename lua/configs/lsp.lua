@@ -102,25 +102,35 @@ mason_lsp.setup_handlers {
   end,
 
   ["efm"] = function()
-  local efm_languages = efm_ls_defaults.languages()
+    local efm_languages = efm_ls_defaults.languages()
 
-  local efmls_config = {
-    filetypes = vim.tbl_keys(efm_languages),
-    settings = {
-      rootMarkers = { ".git/" },
-      languages = efm_languages,
-    },
-    init_options = {
-      documentFormatting = true,
-      documentRangeFormatting = true,
-    },
-  }
+    efm_languages = vim.tbl_extend('force', efm_languages, {
+      sh = {
+        require('efmls-configs.linters.shellcheck'),
+        require('efmls-configs.formatters.shfmt'),
+      },
+      zsh = {
+        require('efmls-configs.formatters.shfmt'),
+      },
+    })
 
-  lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }))
-end,
+    local efmls_config = {
+      filetypes = vim.tbl_keys(efm_languages),
+      settings = {
+        rootMarkers = { ".git/" },
+        languages = efm_languages,
+      },
+      init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
+      },
+    }
+
+    lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }))
+  end,
 
 
 }
