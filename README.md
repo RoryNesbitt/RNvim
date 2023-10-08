@@ -110,7 +110,7 @@ of <kbd>n</kbd>, <kbd>U</kbd> is now the inverse of <kbd>u</kbd>
 ### lsp
 
 + [simrat39/symbols-outline.nvim](https://dotfyle.com/plugins/simrat39/symbols-outline.nvim)
-+ [jose-elias-alvarez/null-ls.nvim](https://dotfyle.com/plugins/jose-elias-alvarez/null-ls.nvim)
++ [creativenull/efmls-configs-nvim](https://dotfyle.com/plugins/creativenull/efmls-configs-nvim)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [glepnir/lspsaga.nvim](https://dotfyle.com/plugins/glepnir/lspsaga.nvim)
 ### lsp-installer
