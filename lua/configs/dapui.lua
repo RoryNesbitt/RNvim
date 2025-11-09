@@ -8,6 +8,7 @@ if not (
 end
 
 dapui.setup()
+-- TODO: update this config with repo suggestions
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end

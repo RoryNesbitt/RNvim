@@ -35,7 +35,6 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    config = function() require("configs.mason") end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -61,6 +60,7 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
     },
     config = function() require("configs.dapui") end,
   },
@@ -130,7 +130,7 @@ return {
       "nvim-treesitter/nvim-treesitter-context",
       "nvim-treesitter/playground",
       "windwp/nvim-ts-autotag",
-      "mrjones2014/nvim-ts-rainbow",
+      -- "/hiphish/rainbow-delimiters.nvim",
     },
   },
   --Telescope
@@ -215,18 +215,16 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    opts = {
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
     init = function()
       vim.notify = require("notify").setup({
+        timeout = 3000,
         background_colour = "#000000",
+        max_height = function()
+          return math.floor(vim.o.lines * 0.75)
+        end,
+        max_width = function()
+          return math.floor(vim.o.columns * 0.75)
+        end,
       })
       local status_ok, ts = pcall(require, "telescope")
       if status_ok then
@@ -253,7 +251,7 @@ return {
     },
   },
   {
-    "anuvyklack/hydra.nvim",
+    "nvimtools/hydra.nvim",
     config = function() require("configs.hydra") end
   },
   "terryma/vim-multiple-cursors",

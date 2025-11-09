@@ -12,8 +12,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   update_in_insert = true,
 })
 
---TODO: look in to textObjects
---TODO: look in to move
 configs.setup {
   auto_install = true,
   highlight = {
@@ -23,15 +21,11 @@ configs.setup {
   autotag = {
     enable = true,
   },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  },
   autopairs = {
     enable = true,
   },
 }
+
 vim.treesitter.language.register('javascript', 'ejs')
 vim.filetype.add {
   extension = {

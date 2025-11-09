@@ -20,7 +20,6 @@ if dap_ok then
       invoke_on_body = true,
       hint = {
         position = "top",
-        border = "none",
       },
     },
     hint = dap_hint,
@@ -67,7 +66,9 @@ if telescope_ok then
       invoke_on_body = true,
       hint = {
         position = "middle",
-        border = "rounded",
+        float_opts = {
+          border = "rounded",
+        },
       },
     },
     mode = "n",
@@ -116,7 +117,9 @@ if gitsigns_ok then
       color = "pink",
       invoke_on_body = true,
       hint = {
-        border = "rounded"
+        float_opts = {
+          border = "rounded",
+        },
       },
       on_enter = function()
         if vim.bo.filetype ~= "dashboard" and vim.bo.filetype ~= "netrw" then
@@ -181,7 +184,9 @@ hydra {
     foreign_keys = "run",
     invoke_on_body = true,
     hint = {
-      border = "rounded"
+      float_opts = {
+        border = "rounded",
+      },
     },
   },
   mode = "n",
