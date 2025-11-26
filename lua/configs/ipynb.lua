@@ -1,4 +1,4 @@
-local notebook_ok, notebook = pcall(require, "notebook")
+local notebook_ok, _ = pcall(require, "notebook")
 local api_ok, api = pcall(require, "notebook.api")
 local settings_ok, settings = pcall(require, "notebook.settings")
 if not (

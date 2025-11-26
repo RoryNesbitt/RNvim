@@ -103,10 +103,10 @@ local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if gitsigns_ok then
   local gitsigns_hint = [[
    _]_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
-   _[_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
-   _c_: commit      _S_: stage buffer      ^ ^                 _/_: show base file
-   ^
-   ^ ^              _<Enter>_/_g_: Neogit         _<Esc>_/_q_
+   _[_: prev hunk   _S_: stage buffer      _p_: preview hunk   _B_: blame show full 
+   _c_: commit
+    
+                    _<Enter>_/_g_: Neogit         _<Esc>_/_q_
   ]]
 
   hydra {
@@ -146,25 +146,23 @@ if gitsigns_ok then
       { "]",
         function()
           if vim.wo.diff then return "]c" end
-          vim.schedule(function() gitsigns.next_hunk() end)
+          vim.schedule(function() gitsigns.nav_hunk("next") end)
           return "<Ignore>"
         end,
         { expr = true, nowait = true, desc = "next hunk" } },
       { "[",
         function()
           if vim.wo.diff then return "[c" end
-          vim.schedule(function() gitsigns.prev_hunk() end)
+          vim.schedule(function() gitsigns.nav_hunk("prev") end)
           return "<Ignore>"
         end,
         { expr = true, nowait = true, desc = "prev hunk" } },
-      { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "stage hunk" } },
-      { "u", gitsigns.undo_stage_hunk, { desc = "undo last stage" } },
+      { "s",gitsigns.stage_hunk, { silent = true, desc = "stage hunk" } },
       { "S", gitsigns.stage_buffer, { desc = "stage buffer" } },
       { "p", gitsigns.preview_hunk, { desc = "preview hunk" } },
-      { "d", gitsigns.toggle_deleted, { nowait = true, desc = "toggle deleted" } },
+      { "d", gitsigns.preview_hunk_inline, { nowait = true, desc = "toggle deleted" } },
       { "b", gitsigns.blame_line, { desc = "blame" } },
       { "B", function() gitsigns.blame_line { full = true } end, { desc = "blame show full" } },
-      { "/", gitsigns.show, { exit = true, desc = "show base file" } }, -- show the base of the file
       { "<Enter>", cmd "Neogit", { exit = true, desc = "Neogit" } },
       { "c", cmd "Neogit commit", { exit = true, desc = "Commit" } },
       { "g", cmd "Neogit", { exit = true } },

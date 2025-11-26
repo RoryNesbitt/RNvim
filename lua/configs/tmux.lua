@@ -4,12 +4,6 @@ if not tmux_ok then
 end
 
 tmux.setup {
-  navigation = {
-    enable_default_keybindings = true,
-  },
-  resize = {
-    enable_default_keybindings = true,
-  },
   copy_sync = {
     enable = false,
   },

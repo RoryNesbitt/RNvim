@@ -105,7 +105,7 @@ db.setup {
             neogit.open()
           else
             if string.find(changes, "lua/plugins.lua") then
-              vim.notify("Neovim needs to restart", warning)
+              vim.notify("Neovim needs to restart", "warn")
             else
               lazy.sync()
             end

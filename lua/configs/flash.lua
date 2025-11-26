@@ -1,7 +1,5 @@
 local flash_ok, flash = pcall(require, "flash")
-if not (
-  flash_ok
-  ) then
+if not flash_ok then
   return
 end
 

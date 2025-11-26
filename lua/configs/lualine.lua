@@ -5,22 +5,22 @@ if not (
   return
 end
 
-local getHl = vim.api.nvim_get_hl_by_name
+local getHl = vim.api.nvim_get_hl
 local colours = {
-  blue = string.format("#%06x", getHl("Function", true).foreground),
-  cyan = string.format("#%06x", getHl("Special", true).foreground),
+  blue = string.format("#%06x", getHl(0, {name = "Function"}).fg),
+  cyan = string.format("#%06x", getHl(0, {name = "Special"}).fg),
   black  = "#080808",
   white  = "#c6c6c6",
-  red = string.format("#%06x", getHl("DiagnosticError", true).foreground),
-  violet = string.format("#%06x", getHl("Statement", true).foreground),
-  gray = string.format("#%06x", getHl("NonText", true).foreground),
-  green = string.format("#%06x", getHl("String", true).foreground),
-  orange = string.format("#%06x", getHl("DiagnosticWarn", true).foreground),
+  red = string.format("#%06x", getHl(0, {name = "DiagnosticError"}).fg),
+  violet = string.format("#%06x", getHl(0, {name = "Statement"}).fg),
+  gray = string.format("#%06x", getHl(0, {name = "NonText"}).fg),
+  green = string.format("#%06x", getHl(0, {name = "String"}).fg),
+  orange = string.format("#%06x", getHl(0, {name = "DiagnosticWarn"}).fg),
   diag = {
-    warn = string.format("#%06x", getHl("DiagnosticWarn", true).foreground),
-    error = string.format("#%06x", getHl("DiagnosticError", true).foreground),
-    hint = string.format("#%06x", getHl("DiagnosticHint", true).foreground),
-    info = string.format("#%06x", getHl("DiagnosticInfo", true).foreground),
+    warn = string.format("#%06x", getHl(0, {name = "DiagnosticWarn"}).fg),
+    error = string.format("#%06x", getHl(0, {name = "DiagnosticError"}).fg),
+    hint = string.format("#%06x", getHl(0, {name = "DiagnosticHint"}).fg),
+    info = string.format("#%06x", getHl(0, {name = "DiagnosticInfo"}).fg),
   },
 }
 

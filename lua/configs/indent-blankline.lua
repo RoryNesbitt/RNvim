@@ -6,7 +6,7 @@ if not (
   return
 end
 
-treesitter_exists, _ = pcall(require, "nvim-treesitter")
+local treesitter_exists, _ = pcall(require, "nvim-treesitter")
 indent_blankline.setup {}
 indent_blankline.overwrite {
   exclude = {

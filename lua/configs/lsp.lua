@@ -1,4 +1,4 @@
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local cmp_nvim_lsp_ok, _ = pcall(require, "cmp_nvim_lsp")
 local mason_ok, mason = pcall(require, "mason")
 local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
 local efm_ls_ok, efm_ls_defaults = pcall(require, "efmls-configs.defaults")
@@ -41,7 +41,7 @@ vim.lsp.config.emmet_ls = {
     "less",
     "ejs" },
     root_dir = function(_)
-      return vim.loop.cwd()
+      return vim.uv.cwd()
     end,
     settings = {},
   },

@@ -95,8 +95,8 @@ map("n", "<leader>li", cmd "LspInfo", { silent = true, desc = "LSP Info" })
 map("n", "gd", "gdzz", { remap = true, desc = "Go to Definition" }) -- Add zz after regular gd command
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Next" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous" })
+map("n", "]d", function() vim.diagnostic.jump {count=1, float=true} end, { desc = "Next" })
+map("n", "[d", function() vim.diagnostic.jump {count=-1, float=true} end, { desc = "Previous" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Actions" })
 map("n", "<leader>ll", cmd "Telescope diagnostics", { silent = true, desc = "Show Diagnostics" })
 map("n", "<leader>lr", cmd "Telescope lsp_references",
@@ -108,12 +108,12 @@ map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" 
 
 map("n", "]g", function()
           if vim.wo.diff then return "]c" end
-          vim.schedule(function() require("gitsigns").next_hunk() end)
+          vim.schedule(function() require("gitsigns").nav_hunk("next") end)
           return "<Ignore>"
         end, { expr = true, nowait = true, desc = "Next git hunk" } )
 map("n", "[g", function()
           if vim.wo.diff then return "[c" end
-          vim.schedule(function() require("gitsigns").prev_hunk() end)
+          vim.schedule(function() require("gitsigns").nav_hunk("prev") end)
           return "<Ignore>"
           end, { expr = true, nowait = true, desc = "Previous git hunk" } )
 -- Open windows
