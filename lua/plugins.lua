@@ -27,17 +27,33 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     opts = {},
   },
-  "folke/neodev.nvim",
   --Lsp
   {
-    "neovim/nvim-lspconfig",
-    config = function() require("configs.lsp") end,
+    "folke/lazydev.nvim",
+    config = function() require("lazydev").setup({
+      library = { "nvim-dap-ui" },
+    }) end,
+  },
+  "neovim/nvim-lspconfig",
+  {
+    "mason-org/mason.nvim",
+    config = function() require("mason").setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        }
+      }
+    }) end,
   },
   {
-    "williamboman/mason.nvim",
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    config = function() require("mason-lspconfig").setup({
+      ensure_installed = {
+        "efm",
+      },
+    }) end,
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
@@ -45,12 +61,59 @@ return {
   },
   {
     "creativenull/efmls-configs-nvim",
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("lspsaga").setup()
+    end,
+  },
+  --nvim-cmp
+  {
+    "hrsh7th/nvim-cmp",
+    config = function() require("configs.nvim-cmp") end,
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "neovim/nvim-lspconfig",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "onsails/lspkind-nvim",
+      'saadparwaiz1/cmp_luasnip',
     },
   },
-  "glepnir/lspsaga.nvim",
-  "simrat39/symbols-outline.nvim",
+  --Snippets
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function() require("luasnip.loaders.from_vscode").lazy_load() end,
+    keys = {
+      {
+        "<tab>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true, silent = true, mode = "i",
+      },
+      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
+  },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
+  },
   --Dap
   {
     "mfussenegger/nvim-dap",
@@ -88,57 +151,23 @@ return {
       "mfussenegger/nvim-dap",
     },
   },
-  --nvim-cmp
-  {
-    "hrsh7th/nvim-cmp",
-    config = function() require("configs.nvim-cmp") end,
-      dependencies = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lua",
-        "onsails/lspkind-nvim",
-        'saadparwaiz1/cmp_luasnip',
-      },
-  },
-  --Snippets
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    config = function() require("luasnip.loaders.from_vscode").lazy_load() end,
-    keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true, silent = true, mode = "i",
-      },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-    },
-  },
   --Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function() require("configs.treesitter") end,
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-context",
-      "nvim-treesitter/playground",
+      "nvim-treesitter/nvim-treesitter-context", --TODO: add keybindings
       "windwp/nvim-ts-autotag",
-      -- "/hiphish/rainbow-delimiters.nvim",
+      "hiphish/rainbow-delimiters.nvim",
     },
   },
   --Telescope
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
+      "BurntSushi/ripgrep",
       "nvim-telescope/telescope-fzy-native.nvim"
     },
     config = function() require("configs.telescope") end,
@@ -171,6 +200,7 @@ return {
   "creativenull/dotfyle-metadata.nvim",
   {
     "glepnir/dashboard-nvim",
+    event = 'VimEnter',
     config = function() require("configs.dashboard") end,
   },
   {
@@ -183,14 +213,17 @@ return {
   },
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {},
   },
   --git
   {
     "NeogitOrg/neogit",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
     },
     config = function() require("configs.neogit") end,
   },
@@ -215,15 +248,9 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    init = function()
-      vim.notify = require("notify").setup({
+    config = function()
+      require("notify").setup({
         background_colour = "#000000",
-        max_height = function()
-          return math.floor(vim.o.lines * 0.75)
-        end,
-        max_width = function()
-          return math.floor(vim.o.columns * 0.75)
-        end,
       })
       local status_ok, ts = pcall(require, "telescope")
       if status_ok then
@@ -236,7 +263,7 @@ return {
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      lazy = true
+      "rcarriga/nvim-notify",
     },
     opts = {
       cmdline = {
@@ -253,9 +280,9 @@ return {
     "nvimtools/hydra.nvim",
     config = function() require("configs.hydra") end
   },
-  "terryma/vim-multiple-cursors",
   {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function() require("configs.autopairs") end,
     dependencies = {
       "hrsh7th/nvim-cmp",
@@ -268,6 +295,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
     opts = {},
   },
   {
@@ -281,10 +309,6 @@ return {
       "folke/twilight.nvim",
     },
   },
-  {
-    "gaoDean/autolist.nvim",
-    opts = {},
-  },
   --program integration
   {
     "meatballs/notebook.nvim",
@@ -297,14 +321,8 @@ return {
     }
   },
   {
-    "aspeddro/pandoc.nvim",
-    opts = {},
-  },
-  {
     "glacambre/firenvim",
-    build = function()
-      vim.fn["firenvim#install"](0)
-    end,
+    build = "call: firenvim#install(0)",
     config = function() require("configs.firenvim") end,
   },
   {

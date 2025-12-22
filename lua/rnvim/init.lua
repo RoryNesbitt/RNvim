@@ -1,5 +1,6 @@
 require "rnvim.options"
 require "rnvim.lazy"
+require "rnvim.lsp"
 require "rnvim.keymaps"
 require "rnvim.autocmds"
 require "rnvim.colourscheme"

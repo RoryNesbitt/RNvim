@@ -25,6 +25,7 @@ if dap_ok then
     hint = dap_hint,
     mode = "n",
     body = "<leader>d",
+    --TODO: Add things from telescope-dap
     heads = {
       { "d", function() dap.continue() end, { desc = "Continue" } },
       { "n", function() dap.step_into() end, { desc = "Step into" } },
