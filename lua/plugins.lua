@@ -61,6 +61,7 @@ return {
   },
   {
     "creativenull/efmls-configs-nvim",
+    config = function() require("configs.efmls") end,
   },
   {
     "nvimdev/lspsaga.nvim",
