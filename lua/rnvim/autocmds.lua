@@ -1,6 +1,14 @@
 local group = vim.api.nvim_create_augroup("RNvim", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+  group = group
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "packer-init.lua",
   command = "source <afile> | PackerSync",
   group = group
