@@ -330,22 +330,26 @@ return {
     "aserowy/tmux.nvim",
     config = function() require("configs.tmux") end,
   },
+    -- Copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function() require("configs.copilot") end,
+  },
   {
     "zbirenbaum/copilot-cmp",
-    config = function ()
-      local copilot_cmp = require("copilot_cmp")
-      copilot_cmp.setup()
-    end,
     dependencies = {
+      "zbirenbaum/copilot.lua",
       "hrsh7th/nvim-cmp",
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        opts = {
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        },
-      }
     },
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      "nvim-lua/plenary.nvim",
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
   },
 }

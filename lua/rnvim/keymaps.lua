@@ -120,7 +120,6 @@ map("n", "[g", function()
 map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
 map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })
 map("n", "<leader><cr>", cmd "vsp <bar> terminal", { silent = true, desc = "Neovim Terminal" })
-map("n", "<leader>c", cmd "tabedit .", { silent = true, desc = "New tab" })
 map("n", "<leader>e", cmd "edit .", { silent = true, desc = "File Browser" })
 
 -- replace in line
