@@ -5,13 +5,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.opt.termguicolors = true
 --vim.opt.t_Co = "256"
-vim.opt.wrap = false -- Long lines won't wrap
+vim.opt.wrap = false       -- Long lines won't wrap
 vim.opt.colorcolumn = "80" -- Adds a colour marker on the # column
 vim.opt.signcolumn = "yes" -- Left side info column
-vim.opt.scrolloff = 4 -- Keeps the cursor away from the top/bottom
-vim.opt.sidescrolloff = 4 -- Keeps the cursor away from the sides
-vim.opt.cmdheight = 0 -- Hides the command line when not in use
-vim.opt.showtabline = 0 -- Hides the tabline
+vim.opt.scrolloff = 4      -- Keeps the cursor away from the top/bottom
+vim.opt.sidescrolloff = 4  -- Keeps the cursor away from the sides
+vim.opt.cmdheight = 0      -- Hides the command line when not in use
+vim.opt.showtabline = 0    -- Hides the tabline
 
 --Tabs
 vim.opt.expandtab = true
@@ -25,9 +25,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 --Search
-vim.opt.hlsearch = false -- only highlight current selection
+vim.opt.hlsearch = false  -- only highlight current selection
 vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- unless search includes upercase
+vim.opt.smartcase = true  -- unless search includes upercase
 
 --History
 vim.opt.swapfile = false
@@ -43,8 +43,9 @@ vim.opt.spell = true
 vim.opt.spelllang = { "en_gb" }
 
 --Misc
-vim.opt.exrc = true -- Loads directory specific .vimrc files
-vim.opt.errorbells = false -- Silence
-vim.opt.showmatch = true -- Show matching brackets.
+vim.opt.exrc = true                    -- Loads directory specific .vimrc files
+vim.opt.errorbells = false             -- Silence
+vim.opt.showmatch = true               -- Show matching brackets.
 vim.opt.wildmode = "longest,list,full" -- Enable autocomplete files
 vim.g.tex_flavor = 'latex'
+vim.g.netrw_liststyle = 3              -- Tree style file explorer
