@@ -156,6 +156,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    version = "*",
+    lazy = false,
     config = function() require("configs.treesitter") end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-context", --TODO: add keybindings
