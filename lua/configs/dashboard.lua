@@ -67,6 +67,15 @@ db.setup {
         action = "Telescope live_grep"
       },
       {
+        icon = "󰉋  ",
+        desc = "Explore Files",
+        key = 'e',
+        icon_hl = 'Title',
+        desc_hl = 'String',
+        key_hl = 'Number',
+        action = "Explore"
+      },
+      {
         icon = "  ",
         desc = "New File",
         key = 'n',
