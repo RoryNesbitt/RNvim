@@ -3,8 +3,8 @@ local api_ok, api = pcall(require, "notebook.api")
 local settings_ok, settings = pcall(require, "notebook.settings")
 if not (
       notebook_ok
-      or api_ok
-      or settings_ok
+      and api_ok
+      and settings_ok
     ) then
   return
 end

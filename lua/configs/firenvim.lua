@@ -47,19 +47,19 @@ if vim.g.started_by_firenvim then
     group = fireau
   })
 
-  vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-    pattern = "*",
-    callback = function()
-      if vim.bo.filetype ~= "TelescopePrompt"
-          and vim.bo.filetype ~= "TelescopeResults"
-          and vim.bo.filetype ~= "dashboard"
-          and vim.bo.filetype ~= "mason.nvim"
-      then
-        vim.cmd.write()
-      end
-    end,
-    nested = true,
-    group = fireau
-  })
+  -- vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
+  --   pattern = "*",
+  --   callback = function()
+  --     if vim.bo.filetype ~= "TelescopePrompt"
+  --         and vim.bo.filetype ~= "TelescopeResults"
+  --         and vim.bo.filetype ~= "dashboard"
+  --         and vim.bo.filetype ~= "mason.nvim"
+  --     then
+  --       vim.cmd.write()
+  --     end
+  --   end,
+  --   nested = true,
+  --   group = fireau
+  -- })
 
 end

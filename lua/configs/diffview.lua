@@ -2,7 +2,7 @@ local diffview_ok, diffview = pcall(require, "diffview")
 local config_ok, config = pcall(require, "diffview.config")
 if not (
       diffview_ok
-      or config_ok
+      and config_ok
     ) then
   return
 end

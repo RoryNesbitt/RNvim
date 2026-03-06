@@ -4,9 +4,9 @@ local lspkind_ok, lspkind = pcall(require, "lspkind")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 if not (
       cmp_status_ok
-      or cmp_nvim_lsp_ok
-      or lspkind_ok
-      or luasnip_ok
+      and cmp_nvim_lsp_ok
+      and lspkind_ok
+      and luasnip_ok
     ) then
   return
 end

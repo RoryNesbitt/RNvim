@@ -2,7 +2,7 @@ local ap_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
 local cmp_ok, cmp = pcall(require, "cmp")
 if not (
       ap_ok
-      or cmp_ok
+      and cmp_ok
     ) then
   return
 end
