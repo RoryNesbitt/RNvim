@@ -9,12 +9,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "packer-init.lua",
-  command = "source <afile> | PackerSync",
-  group = group
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "tmux.conf",
   command = "!tmux source-file ~/.config/tmux/tmux.conf; tmux display-message 'Reloaded tmux config'",
   group = group
