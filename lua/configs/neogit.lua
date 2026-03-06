@@ -10,9 +10,6 @@ end
 neogit.setup {
   disable_commit_confirmation = true,
   use_telescope = true,
-  telescope_sorter = function()
-    return telescope.extensions.fzf.native_fzf_sorter()
-  end,
   kind = "tab",
   commit_popup = {
     kind = "tab",
