@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", function()
       if #vim.api.nvim_list_wins() > 1 then
-        vim.api.nvim_win_close(0,true)
+        vim.api.nvim_win_close(0, true)
       else
         vim.cmd.quit()
       end
@@ -68,4 +68,3 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   group = group
 })
-

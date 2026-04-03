@@ -1,4 +1,4 @@
-vim.lsp.config.ltex = {
+return {
   settings = {
     ltex = {
       language = "en",
