@@ -13,7 +13,6 @@ vim.g.firenvim_config = {
   },
 }
 
-
 if vim.g.started_by_firenvim then
   vim.o.laststatus = 0
   vim.wo.wrap = true
@@ -36,7 +35,7 @@ if vim.g.started_by_firenvim then
   })
 
   vim.api.nvim_create_autocmd("bufEnter", { -- Node-red function node
-    pattern = "*node-input-*-editor*.txt", -- Regardless of IP or URL access
+    pattern = "*node-input-*-editor*.txt",  -- Regardless of IP or URL access
     command = "set filetype=javascript",
     group = fireau
   })
@@ -46,20 +45,4 @@ if vim.g.started_by_firenvim then
     command = "set filetype=python",
     group = fireau
   })
-
-  -- vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-  --   pattern = "*",
-  --   callback = function()
-  --     if vim.bo.filetype ~= "TelescopePrompt"
-  --         and vim.bo.filetype ~= "TelescopeResults"
-  --         and vim.bo.filetype ~= "dashboard"
-  --         and vim.bo.filetype ~= "mason.nvim"
-  --     then
-  --       vim.cmd.write()
-  --     end
-  --   end,
-  --   nested = true,
-  --   group = fireau
-  -- })
-
 end

@@ -1,4 +1,4 @@
-local ap_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
+local ap_ok, autopairs = pcall(require, "nvim-autopairs")
 local cmp_ok, cmp = pcall(require, "cmp")
 if not (
       ap_ok
@@ -7,7 +7,7 @@ if not (
   return
 end
 
-nvim_autopairs.setup {
+autopairs.setup {
   check_ts = true,
 }
 

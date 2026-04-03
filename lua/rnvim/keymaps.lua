@@ -28,14 +28,14 @@ if HARDMODE > 2 then
 end
 
 -- Better mouse mode
-map({"n","x","i"}, "<RightMouse>", "<nop>")
-map({"n","x","i"}, "<2-RightMouse>", "<nop>")
-map({"n","x"}, "<ScrollWheelLeft>", "h")
-map({"n","x"}, "<ScrollWheelDown>", "j")
-map({"n","x"}, "<ScrollWheelUp>", "k")
-map({"n","x"}, "<ScrollWheelRight>", "l")
-map({"n","x"}, "<S-ScrollWheelDown>", cmd "keepj norm! }")
-map({"n","x"}, "<S-ScrollWheelUp>", cmd "keepj norm! {")
+map({ "n", "x", "i" }, "<RightMouse>", "<nop>")
+map({ "n", "x", "i" }, "<2-RightMouse>", "<nop>")
+map({ "n", "x" }, "<ScrollWheelLeft>", "h")
+map({ "n", "x" }, "<ScrollWheelDown>", "j")
+map({ "n", "x" }, "<ScrollWheelUp>", "k")
+map({ "n", "x" }, "<ScrollWheelRight>", "l")
+map({ "n", "x" }, "<S-ScrollWheelDown>", cmd "keepj norm! }")
+map({ "n", "x" }, "<S-ScrollWheelUp>", cmd "keepj norm! {")
 map("i", "<ScrollWheelLeft>", "<left>")
 map("i", "<ScrollWheelRight>", "<right>")
 map("i", "<ScrollWheelUp>", "<up>")
@@ -80,42 +80,46 @@ map("n", "<localleader>D", '"+D', { desc = "DELETE to Clipboard" })
 map("n", "<localleader>P", '"+P', { desc = "PASTE from Clipboard" })
 map("x", "p", '"_dP')
 
---Zen
-map("n", "<leader>f", cmd "TZFocus", { desc = "Focus buffer" })
-map("n", "<leader>z", cmd "TZAtaraxis", { desc = "Zen Mode" })
-
 --Mason
 map("n", "<leader>m", cmd "Mason", { desc = "Open Mason" })
 
 --formatting
 --LSP
 map("n", "K", vim.lsp.buf.hover)
+map("n", "<leader>lh",
+  function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    vim.lsp.codelens.enable(vim.lsp.inlay_hint.is_enabled())
+  end,
+  { desc = "Toggle inlay hints" })
 map("n", "<leader>li", cmd "LspInfo", { silent = true, desc = "LSP Info" })
 -- map("n", "gd", vim.lsp.buf.definition, {buffer = 0}) -- This seems to already exist somewhere
 map("n", "gd", "gdzz", { remap = true, desc = "Go to Definition" }) -- Add zz after regular gd command
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
-map("n", "]d", function() vim.diagnostic.jump {count=1, float=true} end, { desc = "Next" })
-map("n", "[d", function() vim.diagnostic.jump {count=-1, float=true} end, { desc = "Previous" })
+map("n", "]d", function() vim.diagnostic.jump { count = 1, float = true } end, { desc = "Next" })
+map("n", "[d", function() vim.diagnostic.jump { count = -1, float = true } end, { desc = "Previous" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Actions" })
 map("n", "<leader>ll", cmd "Telescope diagnostics", { silent = true, desc = "Show Diagnostics" })
 map("n", "<leader>lr", cmd "Telescope lsp_references",
   { silent = true, desc = "Show References" })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename Object" })
 --null-ls
-map({ "n", "x" }, "<leader>nf", function() vim.lsp.buf.format(); vim.cmd.retab() end, { desc = "Format Buffer" })
+map({ "n", "x" }, "<leader>nf", function()
+  vim.lsp.buf.format(); vim.cmd.retab()
+end, { desc = "Format Buffer" })
 map("n", "<leader>ni", cmd "NullLsInfo", { silent = true, desc = "Null-ls Info" })
 
 map("n", "]g", function()
-          if vim.wo.diff then return "]c" end
-          vim.schedule(function() require("gitsigns").nav_hunk("next") end)
-          return "<Ignore>"
-        end, { expr = true, nowait = true, desc = "Next git hunk" } )
+  if vim.wo.diff then return "]c" end
+  vim.schedule(function() require("gitsigns").nav_hunk("next") end)
+  return "<Ignore>"
+end, { expr = true, nowait = true, desc = "Next git hunk" })
 map("n", "[g", function()
-          if vim.wo.diff then return "[c" end
-          vim.schedule(function() require("gitsigns").nav_hunk("prev") end)
-          return "<Ignore>"
-          end, { expr = true, nowait = true, desc = "Previous git hunk" } )
+  if vim.wo.diff then return "[c" end
+  vim.schedule(function() require("gitsigns").nav_hunk("prev") end)
+  return "<Ignore>"
+end, { expr = true, nowait = true, desc = "Previous git hunk" })
 -- Open windows
 map("n", "<leader>v", cmd "vsp .", { silent = true, desc = "Vertical Split" })
 map("n", "<leader>h", cmd "sp .", { silent = true, desc = "Horizontal Split" })

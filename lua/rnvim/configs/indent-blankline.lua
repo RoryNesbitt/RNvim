@@ -1,9 +1,5 @@
-local indent_ok, indent_blankline = pcall(require, "ibl")
-if not (
-      indent_ok
-    ) then
-  return
-end
+local ok, indent_blankline = pcall(require, "ibl")
+if not ok then return end
 
 local highlight = {
   "RainbowRed",
