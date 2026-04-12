@@ -89,8 +89,14 @@ vim.pack.add({
   gh "lukas-reineke/indent-blankline.nvim",
 
   -- Program integration
-  gh "glacambre/firenvim",
   gh "aserowy/tmux.nvim",
+  {
+    src = gh "glacambre/firenvim",
+    hooks = {
+      post_checkout = function() vim.fn["firenvim#install"](0) end,
+      post_update = function() vim.fn["firenvim#install"](0) end,
+    },
+  },
 
 })
 
