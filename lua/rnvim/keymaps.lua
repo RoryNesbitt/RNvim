@@ -4,28 +4,16 @@ local function cmd(command)
   return table.concat { "<cmd>", command, "<CR>" }
 end
 
-local HARDMODE = 2
-if HARDMODE > 0 then
-  -- Disable Arrow keys in Normal mode
-  map("n", "<up>", "<nop>")
-  map("n", "<down>", "<nop>")
-  map("n", "<left>", "<nop>")
-  map("n", "<right>", "<nop>")
-end
-if HARDMODE > 1 then
-  -- Disable Arrow keys in Insert mode
-  map("i", "<up>", "<nop>")
-  map("i", "<down>", "<nop>")
-  map("i", "<left>", "<nop>")
-  map("i", "<right>", "<nop>")
-end
-if HARDMODE > 2 then
-  -- Disable hjkl in Normal mode
-  map("n", "h", "<nop>")
-  map("n", "j", "<nop>")
-  map("n", "k", "<nop>")
-  map("n", "l", "<nop>")
-end
+-- Disable Arrow keys in Normal mode
+map("n", "<up>", "<C-y>k")
+map("n", "<down>", "<C-e>j")
+map("n", "<left>", "<nop>")
+map("n", "<right>", "<nop>")
+-- Disable Arrow keys in Insert mode
+map("i", "<up>", "<nop>")
+map("i", "<down>", "<nop>")
+map("i", "<left>", "<nop>")
+map("i", "<right>", "<nop>")
 
 -- Better mouse mode
 map({ "n", "x", "i" }, "<RightMouse>", "<nop>")
