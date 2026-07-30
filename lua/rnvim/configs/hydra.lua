@@ -75,7 +75,6 @@ if gitsigns_ok then
     name = "Git",
     hint = gitsigns_hint,
     config = {
-      buffer = bufnr,
       color = "pink",
       invoke_on_body = true,
       hint = {
@@ -88,16 +87,16 @@ if gitsigns_ok then
           vim.cmd.mkview()
           vim.cmd "silent! %foldopen!"
           gitsigns.toggle_linehl(true)
+          gitsigns.toggle_numhl(true)
+          gitsigns.toggle_word_diff(true)
         end
       end,
       on_exit = function()
         if vim.bo.filetype ~= "dashboard" and vim.bo.filetype ~= "netrw" then
-          local cursor_pos = vim.api.nvim_win_get_cursor(0)
-          vim.cmd.loadview()
-          vim.api.nvim_win_set_cursor(0, cursor_pos)
           vim.cmd.normal("zv")
           gitsigns.toggle_linehl(false)
-          gitsigns.preview_hunk_inline(false)
+          gitsigns.toggle_numhl(false)
+          gitsigns.toggle_word_diff(false)
         end
       end,
     },
