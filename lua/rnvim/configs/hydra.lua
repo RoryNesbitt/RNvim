@@ -68,7 +68,7 @@ if gitsigns_ok then
    _]_: next hunk   _s_: stage hunk        _d_: show deleted
    _[_: prev hunk   _S_: stage buffer      _p_: preview hunk
    _r_: reset hunk  _b_: blame line        _B_: blame line (full)
-                                                  _<Esc>_/_q_
+   _g_: open neogit _c_: commit changes               _<Esc>_/_q_
   ]]
 
   hydra {
@@ -118,6 +118,8 @@ if gitsigns_ok then
           return "<Ignore>"
         end,
         { expr = true, nowait = true, desc = "prev hunk" } },
+      { "g",     cmd "Neogit",                                       { exit = true, silent = true, desc = "neogit" } },
+      { "c",     cmd "Neogit commit",                                { exit = true, silent = true, nowait = true, desc = "neogit commit" } },
       { "s",     gitsigns.stage_hunk,                                { silent = true, desc = "stage hunk" } },
       { "S",     gitsigns.stage_buffer,                              { desc = "stage buffer" } },
       { "p",     gitsigns.preview_hunk,                              { desc = "preview hunk" } },

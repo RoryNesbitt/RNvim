@@ -79,7 +79,7 @@ vim.pack.add({
   -- gh "nvim-lua/plenary.nvim",
   -- gh "sindrets/diffview.nvim",
   -- gh "nvim-telescope/telescope.nvim",
-  -- gh "NeogitOrg/neogit",
+  gh "NeogitOrg/neogit",
   gh "lewis6991/gitsigns.nvim",
 
   -- Functionality
