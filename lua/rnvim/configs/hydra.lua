@@ -65,11 +65,19 @@ end
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if gitsigns_ok then
   local gitsigns_hint = [[
-   _]_: next hunk   _s_: stage hunk        _d_: show deleted
-   _[_: prev hunk   _S_: stage buffer      _p_: preview hunk
-   _r_: reset hunk  _b_: blame line        _B_: blame line (full)
-   _g_: open neogit _c_: commit changes               _<Esc>_/_q_
-  ]]
+_s_: stage hunk
+_S_: stage buffer
+_d_: show deleted
+_p_: preview hunk
+_r_: reset hunk
+_b_: blame line
+_B_: blame line (full)
+_]_: next hunk
+_[_: prev hunk
+_g_: open neogit
+_c_: commit changes
+_<Esc>_/_q_
+]]
 
   hydra {
     name = "Git",
@@ -78,6 +86,7 @@ if gitsigns_ok then
       color = "pink",
       invoke_on_body = true,
       hint = {
+        position = "bottom-right",
         float_opts = {
           border = "rounded",
         },
