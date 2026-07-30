@@ -93,5 +93,5 @@ if to_ok then
   end, { desc = "Previous class" })
 
   vim.keymap.set({ "n", "x", "o" }, ";", repeat_move.repeat_last_move_next)
-  vim.keymap.set({ "n", "x", "o" }, ",", repeat_move.repeat_last_move_previous)
+  vim.keymap.set({ "n", "x", "o" }, ",,", repeat_move.repeat_last_move_previous)
 end

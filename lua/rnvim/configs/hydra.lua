@@ -133,16 +133,27 @@ if gitsigns_ok then
   }
 end
 
-local spell_hint = [[_f_: fix word     _s_: suggestions       _ra_: repeat for all instances
-_<Esc>_/_q_    _ag_: add as good word   _ab_: add as bad word     _u_ _[_/_]_/_b_]]
+local spell_hint = [[
+_s_: suggestions
+_f_: auto fix
+_r_: repeat fix
+_g_: add good
+_w_: add bad
+_G_: undo add good
+_W_: undo add bad
+_]_: next word
+_[_: prev word
+_<Esc>_/_q_
+]]
 
 hydra {
   name = "Spellcheck",
   hint = spell_hint,
   config = {
-    foreign_keys = "run",
+    color = "pink", -- stay active; foreign keys run without exiting
     invoke_on_body = true,
     hint = {
+      position = "bottom-right",
       float_opts = {
         border = "rounded",
       },
@@ -151,16 +162,16 @@ hydra {
   mode = "n",
   body = "<localleader>s",
   heads = {
-    { "]",     "]s" },
-    { "[",     "[s",              { desc = "Navigate" } },
-    { "b",     "[s",              { desc = "Back" } },
-    { "s",     "z=",              { exit = true, desc = "Suggestions" } },
-    { "f",     "1z=",             { desc = "Fix word Automatically" } },
-    { "ra",    cmd "spellrepall", { desc = "Repeat fix for all instances" } },
-    { "ag",    "zg",              { desc = "Add as good" } },
-    { "ab",    "zg",              { desc = "Add as bad" } },
-    { "u",     "u" },
-    { "<Esc>", nil,               { exit = true, nowait = true } },
+    { "]",     "]s",              { desc = "next" } },
+    { "[",     "[s",              { desc = "prev" } },
+    { "f",     "1z=",             { desc = "accept first suggestion" } },
+    { "s",     "z=",              { exit = true, desc = "suggestion list" } }, -- needs UI, so exit
+    { "r",     cmd "spellrepall", { desc = "repeat last fix everywhere" } },
+    { "g",     "zg",              { desc = "add good" } },
+    { "w",     "zw",              { desc = "add bad" } },
+    { "G",     "zug",             { desc = "undo add good" } },
+    { "W",     "zuw",             { desc = "undo add bad" } },
     { "q",     nil,               { exit = true, nowait = true, desc = "exit" } },
-  }
+    { "<Esc>", nil,               { exit = true, nowait = true } },
+  },
 }
