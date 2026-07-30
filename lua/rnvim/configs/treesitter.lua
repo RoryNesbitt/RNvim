@@ -16,7 +16,7 @@ local parsers = {
 -- Install / update on startup if missing
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    require("nvim-treesitter").install(parsers)
+    ts.install(parsers)
   end,
   once = true, -- only run once per session
 })
@@ -25,9 +25,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local lang = vim.treesitter.language.get_lang(args.match) or args.match
-    pcall(function()
-      require("nvim-treesitter").install({ lang })
-    end)
+    if require("nvim-treesitter.parsers")[lang] then
+      pcall(ts.install({ lang }))
+    end
   end,
 })
 
