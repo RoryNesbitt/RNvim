@@ -151,7 +151,7 @@ _G_: undo add good
 _W_: undo add bad
 _]_: next word
 _[_: prev word
-_<Esc>_/_q_
+_<Esc>_/_q_/_i_
 ]]
 
 hydra {
@@ -170,8 +170,8 @@ hydra {
   mode = "n",
   body = "<localleader>s",
   heads = {
-    { "]",     "]s",              { desc = "next" } },
-    { "[",     "[s",              { desc = "prev" } },
+    { "]",     "]s",              { desc = "next", nowait = true, } },
+    { "[",     "[s",              { desc = "prev", nowait = true, } },
     { "f",     "1z=",             { desc = "accept first suggestion" } },
     { "s",     "z=",              { exit = true, desc = "suggestion list" } }, -- needs UI, so exit
     { "r",     cmd "spellrepall", { desc = "repeat last fix everywhere" } },
@@ -179,6 +179,7 @@ hydra {
     { "w",     "zw",              { desc = "add bad" } },
     { "G",     "zug",             { desc = "undo add good" } },
     { "W",     "zuw",             { desc = "undo add bad" } },
+    { "i",     "i",               { exit = true, nowait = true, desc = "insert" } },
     { "q",     nil,               { exit = true, nowait = true, desc = "exit" } },
     { "<Esc>", nil,               { exit = true, nowait = true } },
   },
