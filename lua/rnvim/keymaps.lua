@@ -80,7 +80,7 @@ map("n", "<leader>lh",
     vim.lsp.codelens.enable(vim.lsp.inlay_hint.is_enabled())
   end,
   { desc = "Toggle inlay hints" })
-map("n", "<leader>li", cmd "LspInfo", { silent = true, desc = "LSP Info" })
+map("n", "<leader>li", cmd "checkhealth vim.lsp", { silent = true, desc = "LSP Info" })
 -- map("n", "gd", vim.lsp.buf.definition, {buffer = 0}) -- This seems to already exist somewhere
 map("n", "gd", "gdzz", { remap = true, desc = "Go to Definition" }) -- Add zz after regular gd command
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
