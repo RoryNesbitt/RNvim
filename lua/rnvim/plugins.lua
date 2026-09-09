@@ -2,6 +2,32 @@ local function gh(src)
   return "https://github.com/" .. src
 end
 
+vim.api.nvim_create_autocmd("PackChanged", {
+  callback = function(ev)
+    local name = ev.data.spec.name
+    local kind = ev.data.kind
+    local function activate()
+      if not ev.data.active then
+        vim.cmd.packadd(name)
+      end
+    end
+
+    if kind ~= "install" and kind ~= "update" then
+      return
+    end
+
+    if name == "telescope-fzf-native.nvim" then
+      vim.system({ "make" }, { cwd = ev.data.path }):wait()
+    elseif name == "nvim-treesitter" then
+      activate()
+      vim.cmd("TSUpdate")
+    elseif name == "firenvim" then
+      activate()
+      vim.fn["firenvim#install"](0)
+    end
+  end,
+})
+
 vim.pack.add({
 
   -- Colours
@@ -51,14 +77,7 @@ vim.pack.add({
   -- gh "jbyuki/one-small-step-for-vimkind",
 
   -- Treesitter
-  {
-    src = gh "nvim-treesitter/nvim-treesitter",
-    version = "main",
-    hooks = {
-      post_checkout = function() vim.cmd("TSUpdate") end,
-      post_update = function() vim.cmd("TSUpdate") end,
-    },
-  },
+  gh "nvim-treesitter/nvim-treesitter",
   gh "nvim-treesitter/nvim-treesitter-context",
   gh "nvim-treesitter/nvim-treesitter-textobjects",
   gh "windwp/nvim-ts-autotag",
@@ -85,13 +104,7 @@ vim.pack.add({
 
   -- Program integration
   gh "aserowy/tmux.nvim",
-  {
-    src = gh "glacambre/firenvim",
-    hooks = {
-      post_checkout = function() vim.fn["firenvim#install"](0) end,
-      post_update = function() vim.fn["firenvim#install"](0) end,
-    },
-  },
+  gh "glacambre/firenvim",
 
 })
 
