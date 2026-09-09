@@ -9,7 +9,8 @@ vim.pack.add({
 
   -- Telescope
   gh "nvim-lua/plenary.nvim",
-  gh "nvim-telescope/telescope-fzy-native.nvim",
+
+  gh "nvim-telescope/telescope-fzf-native.nvim",
   gh "nvim-telescope/telescope.nvim",
   gh "nvim-telescope/telescope-ui-select.nvim",
 
@@ -62,12 +63,6 @@ vim.pack.add({
   gh "nvim-treesitter/nvim-treesitter-textobjects",
   gh "windwp/nvim-ts-autotag",
   gh "hiphish/rainbow-delimiters.nvim",
-
-  -- Telescope
-  gh "nvim-lua/plenary.nvim",
-  gh "nvim-telescope/telescope-fzy-native.nvim",
-  gh "nvim-telescope/telescope.nvim",
-  gh "nvim-telescope/telescope-ui-select.nvim",
 
   -- UI
   gh "nvim-tree/nvim-web-devicons",
