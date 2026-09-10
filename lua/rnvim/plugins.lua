@@ -75,6 +75,7 @@ vim.pack.add({
   gh "hiphish/rainbow-delimiters.nvim",
 
   -- UI
+  gh "nvimdev/dashboard-nvim",
   gh "nvim-tree/nvim-web-devicons",
   gh "folke/which-key.nvim",
   gh "folke/todo-comments.nvim",
