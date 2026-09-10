@@ -76,6 +76,7 @@ vim.pack.add({
 
   -- UI
   gh "nvimdev/dashboard-nvim",
+  gh "nvim-lualine/lualine.nvim",
   gh "nvim-tree/nvim-web-devicons",
   gh "folke/which-key.nvim",
   gh "folke/todo-comments.nvim",
