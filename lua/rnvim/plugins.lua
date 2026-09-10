@@ -60,17 +60,12 @@ vim.pack.add({
   gh "hrsh7th/nvim-cmp",
   gh "windwp/nvim-autopairs",
 
-  -- -- DAP
+  -- DAP
   gh "mfussenegger/nvim-dap",
   gh "nvim-neotest/nvim-nio",
   gh "rcarriga/nvim-dap-ui",
   gh "jay-babu/mason-nvim-dap.nvim",
-  -- gh "nvim-treesitter/nvim-treesitter",
   gh "theHamsta/nvim-dap-virtual-text",
-  -- gh "nvim-lua/plenary.nvim",
-  -- gh "nvim-telescope/telescope.nvim",
-  -- gh "nvim-telescope/telescope-dap.nvim",
-  -- gh "jbyuki/one-small-step-for-vimkind",
 
   -- Treesitter
   gh "nvim-treesitter/nvim-treesitter",
@@ -81,14 +76,10 @@ vim.pack.add({
 
   -- UI
   gh "nvim-tree/nvim-web-devicons",
-  gh "nvim-lualine/lualine.nvim",
   gh "folke/which-key.nvim",
   gh "folke/todo-comments.nvim",
 
   -- Git
-  -- gh "nvim-lua/plenary.nvim",
-  -- gh "sindrets/diffview.nvim",
-  -- gh "nvim-telescope/telescope.nvim",
   gh "NeogitOrg/neogit",
   gh "lewis6991/gitsigns.nvim",
 

@@ -23,17 +23,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    local function findConfig()
-      local configDir = os.getenv("PVIM")
-      if configDir then
-        configDir = configDir .. "/config"
-      else
-        configDir = vim.fn.stdpath("config")
-      end
-      return configDir
-    end
-
-    vim.cmd.source(findConfig() .. "/lua/configs/lualine.lua")
     if vim.g.started_by_firenvim then
       vim.opt.laststatus = 0
     end
