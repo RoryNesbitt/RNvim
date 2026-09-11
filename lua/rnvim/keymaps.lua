@@ -140,5 +140,5 @@ map("x", "<leader>w", cmd "s/\\s\\+$//", { silent = true, desc = "Remove trailin
 map("n", '""', 'zto""""""<Escape><Left><Left>i')
 map("n", "U", "<C-R>")
 map("n", "gh", function() require("rnvim").randomColours(true) end, { desc = "GAHH" })
-map("n", "tb", function() require("rnvim.colourscheme").clear() end, { desc = "Transparent Background" })
+map("n", "tb", function() require("rnvim.colourscheme").toggle() end, { desc = "Toggle Background" })
 map("n", "qZ", "Z")

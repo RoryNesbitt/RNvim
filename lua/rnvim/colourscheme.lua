@@ -21,24 +21,33 @@ local function clear_background()
   ]])
 end
 
-local function write_colourscheme(name, transparent)
+local default = "base16-material-vivid"
+local colourscheme, transparent = read_colourscheme(default)
+
+local function write_colourscheme(name, trans)
   local ok = pcall(vim.cmd.colorscheme, name)
   if not ok then return end
-  if transparent then clear_background() end
+  trans = trans or transparent
+  if trans then clear_background() end
   local f = io.open(state_file, "w")
   if not f then return end
-  f:write(name, "\n", tostring(transparent))
+  f:write(name, "\n", tostring(trans))
   f:close()
 end
 
-local default = "base16-material-vivid"
-local colourscheme, transparent = read_colourscheme(default)
+local function toggle_transparent(overwrite)
+  if overwrite ~= nil then
+    transparent = overwrite
+  else
+    transparent = not transparent
+  end
+  write_colourscheme(vim.g.colors_name, transparent)
+end
+
 pcall(vim.cmd.colorscheme, colourscheme)
 if transparent then clear_background() end
 
 return {
   save = write_colourscheme,
-  clear = function()
-    write_colourscheme(vim.g.colors_name, true)
-  end,
+  toggle = toggle_transparent,
 }

@@ -73,11 +73,11 @@ M.change_colourscheme = function()
       end)
 
       map("i", "<C-t>", function()
-        cs.clear()
+        cs.toggle()
       end)
       map("n", "t", function()
-        cs.clear()
-      end)
+        cs.toggle()
+      end, { nowait = true })
       return true
     end
   }
