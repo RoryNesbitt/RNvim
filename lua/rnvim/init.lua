@@ -5,3 +5,4 @@ require "rnvim.lsp"
 require "rnvim.keymaps"
 require "rnvim.autocmds"
 require "rnvim.colourscheme"
+require("vim._core.ui2").enable({})
