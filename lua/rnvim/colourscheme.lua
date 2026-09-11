@@ -27,6 +27,8 @@ local colourscheme, transparent = read_colourscheme(default)
 local function write_colourscheme(name, trans)
   local ok = pcall(vim.cmd.colorscheme, name)
   if not ok then return end
+  vim.cmd.highlight("LineNr guibg=none")
+  vim.cmd.highlight("NonText guibg=none")
   trans = trans or transparent
   if trans then clear_background() end
   local f = io.open(state_file, "w")
@@ -44,10 +46,23 @@ local function toggle_transparent(overwrite)
   write_colourscheme(vim.g.colors_name, transparent)
 end
 
+local function randomNum(i)
+  math.randomseed(os.clock() * 100000000000)
+  return math.random(i)
+end
+
+local function random_colourscheme()
+  local schemes = vim.fn.getcompletion("", "color")
+  local scheme = schemes[randomNum(#schemes)]
+  vim.notify(scheme)
+  write_colourscheme(scheme)
+end
+
 pcall(vim.cmd.colorscheme, colourscheme)
 if transparent then clear_background() end
 
 return {
   save = write_colourscheme,
   toggle = toggle_transparent,
+  random = random_colourscheme,
 }
