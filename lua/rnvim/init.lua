@@ -24,8 +24,4 @@ M.randomColours = function(show)
   vim.cmd.highlight("NonText guibg=none")
 end
 
-M.transparentBackground = function()
-  vim.cmd.highlight("Normal guibg=none")
-end
-
 return M

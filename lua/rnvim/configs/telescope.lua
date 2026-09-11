@@ -49,20 +49,13 @@ local M = {}
 M.change_colourscheme = function()
   builtin.colorscheme {
     attach_mappings = function(prompt_, map)
+      local cs = require("rnvim.colourscheme")
       local function set_colour(close)
-        local content =
-            state.get_selected_entry()
-        pcall(vim.cmd.colorscheme, content.value)
-        pcall(vim.cmd.highlight, "LineNr guibg=none")
+        local content = state.get_selected_entry()
+        cs.save(content.value)
         if close then
           actions.close(prompt_)
         end
-      end
-
-      local function clear_background()
-        pcall(vim.cmd.highlight, "Normal guibg=none")
-        pcall(vim.cmd.highlight, "NonText guibg=none")
-        pcall(vim.cmd.highlight, "LineNr guibg=none")
       end
 
       map("i", "<C-s>", function()
@@ -80,10 +73,10 @@ M.change_colourscheme = function()
       end)
 
       map("i", "<C-t>", function()
-        clear_background()
+        cs.clear()
       end)
       map("n", "t", function()
-        clear_background()
+        cs.clear()
       end)
       return true
     end
