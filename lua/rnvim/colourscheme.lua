@@ -1,4 +1,5 @@
-local colorscheme = "base16-material-vivid"
+-- local colorscheme = "base16-material-vivid"
+local colorscheme = "base16-gruvbox-dark-soft"
 
 pcall(vim.cmd("silent! colorscheme "..colorscheme))
 

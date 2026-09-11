@@ -4,6 +4,7 @@ if not ok then return end
 local previewers = require("telescope.previewers")
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local state = require("telescope.actions.state")
 telescope.setup {
   pickers = {
     find_files = {
@@ -50,20 +51,18 @@ M.change_colourscheme = function()
     attach_mappings = function(prompt_, map)
       local function set_colour(close)
         local content =
-            actions.state.get_selected_entry()
-        pcall(vim.cmd.colorscheme(content.value))
-        -- pcall(vim.cmd.highlight("Normal guibg=none"))
-        -- pcall(vim.cmd.highlight("NonText guibg=none"))
-        pcall(vim.cmd.highlight("LineNr guibg=none"))
+            state.get_selected_entry()
+        pcall(vim.cmd.colorscheme, content.value)
+        pcall(vim.cmd.highlight, "LineNr guibg=none")
         if close then
           actions.close(prompt_)
         end
       end
 
       local function clear_background()
-        pcall(vim.cmd.highlight("Normal guibg=none"))
-        pcall(vim.cmd.highlight("NonText guibg=none"))
-        pcall(vim.cmd.highlight("LineNr guibg=none"))
+        pcall(vim.cmd.highlight, "Normal guibg=none")
+        pcall(vim.cmd.highlight, "NonText guibg=none")
+        pcall(vim.cmd.highlight, "LineNr guibg=none")
       end
 
       map("i", "<C-s>", function()
@@ -100,7 +99,7 @@ M.change_wallpaper = function()
     attach_mappings = function(prompt_, map)
       local function set_the_background(close)
         local content =
-            actions.state.get_selected_entry()
+            state.get_selected_entry()
         set_background(content.cwd .. "/" .. content.value)
         if close then
           actions.close(prompt_)
